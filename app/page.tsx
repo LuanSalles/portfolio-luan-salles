@@ -127,7 +127,7 @@ export default function Home() {
     <main id="inicio">
       <header className="topbar">
         <a className="brand" href="#inicio" aria-label="Voltar ao início">
-          <span className="brand-mark">L</span>
+          <span className="brand-mark">LS</span>
           <span>LUAN</span>
         </a>
 
@@ -269,9 +269,7 @@ export default function Home() {
             <h2>O responsável por entender, construir e publicar seu site.</h2>
           </div>
           <div className="about-profile">
-            <div className="profile-mark" aria-hidden="true">
-              LS
-            </div>
+            <img className="profile-photo" src="/luan-salles.jpeg" alt="Foto de Luan Salles" />
             <div>
               <h3>Luan Salles</h3>
               <p>
