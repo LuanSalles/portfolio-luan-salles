@@ -13,18 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LUAN | Criação de sites profissionais",
+  title: "Luan Salles | Criação de sites profissionais",
   description:
     "Criação de sites institucionais, landing pages e soluções web para profissionais e pequenos negócios.",
   openGraph: {
-    title: "LUAN | Criação de sites profissionais",
+    title: "Luan Salles | Criação de sites profissionais",
     description:
       "Sites institucionais e landing pages com foco em clareza, versão mobile e contato rápido.",
     type: "website",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [{ url: "/favicon-ls.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon-ls.svg",
   },
 };
 

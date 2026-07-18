@@ -128,7 +128,7 @@ export default function Home() {
       <header className="topbar">
         <a className="brand" href="#inicio" aria-label="Voltar ao início">
           <span className="brand-mark">LS</span>
-          <span>LUAN</span>
+          <span>Luan Salles</span>
         </a>
 
         <nav className="nav" aria-label="Navegação principal">
@@ -474,7 +474,7 @@ export default function Home() {
       </a>
 
       <footer>
-        <span>LUAN · Desenvolvimento de sites</span>
+        <span>Luan Salles · Desenvolvimento de sites</span>
         <span>Niterói/RJ · Atendimento remoto</span>
       </footer>
     </main>
