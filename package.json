@@ -1,6 +1,7 @@
 {
-  "name": "site-creator-vinext-starter",
+  "name": "portfolio-luan-salles",
   "version": "0.1.0",
+  "description": "Portfolio profissional de Luan Salles para apresentacao de servicos de criacao de sites, landing pages e sistemas web.",
   "private": true,
   "engines": {
     "node": ">=22.13.0"

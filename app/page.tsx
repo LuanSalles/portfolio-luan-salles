@@ -1,205 +1,199 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
 
-const rotatingWords = ["sites", "sistemas", "SaaS", "experiencias"];
+const phone = "5521979231817";
+const briefingForm = "https://forms.gle/ebQXBwmDUHUt6zwn7";
+const whatsappText = "Oi, Luan. Quero tirar uma dúvida sobre criação de site.";
 
 const services = [
   {
     title: "Site institucional",
-    eyebrow: "Presenca digital",
-    body: "Paginas rapidas para apresentar empresas, profissionais e servicos com clareza.",
-    items: ["Design responsivo", "WhatsApp integrado", "Publicacao e dominio"],
+    text: "Para profissionais, lojas locais, clínicas, estúdios, prestadores de serviço e pequenos negócios que precisam ser encontrados e gerar contato.",
+    items: ["Home, sobre, serviços e contato", "WhatsApp, mapa e redes sociais", "Layout responsivo para celular"],
   },
   {
     title: "Landing page",
-    eyebrow: "Conversao",
-    body: "Paginas focadas em divulgar uma oferta, evento ou servico sem enrolacao.",
-    items: ["Copy direta", "Secoes estrategicas", "Chamadas para contato"],
+    text: "Para divulgar uma oferta específica, curso, evento, campanha, produto ou serviço com uma página objetiva e pronta para receber leads.",
+    items: ["Headline e seções de venda", "Botões de ação bem posicionados", "Publicação em domínio próprio ou Vercel"],
   },
   {
-    title: "Sistema web",
-    eyebrow: "Operacao",
-    body: "Cadastros, paineis, fluxos internos e organizacao de informacoes.",
-    items: ["Autenticacao", "Banco de dados", "Dashboard administrativo"],
-  },
-  {
-    title: "Prototipo funcional",
-    eyebrow: "Primeira versao",
-    body: "Transformacao de ideias em produtos testaveis para validar antes de crescer.",
-    items: ["Escopo enxuto", "Interface real", "Iteracao com feedback"],
+    title: "Melhoria de site existente",
+    text: "Para quem já tem um site no ar, mas precisa melhorar aparência, organização, versão mobile ou caminho de contato.",
+    items: ["Correção visual", "Organização e adaptação dos textos e imagens fornecidos", "Novas seções ou páginas"],
   },
 ];
 
-const projects = [
+const process = [
   {
-    name: "Site para profissional autonoma",
-    status: "Publicado",
-    type: "Site responsivo",
-    description:
-      "Projeto criado para apresentar servicos, facilitar contato pelo WhatsApp e construir uma presenca digital simples de manter.",
-    stack: ["HTML", "CSS", "Responsividade", "Deploy"],
-    result: "Primeira entrega publicada e pronta para evoluir com novas secoes.",
+    title: "Levantamento do projeto",
+    text: "Você envia tipo de negócio, objetivo, páginas necessárias, prazo, referências e materiais disponíveis.",
   },
   {
-    name: "SaaS para CTs de futevolei",
-    status: "Em validacao",
-    type: "Produto web",
-    description:
-      "Sistema em estudo para apoiar gestao interna de centros de treinamento, saindo de uma hipotese inicial para um fluxo mais util ao dono do CT.",
-    stack: ["React", "Supabase", "Dashboard", "Pesquisa"],
-    result: "Aprendizado de produto: ouvir usuario antes de aumentar complexidade.",
+    title: "Definição do escopo",
+    text: "Eu organizo o que será entregue, quais materiais faltam, prazo estimado e custos externos possíveis.",
   },
   {
-    name: "Luan.dev Build Mode",
-    status: "Experiencia interativa",
-    type: "Portfolio",
-    description:
-      "Este proprio site funciona como vitrine: mostra servicos, processo, estudos de caso e pequenos experimentos de interface.",
-    stack: ["Next.js", "TypeScript", "CSS", "Acessibilidade"],
-    result: "Portfolio profissional por fora e experimental por dentro.",
+    title: "Desenvolvimento",
+    text: "Desenvolvo o site com foco em clareza, adaptação para celular, contato rápido e aparência profissional.",
+  },
+  {
+    title: "Revisão e publicação",
+    text: "Reviso os detalhes finais, publico o site e deixo tudo pronto para divulgação.",
   },
 ];
 
-const tools = [
-  ["React", "componentes, estados, formularios e interfaces dinamicas"],
-  ["Supabase", "autenticacao, banco de dados e armazenamento para produtos web"],
-  ["HTML/CSS", "layouts responsivos, animacoes leves e acessibilidade"],
-  ["Python", "logica, automacoes e projetos academicos"],
-  ["Flutter", "laboratorio de estudos para aplicativos"],
+const proof = [
+  "Estrutura e implementação das páginas",
+  "Versões em português e inglês",
+  "Catálogo com filtros, favoritos e carrinho local",
+  "Integrações com WhatsApp, redes sociais, PDFs e formulários",
+  "Publicação na Vercel",
 ];
 
-const timeline = [
-  "Ciencia da Computacao",
-  "Suporte tecnico e contato com problemas reais",
-  "Primeiros sites publicados",
-  "Validacao de SaaS para CTs",
-  "Foco atual: produtos web uteis e bem apresentados",
+const techGroups = [
+  {
+    title: "Frontend",
+    items: ["HTML", "CSS", "JavaScript", "React", "Vite", "Tailwind CSS"],
+  },
+  {
+    title: "Backend e dados",
+    items: ["Node.js", "Express", "Prisma", "SQLite", "PostgreSQL", "JWT"],
+  },
+  {
+    title: "Entrega",
+    items: ["Vercel", "Docker", "Nginx", "Git", "Responsividade", "Deploy"],
+  },
 ];
 
-const labItems = [
-  "Preview de landing page",
-  "Cards com microinteracao",
-  "Dashboard compacto",
-  "Tema claro/escuro",
+const trustItems = [
+  "Atendimento em Niterói e remoto",
+  "Layout adaptado para celular, tablet e computador",
+  "Orientação sobre domínio e hospedagem",
+  "Escopo e investimento definidos antes do desenvolvimento",
+  "Revisão antes da publicação",
+  "Mensagens de contato configuradas",
+];
+
+const faqs = [
+  {
+    question: "O domínio está incluído?",
+    answer: "O domínio é contratado em nome do cliente. O custo é informado separadamente antes da contratação.",
+  },
+  {
+    question: "A hospedagem está incluída?",
+    answer: "Depende da estrutura do projeto. As opções e possíveis custos são apresentados junto com a proposta.",
+  },
+  {
+    question: "Quem envia textos e imagens?",
+    answer:
+      "Os materiais são fornecidos pelo cliente. Eu organizo e adapto esse conteúdo para uso no site e oriento sobre o que estiver faltando.",
+  },
+  {
+    question: "O site funciona no celular?",
+    answer: "Sim. Todos os projetos são desenvolvidos com adaptação para celulares, tablets e computadores.",
+  },
+  {
+    question: "Posso solicitar alterações?",
+    answer: "Sim. O número de revisões e os tipos de alteração ficam definidos na proposta antes do início.",
+  },
+  {
+    question: "Há mensalidade?",
+    answer:
+      "Depende das ferramentas, hospedagem, banco de dados e manutenção escolhidos. Todos os custos recorrentes são informados antes da contratação.",
+  },
 ];
 
 export default function Home() {
-  const [mode, setMode] = useState<"pro" | "play">("pro");
-  const [activeProject, setActiveProject] = useState(0);
-  const [activeTool, setActiveTool] = useState(0);
-  const [wordIndex, setWordIndex] = useState(0);
+  const [name, setName] = useState("");
+  const [projectType, setProjectType] = useState("");
+  const [message, setMessage] = useState("");
 
-  const whatsappHref = useMemo(() => {
-    const text = encodeURIComponent(
-      "Oi, Luan! Quero conversar sobre um projeto para meu site ou sistema."
-    );
-    return `https://wa.me/5500000000000?text=${text}`;
-  }, []);
+  function submitContact(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
-  const project = projects[activeProject];
+    const text = [
+      "Oi, Luan. Quero conversar sobre um site.",
+      "",
+      `Nome: ${name.trim() || "Não informado"}`,
+      `Tipo de site ou negócio: ${projectType.trim() || "Ainda não definido"}`,
+      `Mensagem: ${message.trim() || "Quero entender o melhor formato para meu site."}`,
+    ].join("\n");
+
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank", "noreferrer");
+  }
 
   return (
-    <main className={mode === "play" ? "site play-mode" : "site"}>
-      <nav className="topbar" aria-label="Navegacao principal">
-        <a className="brand" href="#inicio" aria-label="Ir para o inicio">
+    <main id="inicio">
+      <header className="topbar">
+        <a className="brand" href="#inicio" aria-label="Voltar ao início">
+          <span className="brand-mark">L</span>
           <span>LUAN</span>
-          <small>.dev</small>
         </a>
-        <div className="navlinks">
-          <a href="#servicos">Servicos</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#lab">Lab</a>
-          <a href="#contato">Contato</a>
-        </div>
-        <div className="mode-toggle" aria-label="Alternar modo do site">
-          <button
-            type="button"
-            className={mode === "pro" ? "active" : ""}
-            onClick={() => setMode("pro")}
-          >
-            Pro
-          </button>
-          <button
-            type="button"
-            className={mode === "play" ? "active" : ""}
-            onClick={() => setMode("play")}
-          >
-            Play
-          </button>
-        </div>
-      </nav>
 
-      <section className="hero" id="inicio">
+        <nav className="nav" aria-label="Navegação principal">
+          <a href="#servicos">Serviços</a>
+          <a href="#projeto">Projeto</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#tecnico">Técnico</a>
+          <a href="#processo">Processo</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <a
+          className="btn btn-primary"
+          href={`https://wa.me/${phone}?text=${encodeURIComponent(whatsappText)}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          WhatsApp
+        </a>
+      </header>
+
+      <section className="hero wrap">
         <div className="hero-copy">
-          <p className="eyebrow">Desenvolvedor de experiencias digitais</p>
-          <h1>
-            Eu transformo ideias em{" "}
-            <button
-              className="word-swap"
-              type="button"
-              onClick={() => setWordIndex((wordIndex + 1) % rotatingWords.length)}
-              aria-label="Trocar palavra de destaque"
-            >
-              {rotatingWords[wordIndex]}
-            </button>{" "}
-            que funcionam de verdade.
-          </h1>
-          <p className="hero-text">
-            Crio sites, sistemas e produtos web interativos, responsivos e
-            construidos para pessoas reais entenderem, usarem e contratarem.
+          <p className="eyebrow">Sites profissionais sob medida</p>
+          <h1>Sites profissionais para transformar visitas em contatos e oportunidades.</h1>
+          <p className="lead">
+            Desenvolvo sites institucionais e landing pages para profissionais e pequenos negócios
+            que precisam apresentar seus serviços com clareza, funcionar bem no celular e levar o
+            cliente direto para o próximo passo.
           </p>
+
           <div className="hero-actions">
-            <a className="button primary" href="#projetos">
-              Explorar projetos
+            <a className="btn btn-primary" href={briefingForm} target="_blank" rel="noreferrer">
+              Solicitar proposta
             </a>
-            <a className="button secondary" href="#contato">
-              Criar um projeto comigo
+            <a className="btn btn-secondary" href="#projeto">
+              Ver projetos
             </a>
           </div>
         </div>
-        <div className="build-board" aria-label="Interface decorativa Build Mode">
-          <div className="board-header">
-            <span />
-            <span />
-            <span />
-            <strong>build-mode.tsx</strong>
-          </div>
-          <div className="floating-window window-one">
-            <small>site</small>
-            <strong>Landing responsiva</strong>
-            <div className="window-line wide" />
-            <div className="window-line" />
-          </div>
-          <div className="floating-window window-two">
-            <small>sistema</small>
-            <strong>Dashboard de gestao</strong>
-            <div className="mini-grid">
-              <i />
-              <i />
-              <i />
-              <i />
+
+        <aside className="hero-card" aria-label="Projeto publicado em destaque">
+          <div className="browser">
+            <div className="browser-bar">
+              <span className="dot" />
+              <span className="dot" />
+              <span className="dot" />
             </div>
+            <img src="/alquimia-bonsai-desktop.png" alt="Página inicial do site Alquimia do Bonsai" />
           </div>
-          <div className="floating-window window-three">
-            <small>lab</small>
-            <strong>Experimento interativo</strong>
-            <button type="button">Run</button>
-          </div>
-        </div>
+        </aside>
       </section>
 
-      <section className="section" id="servicos">
-        <div className="section-heading">
-          <p className="eyebrow">O que eu construo</p>
-          <h2>Servicos claros para clientes e espaco para evoluir produtos.</h2>
+      <section id="servicos" className="wrap section">
+        <div className="section-head compact">
+          <p className="eyebrow">Serviços</p>
+          <h2>O site certo para cada objetivo.</h2>
         </div>
-        <div className="service-grid">
-          {services.map((service) => (
-            <article className="service-card" key={service.title}>
-              <p>{service.eyebrow}</p>
+
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <article className="service" key={service.title}>
+              <span className="service-number">{index + 1}</span>
               <h3>{service.title}</h3>
-              <span>{service.body}</span>
+              <p>{service.text}</p>
               <ul>
                 {service.items.map((item) => (
                   <li key={item}>{item}</li>
@@ -210,158 +204,281 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section projects-section" id="projetos">
-        <div className="section-heading">
-          <p className="eyebrow">Projetos como estudos de caso</p>
-          <h2>Mais do que telas bonitas: contexto, decisao e resultado.</h2>
-        </div>
-        <div className="project-shell">
-          <div className="project-tabs" role="tablist" aria-label="Selecionar projeto">
-            {projects.map((item, index) => (
-              <button
-                key={item.name}
-                type="button"
-                className={activeProject === index ? "active" : ""}
-                onClick={() => setActiveProject(index)}
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                {item.name}
-              </button>
-            ))}
-          </div>
-          <article className="project-window">
-            <div className="project-window-top">
-              <span>{project.status}</span>
-              <small>{project.type}</small>
+      <section id="projeto" className="wrap section">
+        <div className="case">
+          <div className="case-media">
+            <div className="browser">
+              <div className="browser-bar">
+                <span className="dot" />
+                <span className="dot" />
+                <span className="dot" />
+              </div>
+              <img src="/alquimia-bonsai-desktop.png" alt="Site Alquimia do Bonsai em desktop" />
             </div>
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            <div className="stack-list">
-              {project.stack.map((item) => (
-                <span key={item}>{item}</span>
+          </div>
+
+          <div className="case-copy">
+            <p className="eyebrow">Estudo de caso</p>
+            <h2>Alquimia do Bonsai · Bonsai Alchemy</h2>
+            <p>
+              A marca precisava apresentar produtos, cursos, livro, materiais educativos e canais comerciais sem
+              espalhar o visitante por vários links. O projeto organizou essa presença em um site responsivo e
+              bilíngue, com navegação clara e caminhos diretos para compra, inscrição e contato.
+            </p>
+            <div className="case-blocks">
+              <div>
+                <strong>Problema</strong>
+                <span>Diferentes públicos precisavam encontrar produtos, escola, livro, conteúdos e contato em um único lugar.</span>
+              </div>
+              <div>
+                <strong>Solução</strong>
+                <span>Criação de uma plataforma bilíngue com catálogo, páginas comerciais, materiais digitais e integrações externas.</span>
+              </div>
+              <div>
+                <strong>Minha atuação</strong>
+                <span>Estrutura das páginas, desenvolvimento frontend, responsividade, interações, organização dos conteúdos e publicação.</span>
+              </div>
+              <div>
+                <strong>Resultado</strong>
+                <span>Uma presença digital única para apresentar a marca e direcionar visitantes para WhatsApp, Amazon, formulários e materiais.</span>
+              </div>
+            </div>
+            <ul className="proof-list">
+              {proof.map((item) => (
+                <li key={item}>{item}</li>
               ))}
+            </ul>
+            <div className="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Responsivo</span>
+              <span>Vercel</span>
             </div>
-            <div className="result-box">
-              <small>Resultado / aprendizado</small>
-              <strong>{project.result}</strong>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="section lab-section" id="lab">
-        <div className="section-heading">
-          <p className="eyebrow">Luan's Lab</p>
-          <h2>Um laboratorio pequeno para mostrar interacao sem esconder o objetivo comercial.</h2>
-        </div>
-        <div className="lab-layout">
-          <div className="lab-controls">
-            {labItems.map((item) => (
-              <button key={item} type="button">
-                {item}
-              </button>
-            ))}
-          </div>
-          <div className="landing-preview">
-            <div className="preview-nav" />
-            <h3>Monte sua landing page</h3>
-            <p>Escolha tema, chamada principal, blocos de servico e acao de contato.</p>
-            <div className="preview-cards">
-              <span />
-              <span />
-              <span />
-            </div>
+            <p className="case-note">
+              Link público temporariamente removido do portfólio enquanto o projeto passa por revisão de segurança e conteúdo.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="section split-section">
-        <div>
-          <p className="eyebrow">Caixa de ferramentas</p>
-          <h2>Tecnologias conectadas a capacidades reais.</h2>
-          <div className="tool-list" role="tablist" aria-label="Selecionar tecnologia">
-            {tools.map(([name], index) => (
-              <button
-                key={name}
-                type="button"
-                className={activeTool === index ? "active" : ""}
-                onClick={() => setActiveTool(index)}
-              >
-                {name}
-              </button>
+      <section id="sobre" className="wrap section">
+        <div className="about">
+          <div>
+            <p className="eyebrow">Sobre mim</p>
+            <h2>O responsável por entender, construir e publicar seu site.</h2>
+          </div>
+          <div className="about-profile">
+            <div className="profile-mark" aria-hidden="true">
+              LS
+            </div>
+            <div>
+              <h3>Luan Salles</h3>
+              <p>
+                Sou estudante de Ciência da Computação em Niterói e desenvolvedor de sites e sistemas web. Minha
+                experiência começou no suporte técnico, trabalhando diretamente com usuários e resolução de problemas,
+                e evoluiu para o desenvolvimento de projetos próprios e soluções digitais para pequenos negócios.
+              </p>
+              <div className="profile-facts">
+                <span>Niterói/RJ</span>
+                <span>Atendimento remoto</span>
+                <span>Ciência da Computação</span>
+                <span>CR 8,24</span>
+                <span>Experiência em suporte</span>
+                <span>Site publicado</span>
+                <span>Sistema em desenvolvimento</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="wrap section">
+        <div className="system-band">
+          <div>
+            <p className="eyebrow">Além de sites</p>
+            <h2>FuteGestão CT: sistema em desenvolvimento para gestão de centros de futevôlei.</h2>
+          </div>
+          <div>
+            <p>
+              O produto organiza alunos, turmas, chamada, frequência, pagamentos, equipe e permissões de acesso.
+              A apresentação pública usa dados fictícios para mostrar a lógica do sistema sem expor nomes,
+              telefones ou informações internas.
+            </p>
+            <div className="demo-system" aria-label="Demonstração sem dados reais do FuteGestão CT">
+              <div className="demo-metrics">
+                <span><strong>48</strong> alunos ativos</span>
+                <span><strong>12</strong> turmas</span>
+                <span><strong>92%</strong> presença</span>
+              </div>
+              <div className="demo-table">
+                <div><strong>Aluno Demo</strong><span>Particular · em dia</span></div>
+                <div><strong>Maria Exemplo</strong><span>Gympass · chamada feita</span></div>
+                <div><strong>João Teste</strong><span>Plano mensal · frequência alta</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tecnico" className="wrap section">
+        <div className="technical">
+          <div>
+            <p className="eyebrow">Para recrutadores e parceiros técnicos</p>
+            <h2>Além do visual, eu trabalho com estrutura, implementação e entrega.</h2>
+            <p>
+              Este portfólio é voltado principalmente para clientes, mas também resume minha base técnica:
+              desenvolvimento frontend, construção de sistemas web, autenticação, banco de dados, deploy e
+              organização de produto a partir de problemas reais.
+            </p>
+          </div>
+          <div className="tech-grid">
+            {techGroups.map((group) => (
+              <article key={group.title}>
+                <h3>{group.title}</h3>
+                <div>
+                  {group.items.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
-          <p className="tool-description">{tools[activeTool][1]}</p>
-        </div>
-        <div>
-          <p className="eyebrow">Historia</p>
-          <h2>Uma trajetoria em construcao, com problemas reais no centro.</h2>
-          <ol className="timeline">
-            {timeline.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ol>
         </div>
       </section>
 
-      <section className="section process-section">
-        <div className="section-heading">
-          <p className="eyebrow">Processo</p>
-          <h2>Do primeiro papo a publicacao, com escopo claro.</h2>
-        </div>
-        <div className="process-line" aria-label="Processo de trabalho">
-          {["Conversa", "Planejamento", "Desenvolvimento", "Revisao", "Publicacao"].map(
-            (step) => (
-              <span key={step}>{step}</span>
-            )
-          )}
-        </div>
-      </section>
-
-      <section className="contact" id="contato">
-        <div>
-          <p className="eyebrow">Contato</p>
-          <h2>Conte-me o que voce quer construir.</h2>
+      <section className="wrap section">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Confiança</p>
+            <h2>O que fica definido antes do desenvolvimento.</h2>
+          </div>
           <p>
-            Projetos avaliados conforme escopo, prazo e funcionalidades.
-            Atendimento remoto a partir de Niteroi-RJ.
+            O cliente envia identidade visual, textos, imagens e informações disponíveis. Quando necessário,
+            oriento sobre formatos e materiais necessários para construir o site.
           </p>
         </div>
-        <form className="contact-card">
-          <label>
-            Nome
-            <input type="text" name="name" placeholder="Seu nome" />
-          </label>
-          <label>
-            Tipo de projeto
-            <select name="projectType" defaultValue="">
-              <option value="" disabled>
-                Escolha uma opcao
-              </option>
-              <option>Site institucional</option>
-              <option>Landing page</option>
-              <option>Sistema web</option>
-              <option>Prototipo</option>
-            </select>
-          </label>
-          <label>
-            Objetivo
-            <textarea name="goal" placeholder="O que esse projeto precisa resolver?" />
-          </label>
-          <a className="button primary full" href={whatsappHref} target="_blank">
-            Enviar pelo WhatsApp
-          </a>
-          <div className="socials">
-            <a href="mailto:seuemail@exemplo.com">E-mail</a>
-            <a href="https://github.com/" target="_blank">
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank">
-              LinkedIn
-            </a>
-          </div>
-        </form>
+        <div className="trust-grid">
+          {trustItems.map((item) => (
+            <article key={item}>{item}</article>
+          ))}
+        </div>
       </section>
+
+      <section id="processo" className="wrap section">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Processo</p>
+            <h2>Como o orçamento vira site publicado.</h2>
+          </div>
+          <p>
+            A entrega começa com informação organizada. Quanto melhor o levantamento, mais preciso fica o escopo,
+            o prazo e o valor.
+          </p>
+        </div>
+
+        <div className="steps">
+          {process.map((step, index) => (
+            <article className="step" key={step.title}>
+              <strong>
+                {index + 1}. {step.title}
+              </strong>
+              <p>{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="contato" className="wrap section">
+        <div className="contact">
+          <div>
+            <p className="eyebrow">Proposta</p>
+            <h2>Envie as informações do projeto antes da conversa.</h2>
+            <p>
+              O formulário reúne objetivo, tipo de site, páginas, prazo, referências e materiais disponíveis.
+              Com isso, eu consigo responder com perguntas melhores e uma proposta mais realista.
+            </p>
+            <a className="btn btn-primary form-cta" href={briefingForm} target="_blank" rel="noreferrer">
+              Solicitar proposta
+            </a>
+            <div className="contact-links">
+              <a href="mailto:luanspctrabalho@gmail.com">luanspctrabalho@gmail.com</a>
+              <a
+                href="https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <form onSubmit={submitContact}>
+            <label>
+              Nome
+              <input
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                placeholder="Seu nome"
+                autoComplete="name"
+              />
+            </label>
+            <label>
+              Tipo de site ou negócio
+              <input
+                value={projectType}
+                onChange={(event) => setProjectType(event.target.value)}
+                placeholder="Ex.: clínica, personal trainer, landing page de evento"
+              />
+            </label>
+            <label>
+              Mensagem
+              <textarea
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                placeholder="Descreva o negócio, objetivo e prazo desejado."
+              />
+            </label>
+            <button className="btn btn-secondary light" type="submit">
+              Enviar informações pelo WhatsApp
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section className="wrap section">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Dúvidas frequentes</p>
+            <h2>Pontos importantes antes de começar.</h2>
+          </div>
+          <p>
+            Estas respostas ajudam a alinhar expectativas sobre custos externos, materiais, revisões e publicação.
+          </p>
+        </div>
+        <div className="faq-grid">
+          {faqs.map((faq) => (
+            <article key={faq.question}>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <a
+        className="floating-whatsapp"
+        href={`https://wa.me/${phone}?text=${encodeURIComponent(whatsappText)}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Tirar dúvida
+      </a>
+
+      <footer>
+        <span>LUAN · Desenvolvimento de sites</span>
+        <span>Niterói/RJ · Atendimento remoto</span>
+      </footer>
     </main>
   );
 }

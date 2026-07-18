@@ -1,98 +1,92 @@
-# vinext-starter
+# portfolio-luan-salles
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+Portfólio profissional de Luan Salles, desenvolvido para apresentar serviços de criação de sites institucionais, landing pages e sistemas web para profissionais e pequenos negócios.
 
-## Prerequisites
+![Prévia do portfólio](./docs/portfolio-preview.png)
+
+## Site publicado
+
+[portfolio-luan-one.vercel.app](https://portfolio-luan-one.vercel.app/)
+
+## Sobre o projeto
+
+Este portfólio foi criado com foco comercial: apresentar de forma clara o que Luan desenvolve, para quem o serviço é indicado, como funciona o processo de contratação e quais projetos já foram construídos.
+
+O site inclui:
+
+- apresentação dos serviços principais;
+- estudo de caso do projeto Alquimia do Bonsai;
+- demonstração sanitizada do FuteGestão CT com dados fictícios;
+- seção sobre o desenvolvedor;
+- área técnica para recrutadores e parceiros;
+- FAQ com dúvidas comuns sobre domínio, hospedagem, conteúdo e revisões;
+- chamada para formulário de proposta e contato por WhatsApp.
+
+## O que desenvolvi
+
+- Estrutura e implementação da página principal.
+- Layout responsivo para desktop e celular.
+- Organização da copy comercial.
+- Seções de serviços, estudo de caso, sobre, processo, tecnologias, FAQ e contato.
+- Integração com Google Forms para solicitação de proposta.
+- Mensagem pré-preenchida para contato via WhatsApp.
+- Imagem de preview para apresentação do projeto no GitHub.
+
+## Tecnologias utilizadas
+
+- React
+- TypeScript
+- Vinext
+- Next.js
+- CSS
+- Vite
+- Vercel
+
+## Como executar localmente
+
+Pré-requisito:
 
 - Node.js `>=22.13.0`
 
-## Quick Start
+Instale as dependências:
 
 ```bash
 npm install
+```
+
+Execute em desenvolvimento:
+
+```bash
 npm run dev
+```
+
+Gere a build de produção:
+
+```bash
 npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+## Estrutura principal
 
-## Included Shape
-
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
-
-## Workspace Auth Headers
-
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
+```text
+app/
+  layout.tsx
+  page.tsx
+  globals.css
+public/
+  alquimia-bonsai-desktop.png
+docs/
+  portfolio-preview.png
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+## Deploy
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+O projeto publicado utiliza Vercel. O fluxo recomendado para este repositório é conectar o GitHub à Vercel e publicar a partir da branch principal.
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+Também existe uma versão estática local em `outputs/portfolio-vercel`, usada apenas como artefato de publicação manual.
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+## Observações
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+O projeto Alquimia do Bonsai é apresentado como estudo de caso. O link público foi removido temporariamente do portfólio enquanto o projeto passa por revisão de segurança e conteúdo.
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+O FuteGestão CT é apresentado com dados fictícios para preservar informações privadas.

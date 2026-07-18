@@ -13,9 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Luan.dev | Desenvolvedor de experiencias digitais",
+  title: "LUAN | Criação de sites profissionais",
   description:
-    "Portfolio de Luan: sites, sistemas, SaaS em validacao e experimentos interativos para produtos web.",
+    "Criação de sites institucionais, landing pages e soluções web para profissionais e pequenos negócios.",
+  openGraph: {
+    title: "LUAN | Criação de sites profissionais",
+    description:
+      "Sites institucionais e landing pages com foco em clareza, versão mobile e contato rápido.",
+    type: "website",
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
