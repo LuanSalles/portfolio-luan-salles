@@ -77,13 +77,18 @@ public/
   alquimia-bonsai-desktop.png
 docs/
   portfolio-preview.png
+site/
+  index.html
+  favicon-ls.svg
+  luan-salles.jpeg
+  alquimia-bonsai-desktop.png
 ```
 
 ## Deploy
 
-O projeto publicado utiliza Vercel. O fluxo recomendado para este repositório é conectar o GitHub à Vercel e publicar a partir da branch principal.
+O projeto publicado utiliza Vercel. A configuração em `vercel.json` publica a pasta `site/`, que contém a versão estática do portfólio.
 
-Também existe uma versão estática local em `outputs/portfolio-vercel`, usada apenas como artefato de publicação manual.
+Depois de conectar o repositório à Vercel, novos commits na branch principal geram uma nova publicação automaticamente.
 
 ## Observações
 

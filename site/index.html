@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luan Salles | Criação de sites profissionais</title>
+    <link rel="icon" href="favicon-ls.svg" type="image/svg+xml" />
+    <meta
+      name="description"
+      content="Criação de sites institucionais, landing pages e soluções web para profissionais e pequenos negócios."
+    />
+    <style>
+      :root {
+        --bg: #f6f1e7;
+        --paper: #fffaf2;
+        --ink: #151712;
+        --muted: #64665f;
+        --line: rgba(21, 23, 18, 0.14);
+        --green: #102c22;
+        --green-2: #1d4939;
+        --orange: #df7043;
+        --shadow: 0 22px 60px rgba(16, 44, 34, 0.14);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(21, 23, 18, 0.025) 1px, transparent 1px),
+          linear-gradient(rgba(21, 23, 18, 0.025) 1px, transparent 1px),
+          var(--bg);
+        background-size: 56px 56px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      a { color: inherit; text-decoration: none; }
+      button, input, textarea { font: inherit; }
+      img { display: block; max-width: 100%; }
+      .wrap { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
+      .topbar {
+        position: sticky;
+        top: 14px;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 18px;
+        align-items: center;
+        width: min(1120px, calc(100% - 32px));
+        margin: 14px auto 0;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.74);
+        border-radius: 999px;
+        background: rgba(255, 250, 242, 0.88);
+        box-shadow: 0 16px 36px rgba(16, 44, 34, 0.08);
+        backdrop-filter: blur(18px);
+      }
+      .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--green);
+        font-size: 0.9rem;
+        line-height: 1;
+      }
+      .nav { display: flex; justify-content: center; gap: 4px; }
+      .nav a {
+        padding: 10px 12px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 800;
+      }
+      .nav a:hover { color: var(--green); background: rgba(16, 44, 34, 0.08); }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 18px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 900;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary {
+        color: #fff;
+        background: var(--orange);
+        box-shadow: 0 14px 32px rgba(223, 112, 67, 0.25);
+      }
+      .btn-secondary {
+        color: var(--green);
+        border-color: var(--line);
+        background: rgba(255, 250, 242, 0.78);
+      }
+      .btn-secondary.light {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.28);
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.72fr);
+        gap: 64px;
+        align-items: start;
+        min-height: calc(100vh - 82px);
+        padding: 70px 0 44px;
+      }
+      .hero-copy { max-width: 730px; }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 18px;
+        color: var(--green-2);
+        font-size: 0.82rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 {
+        margin-bottom: 22px;
+        color: var(--green);
+        font-size: clamp(2.55rem, 6.5vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+      h2 {
+        margin-bottom: 0;
+        color: var(--green);
+        font-size: clamp(2rem, 4vw, 3.45rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+      .lead {
+        max-width: 670px;
+        margin-bottom: 28px;
+        color: #454942;
+        font-size: clamp(1.06rem, 1.8vw, 1.24rem);
+        line-height: 1.65;
+      }
+      .hero-actions, .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .hero-actions { margin-bottom: 28px; gap: 12px; }
+      .hero-card {
+        position: relative;
+        z-index: 1;
+        align-self: start;
+        margin-top: 18px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.84);
+        border-radius: 28px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+      .browser {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: #fff;
+      }
+      .browser-bar {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 38px;
+        padding: 0 12px;
+        border-bottom: 1px solid var(--line);
+        background: #fbf4e8;
+      }
+      .dot { width: 10px; height: 10px; border-radius: 50%; background: #d6c8b6; }
+      .browser img {
+        width: 100%;
+        aspect-ratio: 16 / 9.4;
+        max-height: 430px;
+        object-fit: cover;
+        object-position: top center;
+      }
+      .section { padding: 72px 0; }
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.86fr) minmax(280px, 0.64fr);
+        gap: 32px;
+        align-items: end;
+        margin-bottom: 28px;
+      }
+      .section-head p { color: var(--muted); line-height: 1.68; }
+      .section-head.compact { display: block; max-width: 760px; }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .service {
+        display: flex;
+        min-height: 100%;
+        flex-direction: column;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(255, 250, 242, 0.82);
+      }
+      .service-number {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 22px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--green);
+        font-weight: 900;
+      }
+      .service h3 { margin-bottom: 10px; color: var(--ink); font-size: 1.32rem; }
+      .service p { margin-bottom: 18px; color: var(--muted); line-height: 1.58; }
+      .service ul, .proof-list {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .service li, .proof-list li {
+        display: flex;
+        gap: 9px;
+        color: #3e443d;
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+      .service li::before, .proof-list li::before {
+        content: "✓";
+        color: var(--orange);
+        font-weight: 900;
+      }
+      .case, .system-band, .contact {
+        border-radius: 30px;
+        color: #fff;
+        background: var(--green);
+        box-shadow: var(--shadow);
+      }
+      .case {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.82fr);
+        gap: 34px;
+        align-items: center;
+        padding: 26px;
+      }
+      .case .eyebrow, .system-band .eyebrow, .contact .eyebrow { color: rgba(255, 255, 255, 0.78); }
+      .case .browser-bar { background: #eee5d7; }
+      .case-copy h2, .system-band h2, .contact h2 { color: #fff; }
+      .case-copy p, .system-band p, .contact p {
+        color: rgba(255, 255, 255, 0.76);
+        line-height: 1.68;
+      }
+      .proof-list { margin: 18px 0; }
+      .proof-list li { color: rgba(255, 255, 255, 0.88); }
+      .case-blocks { display: grid; gap: 10px; margin: 20px 0; }
+      .case-blocks div {
+        display: grid;
+        gap: 5px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .case-blocks strong { color: #fff; }
+      .case-blocks span,
+      .case-note { color: rgba(255, 255, 255, 0.74); line-height: 1.55; }
+      .case-note { margin: 18px 0 0; font-size: 0.92rem; }
+      .tags { margin-top: 20px; }
+      .tags span {
+        padding: 8px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+      .system-band {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(330px, 1fr);
+        gap: 34px;
+        align-items: start;
+        padding: 30px;
+        background: #173d31;
+      }
+      .technical {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(340px, 1fr);
+        gap: 34px;
+        align-items: start;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        background: rgba(255, 250, 242, 0.82);
+      }
+      .technical p {
+        margin: 18px 0 0;
+        color: var(--muted);
+        line-height: 1.72;
+      }
+      .tech-grid { display: grid; gap: 12px; }
+      .tech-grid article {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.42);
+      }
+      .tech-grid h3 { margin-bottom: 12px; color: var(--green); font-size: 1.1rem; }
+      .tech-grid article div { display: flex; flex-wrap: wrap; gap: 8px; }
+      .tech-grid span {
+        padding: 8px 10px;
+        border-radius: 999px;
+        color: #3f4741;
+        background: rgba(16, 44, 34, 0.08);
+        font-size: 0.86rem;
+        font-weight: 800;
+      }
+      .about {
+        display: grid;
+        grid-template-columns: minmax(0, 0.84fr) minmax(320px, 0.86fr);
+        gap: 34px;
+        align-items: start;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        background: rgba(255, 250, 242, 0.82);
+      }
+      .about p { margin: 0; color: var(--muted); line-height: 1.72; }
+      .about-profile {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+      }
+      .profile-mark,
+      .profile-photo {
+        display: grid;
+        place-items: center;
+        width: 86px;
+        height: 86px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--green);
+        font-size: 1.35rem;
+        font-weight: 900;
+      }
+      .profile-photo {
+        display: block;
+        object-fit: cover;
+        object-position: center 34%;
+      }
+      .about-profile h3 { margin-bottom: 8px; color: var(--green); font-size: 1.35rem; }
+      .profile-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .profile-facts span {
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #4e534c;
+        background: rgba(255, 255, 255, 0.46);
+        font-size: 0.86rem;
+        font-weight: 800;
+      }
+      .safe-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .safe-grid span {
+        display: grid;
+        min-height: 70px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+        font-weight: 900;
+      }
+      .demo-system { display: grid; gap: 12px; margin-top: 20px; }
+      .demo-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .demo-metrics span,
+      .demo-table div {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .demo-metrics span {
+        display: grid;
+        gap: 4px;
+        min-height: 78px;
+        align-content: center;
+        padding: 14px;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.88rem;
+      }
+      .demo-metrics strong { color: #fff; font-size: 1.65rem; line-height: 1; }
+      .demo-table { display: grid; gap: 8px; }
+      .demo-table div {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 13px 14px;
+      }
+      .demo-table strong { color: #fff; }
+      .demo-table span { color: rgba(255, 255, 255, 0.7); text-align: right; }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .trust-grid article {
+        min-height: 96px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        color: #364039;
+        background: rgba(255, 250, 242, 0.82);
+        font-weight: 800;
+        line-height: 1.45;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .step {
+        padding: 20px;
+        border-top: 3px solid var(--orange);
+        border-radius: 0 0 20px 20px;
+        background: rgba(255, 250, 242, 0.82);
+      }
+      .step strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--green);
+        font-size: 1.12rem;
+      }
+      .step p { margin: 0; color: var(--muted); line-height: 1.55; }
+      .contact {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.86fr);
+        gap: 28px;
+        align-items: start;
+        padding: 34px;
+      }
+      .form-cta { margin-top: 12px; }
+      .contact-links { display: grid; gap: 10px; margin-top: 24px; }
+      .contact-links a { color: rgba(255, 255, 255, 0.86); font-weight: 800; }
+      form {
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      label {
+        display: grid;
+        gap: 7px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.88rem;
+        font-weight: 800;
+      }
+      input, textarea {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.16);
+        outline: none;
+        padding: 13px 14px;
+      }
+      textarea { min-height: 112px; resize: vertical; }
+      input:focus, textarea:focus { border-color: rgba(255, 255, 255, 0.48); }
+      input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.46); }
+      form .btn { width: 100%; }
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .faq-grid article {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255, 250, 242, 0.82);
+      }
+      .faq-grid h3 { margin-bottom: 10px; color: var(--green); font-size: 1.08rem; }
+      .faq-grid p { margin: 0; color: var(--muted); line-height: 1.6; }
+      .floating-whatsapp {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 30;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 16px;
+        border-radius: 999px;
+        color: #fff;
+        background: var(--green);
+        box-shadow: 0 16px 34px rgba(16, 44, 34, 0.24);
+        font-weight: 900;
+      }
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 34px 0 42px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      @media (max-width: 920px) {
+        .topbar { grid-template-columns: auto auto; }
+        .nav { display: none; }
+        .hero, .section-head, .case, .system-band, .contact, .about, .technical { grid-template-columns: 1fr; }
+        .hero { min-height: auto; padding-top: 54px; }
+        .hero-card { margin-top: 0; }
+        .services-grid, .steps, .trust-grid, .faq-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 620px) {
+        .wrap, .topbar, footer { width: min(100% - 24px, 1120px); }
+        .topbar { border-radius: 24px; }
+        .topbar .btn { min-height: 42px; padding: 0 13px; font-size: 0.88rem; }
+        h1 { font-size: 2.9rem; }
+        .section { padding: 54px 0; }
+        .hero-card, .case, .system-band, .contact, .about, .technical { border-radius: 24px; padding: 16px; }
+        footer { flex-direction: column; }
+        .safe-grid { grid-template-columns: 1fr 1fr; }
+        .about-profile, .demo-metrics { grid-template-columns: 1fr; }
+        .demo-table div { display: grid; }
+        .demo-table span { text-align: left; }
+        .floating-whatsapp { right: 12px; bottom: 12px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="inicio">
+      <header class="topbar">
+        <a class="brand" href="#inicio" aria-label="Voltar ao início">
+          <span class="brand-mark">LS</span>
+          <span>Luan Salles</span>
+        </a>
+        <nav class="nav" aria-label="Navegação principal">
+          <a href="#servicos">Serviços</a>
+          <a href="#projeto">Projeto</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#tecnico">Técnico</a>
+          <a href="#processo">Processo</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <a class="btn btn-primary" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20tirar%20uma%20d%C3%BAvida%20sobre%20cria%C3%A7%C3%A3o%20de%20site." target="_blank" rel="noreferrer">WhatsApp</a>
+      </header>
+
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">Sites profissionais sob medida</p>
+          <h1>Sites profissionais para transformar visitas em contatos e oportunidades.</h1>
+          <p class="lead">
+            Desenvolvo sites institucionais e landing pages para profissionais e pequenos negócios
+            que precisam apresentar seus serviços com clareza, funcionar bem no celular e levar o
+            cliente direto para o próximo passo.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://forms.gle/ebQXBwmDUHUt6zwn7" target="_blank" rel="noreferrer">Solicitar proposta</a>
+            <a class="btn btn-secondary" href="#projeto">Ver projetos</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Projeto publicado em destaque">
+          <div class="browser">
+            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <img src="alquimia-bonsai-desktop.png" alt="Página inicial do site Alquimia do Bonsai" />
+          </div>
+        </aside>
+      </section>
+
+      <section id="servicos" class="wrap section">
+        <div class="section-head compact">
+          <p class="eyebrow">Serviços</p>
+          <h2>O site certo para cada objetivo.</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service">
+            <span class="service-number">1</span>
+            <h3>Site institucional</h3>
+            <p>Para profissionais, lojas locais, clínicas, estúdios, prestadores de serviço e pequenos negócios que precisam ser encontrados e gerar contato.</p>
+            <ul><li>Home, sobre, serviços e contato</li><li>WhatsApp, mapa e redes sociais</li><li>Layout responsivo para celular</li></ul>
+          </article>
+          <article class="service">
+            <span class="service-number">2</span>
+            <h3>Landing page</h3>
+            <p>Para divulgar uma oferta específica, curso, evento, campanha, produto ou serviço com uma página objetiva e pronta para receber leads.</p>
+            <ul><li>Headline e seções de venda</li><li>Botões de ação bem posicionados</li><li>Publicação em domínio próprio ou Vercel</li></ul>
+          </article>
+          <article class="service">
+            <span class="service-number">3</span>
+            <h3>Melhoria de site existente</h3>
+            <p>Para quem já tem um site no ar, mas precisa melhorar aparência, organização, versão mobile ou caminho de contato.</p>
+            <ul><li>Correção visual</li><li>Organização e adaptação dos textos e imagens fornecidos</li><li>Novas seções ou páginas</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="projeto" class="wrap section">
+        <div class="case">
+          <div class="case-media">
+            <div class="browser">
+              <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <img src="alquimia-bonsai-desktop.png" alt="Site Alquimia do Bonsai em desktop" />
+            </div>
+          </div>
+          <div class="case-copy">
+            <p class="eyebrow">Estudo de caso</p>
+            <h2>Alquimia do Bonsai · Bonsai Alchemy</h2>
+            <p>
+              A marca precisava apresentar produtos, cursos, livro, materiais educativos e canais comerciais sem
+              espalhar o visitante por vários links. O projeto organizou essa presença em um site responsivo e
+              bilíngue, com navegação clara e caminhos diretos para compra, inscrição e contato.
+            </p>
+            <div class="case-blocks">
+              <div><strong>Problema</strong><span>Diferentes públicos precisavam encontrar produtos, escola, livro, conteúdos e contato em um único lugar.</span></div>
+              <div><strong>Solução</strong><span>Criação de uma plataforma bilíngue com catálogo, páginas comerciais, materiais digitais e integrações externas.</span></div>
+              <div><strong>Minha atuação</strong><span>Estrutura das páginas, desenvolvimento frontend, responsividade, interações, organização dos conteúdos e publicação.</span></div>
+              <div><strong>Resultado</strong><span>Uma presença digital única para apresentar a marca e direcionar visitantes para WhatsApp, Amazon, formulários e materiais.</span></div>
+            </div>
+            <ul class="proof-list">
+              <li>Estrutura e implementação das páginas</li>
+              <li>Versões em português e inglês</li>
+              <li>Catálogo com filtros, favoritos e carrinho local</li>
+              <li>Integrações com WhatsApp, redes sociais, PDFs e formulários</li>
+              <li>Publicação na Vercel</li>
+            </ul>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsivo</span><span>Vercel</span></div>
+            <p class="case-note">Link público temporariamente removido do portfólio enquanto o projeto passa por revisão de segurança e conteúdo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="wrap section">
+        <div class="about">
+          <div>
+            <p class="eyebrow">Sobre mim</p>
+            <h2>O responsável por entender, construir e publicar seu site.</h2>
+          </div>
+          <div class="about-profile">
+            <img class="profile-photo" src="luan-salles.jpeg" alt="Foto de Luan Salles" />
+            <div>
+              <h3>Luan Salles</h3>
+              <p>
+                Sou estudante de Ciência da Computação em Niterói e desenvolvedor de sites e sistemas web. Minha
+                experiência começou no suporte técnico, trabalhando diretamente com usuários e resolução de problemas,
+                e evoluiu para o desenvolvimento de projetos próprios e soluções digitais para pequenos negócios.
+              </p>
+              <div class="profile-facts">
+                <span>Niterói/RJ</span>
+                <span>Atendimento remoto</span>
+                <span>Ciência da Computação</span>
+                <span>CR 8,24</span>
+                <span>Experiência em suporte</span>
+                <span>Site publicado</span>
+                <span>Sistema em desenvolvimento</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap section">
+        <div class="system-band">
+          <div>
+            <p class="eyebrow">Além de sites</p>
+            <h2>FuteGestão CT: sistema em desenvolvimento para gestão de centros de futevôlei.</h2>
+          </div>
+          <div>
+            <p>
+              O produto organiza alunos, turmas, chamada, frequência, pagamentos, equipe e permissões de acesso.
+              A apresentação pública usa dados fictícios para mostrar a lógica do sistema sem expor nomes,
+              telefones ou informações internas.
+            </p>
+            <div class="demo-system" aria-label="Demonstração sem dados reais do FuteGestão CT">
+              <div class="demo-metrics">
+                <span><strong>48</strong> alunos ativos</span>
+                <span><strong>12</strong> turmas</span>
+                <span><strong>92%</strong> presença</span>
+              </div>
+              <div class="demo-table">
+                <div><strong>Aluno Demo</strong><span>Particular · em dia</span></div>
+                <div><strong>Maria Exemplo</strong><span>Gympass · chamada feita</span></div>
+                <div><strong>João Teste</strong><span>Plano mensal · frequência alta</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tecnico" class="wrap section">
+        <div class="technical">
+          <div>
+            <p class="eyebrow">Para recrutadores e parceiros técnicos</p>
+            <h2>Além do visual, eu trabalho com estrutura, implementação e entrega.</h2>
+            <p>
+              Este portfólio é voltado principalmente para clientes, mas também resume minha base técnica:
+              desenvolvimento frontend, construção de sistemas web, autenticação, banco de dados, deploy e
+              organização de produto a partir de problemas reais.
+            </p>
+          </div>
+          <div class="tech-grid">
+            <article><h3>Frontend</h3><div><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Vite</span><span>Tailwind CSS</span></div></article>
+            <article><h3>Backend e dados</h3><div><span>Node.js</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>PostgreSQL</span><span>JWT</span></div></article>
+            <article><h3>Entrega</h3><div><span>Vercel</span><span>Docker</span><span>Nginx</span><span>Git</span><span>Responsividade</span><span>Deploy</span></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Confiança</p>
+            <h2>O que fica definido antes do desenvolvimento.</h2>
+          </div>
+          <p>
+            O cliente envia identidade visual, textos, imagens e informações disponíveis. Quando necessário,
+            oriento sobre formatos e materiais necessários para construir o site.
+          </p>
+        </div>
+        <div class="trust-grid">
+          <article>Atendimento em Niterói e remoto</article>
+          <article>Layout adaptado para celular, tablet e computador</article>
+          <article>Orientação sobre domínio e hospedagem</article>
+          <article>Escopo e investimento definidos antes do desenvolvimento</article>
+          <article>Revisão antes da publicação</article>
+          <article>Mensagens de contato configuradas</article>
+        </div>
+      </section>
+
+      <section id="processo" class="wrap section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Processo</p>
+            <h2>Como o orçamento vira site publicado.</h2>
+          </div>
+          <p>
+            A entrega começa com informação organizada. Quanto melhor o levantamento, mais preciso fica o escopo,
+            o prazo e o valor.
+          </p>
+        </div>
+        <div class="steps">
+          <article class="step"><strong>1. Levantamento do projeto</strong><p>Você envia tipo de negócio, objetivo, páginas necessárias, prazo, referências e materiais disponíveis.</p></article>
+          <article class="step"><strong>2. Definição do escopo</strong><p>Eu organizo o que será entregue, quais materiais faltam, prazo estimado e custos externos possíveis.</p></article>
+          <article class="step"><strong>3. Desenvolvimento</strong><p>Desenvolvo o site com foco em clareza, adaptação para celular, contato rápido e aparência profissional.</p></article>
+          <article class="step"><strong>4. Revisão e publicação</strong><p>Reviso os detalhes finais, publico o site e deixo tudo pronto para divulgação.</p></article>
+        </div>
+      </section>
+
+      <section id="contato" class="wrap section">
+        <div class="contact">
+          <div>
+            <p class="eyebrow">Proposta</p>
+            <h2>Envie as informações do projeto antes da conversa.</h2>
+            <p>
+              O formulário reúne objetivo, tipo de site, páginas, prazo, referências e materiais disponíveis.
+              Com isso, eu consigo responder com perguntas melhores e uma proposta mais realista.
+            </p>
+            <a class="btn btn-primary form-cta" href="https://forms.gle/ebQXBwmDUHUt6zwn7" target="_blank" rel="noreferrer">Solicitar proposta</a>
+            <div class="contact-links">
+              <a href="mailto:luanspctrabalho@gmail.com">luanspctrabalho@gmail.com</a>
+              <a href="https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+          <form id="contactForm">
+            <label>Nome<input id="name" name="name" placeholder="Seu nome" autocomplete="name" /></label>
+            <label>Tipo de site ou negócio<input id="projectType" name="projectType" placeholder="Ex.: clínica, personal trainer, landing page de evento" /></label>
+            <label>Mensagem<textarea id="message" name="message" placeholder="Descreva o negócio, objetivo e prazo desejado."></textarea></label>
+            <button class="btn btn-secondary light" type="submit">Enviar informações pelo WhatsApp</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="wrap section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Dúvidas frequentes</p>
+            <h2>Pontos importantes antes de começar.</h2>
+          </div>
+          <p>Estas respostas ajudam a alinhar expectativas sobre custos externos, materiais, revisões e publicação.</p>
+        </div>
+        <div class="faq-grid">
+          <article><h3>O domínio está incluído?</h3><p>O domínio é contratado em nome do cliente. O custo é informado separadamente antes da contratação.</p></article>
+          <article><h3>A hospedagem está incluída?</h3><p>Depende da estrutura do projeto. As opções e possíveis custos são apresentados junto com a proposta.</p></article>
+          <article><h3>Quem envia textos e imagens?</h3><p>Os materiais são fornecidos pelo cliente. Eu organizo e adapto esse conteúdo para uso no site e oriento sobre o que estiver faltando.</p></article>
+          <article><h3>O site funciona no celular?</h3><p>Sim. Todos os projetos são desenvolvidos com adaptação para celulares, tablets e computadores.</p></article>
+          <article><h3>Posso solicitar alterações?</h3><p>Sim. O número de revisões e os tipos de alteração ficam definidos na proposta antes do início.</p></article>
+          <article><h3>Há mensalidade?</h3><p>Depende das ferramentas, hospedagem, banco de dados e manutenção escolhidos. Todos os custos recorrentes são informados antes da contratação.</p></article>
+        </div>
+      </section>
+
+      <a class="floating-whatsapp" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20tirar%20uma%20d%C3%BAvida%20sobre%20cria%C3%A7%C3%A3o%20de%20site." target="_blank" rel="noreferrer">Tirar dúvida</a>
+
+      <footer>
+        <span>Luan Salles · Desenvolvimento de sites</span>
+        <span>Niterói/RJ · Atendimento remoto</span>
+      </footer>
+    </main>
+
+    <script>
+      const form = document.querySelector("#contactForm");
+      const phone = "5521979231817";
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = document.querySelector("#name").value.trim() || "Não informado";
+        const projectType = document.querySelector("#projectType").value.trim() || "Ainda não definido";
+        const message = document.querySelector("#message").value.trim() || "Quero entender o melhor formato para meu site.";
+        const text = [
+          "Oi, Luan. Quero conversar sobre um site.",
+          "",
+          `Nome: ${name}`,
+          `Tipo de site ou negócio: ${projectType}`,
+          `Mensagem: ${message}`,
+        ].join("\n");
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank", "noreferrer");
+      });
+    </script>
+  </body>
+</html>
