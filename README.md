@@ -19,6 +19,7 @@ O site inclui:
 - demonstração sanitizada do FuteGestão CT com dados fictícios;
 - seção sobre o desenvolvedor;
 - área técnica para recrutadores e parceiros;
+- seletor de idioma em português e inglês;
 - FAQ com dúvidas comuns sobre domínio, hospedagem, conteúdo e revisões;
 - chamada para formulário de proposta e contato por WhatsApp.
 
@@ -30,6 +31,7 @@ O site inclui:
 - Seções de serviços, estudo de caso, sobre, processo, tecnologias, FAQ e contato.
 - Integração com Google Forms para solicitação de proposta.
 - Mensagem pré-preenchida para contato via WhatsApp.
+- Tradução PT/EN do conteúdo principal e das mensagens de contato.
 - Imagem de preview para apresentação do projeto no GitHub.
 
 ## Tecnologias utilizadas

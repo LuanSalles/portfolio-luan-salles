@@ -116,6 +116,40 @@ img {
   background: rgba(16, 44, 34, 0.08);
 }
 
+.header-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.lang-switch button {
+  min-width: 38px;
+  min-height: 32px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.lang-switch button.active {
+  color: #fff;
+  background: var(--green);
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -871,6 +905,15 @@ footer {
     min-height: 42px;
     padding: 0 13px;
     font-size: 0.88rem;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .lang-switch button {
+    min-width: 34px;
+    min-height: 30px;
   }
 
   h1 {
