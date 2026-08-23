@@ -32,7 +32,7 @@ test("server-renders the web development portfolio", async () => {
   const html = await response.text();
   assert.match(html, /Luan Salles \| Desenvolvimento web para sites profissionais/);
   assert.match(html, /Desenvolvedor web/);
-  assert.match(html, /Eu crio sites profissionais para quem precisa aparecer melhor na internet/);
+  assert.match(html, /Sites profissionais para apresentar seu negócio com clareza e gerar contatos/);
   assert.match(html, /Alquimia do Bonsai/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
   assert.match(html, /Quem está por trás do projeto/);
@@ -47,13 +47,14 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /<meta property="og:title" content="Luan Salles \| Desenvolvimento web para sites profissionais" \/>/);
   assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
   assert.match(html, /const i18n = /);
-  assert.match(html, /I build professional websites for people who need a stronger online presence/);
+  assert.match(html, /Website and landing page development for professionals/);
   assert.match(html, /Want to create or improve your website\?/);
   assert.match(html, /localStorage\.getItem\("portfolioLang"\)/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
   assert.match(html, /srcset="alquimia-bonsai-760\.jpg 760w, alquimia-bonsai-1180\.jpg 1180w"/);
   assert.match(html, /fetchpriority="high"/);
   assert.match(html, /loading="lazy"/);
+  assert.match(html, /alquimia-bonsai-mobile\.jpg/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /aria-pressed="true"/);
   assert.match(html, /<a class="skip-link" href="#conteudo">/);
@@ -65,7 +66,9 @@ test("published static site contains SEO and bilingual contact behavior", async 
 test("optimized case images stay lightweight", async () => {
   const desktop = await stat(new URL("../site/alquimia-bonsai-1180.jpg", import.meta.url));
   const mobile = await stat(new URL("../site/alquimia-bonsai-760.jpg", import.meta.url));
+  const phone = await stat(new URL("../site/alquimia-bonsai-mobile.jpg", import.meta.url));
 
   assert.ok(desktop.size < 300_000);
   assert.ok(mobile.size < 150_000);
+  assert.ok(phone.size < 120_000);
 });

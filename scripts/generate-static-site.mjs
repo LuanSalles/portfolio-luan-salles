@@ -19,16 +19,16 @@ const data = {
     status: "Idioma alterado para português.",
     hero: [
       "Desenvolvedor web",
-      "Eu crio sites profissionais para quem precisa aparecer melhor na internet.",
-      "Sou Luan Salles, desenvolvedor web em Niterói. Ajudo profissionais e pequenos negócios a terem um site bonito, organizado e fácil de acessar pelo celular.",
-      "Quero um site",
-      "Ver um projeto",
-      "Me chame com sua ideia. Eu te ajudo a entender o melhor formato.",
+      "Sites profissionais para apresentar seu negócio com clareza e gerar contatos.",
+      "Desenvolvimento de sites e landing pages para profissionais, pequenos negócios e marcas que precisam de uma presença online organizada, bonita e fácil de acessar pelo celular.",
+      "Solicitar orçamento",
+      "Ver projeto publicado",
+      "Site para negócios · Landing pages · Ajustes em sites",
     ],
     highlights: ["Site para negócios", "Landing pages", "Ajustes em sites"],
     servicesTitle: "Sites para apresentar, vender e receber contatos",
     servicesText:
-      "Eu construo páginas objetivas, com boa aparência, textos organizados e botões de contato no lugar certo.",
+      "Páginas objetivas, com boa aparência, conteúdo bem organizado e botões de contato no lugar certo.",
     servicesCta: "Falar sobre meu site",
     services: [
       ["Site para seu negócio", "Uma página completa para mostrar quem você é, o que oferece e como o cliente pode falar com você."],
@@ -38,7 +38,7 @@ const data = {
     case: [
       "Projeto publicado",
       "Alquimia do Bonsai",
-      "Esse é um site real, publicado e em uso. Ele apresenta a marca, o livro, os cursos, a loja, conteúdos educativos e os caminhos de contato da Alquimia do Bonsai.",
+      "Site real, publicado e em uso para a marca Alquimia do Bonsai. O projeto apresenta a marca, o livro, os cursos, a loja, conteúdos educativos e canais de contato em português e inglês.",
       "Abrir site",
     ],
     caseBullets: [
@@ -50,19 +50,19 @@ const data = {
     about: [
       "Sobre",
       "Quem está por trás do projeto",
-      "Estudo Ciência da Computação e venho direcionando meu trabalho para criação de sites. Minha experiência com suporte técnico me ajuda a escutar o problema, organizar as informações e entregar algo que faça sentido para quem vai usar.",
+      "Luan Salles é desenvolvedor web em Niterói, com formação em Ciência da Computação em andamento e experiência em suporte técnico. Atua na criação de sites responsivos, organização de conteúdo e publicação de páginas profissionais.",
     ],
     facts: ["Niterói/RJ", "Ciência da Computação", "JavaScript e React", "Sites responsivos"],
     processTitle: "Como o projeto acontece",
     steps: [
-      ["1", "Conversa inicial", "Você me conta o que precisa, mostra referências e envia os materiais que já tiver."],
-      ["2", "Organização", "Eu defino as páginas, o conteúdo, o prazo e o valor antes de começar."],
-      ["3", "Criação e publicação", "Eu desenvolvo o site, reviso com você e deixo tudo pronto para divulgar."],
+      ["1", "Conversa inicial", "Você conta o que precisa, mostra referências e envia os materiais que já tiver."],
+      ["2", "Organização", "São definidos páginas, conteúdo, prazo, valor e o que precisa estar pronto antes do desenvolvimento."],
+      ["3", "Criação e publicação", "O site é desenvolvido, revisado com você e preparado para divulgação."],
     ],
     contact: [
       "Contato",
       "Quer criar ou melhorar seu site?",
-      "Você pode me chamar direto no WhatsApp ou preencher o formulário com mais detalhes. Se ainda estiver no começo da ideia, tudo bem.",
+      "Entre em contato pelo WhatsApp ou preencha o formulário com mais detalhes. Se a ideia ainda estiver no começo, tudo bem: o primeiro passo é organizar o que faz sentido para o seu negócio.",
       "Preencher formulário",
       "Enviar pelo WhatsApp",
       "Oi, Luan. Quero conversar sobre um site.",
@@ -85,15 +85,15 @@ const data = {
     hero: [
       "Web developer",
       "I build professional websites for people who need a stronger online presence.",
-      "I am Luan Salles, a web developer based in Niterói, Brazil. I help professionals and small businesses create clean, organized websites that work well on mobile.",
-      "I need a website",
-      "View a project",
-      "Send me your idea. I can help you find the right format.",
+      "Website and landing page development for professionals, small businesses, and brands that need an organized, attractive online presence that works well on mobile.",
+      "Request a quote",
+      "View published project",
+      "Business websites · Landing pages · Website updates",
     ],
     highlights: ["Business websites", "Landing pages", "Website updates"],
     servicesTitle: "Websites to present your work, sell, and receive contacts",
     servicesText:
-      "I build focused pages with a professional look, organized content, and contact buttons where they need to be.",
+      "Focused pages with a professional look, organized content, and contact buttons where they need to be.",
     servicesCta: "Talk about my website",
     services: [
       ["Business website", "A complete page to show who you are, what you offer, and how clients can reach you."],
@@ -103,7 +103,7 @@ const data = {
     case: [
       "Published project",
       "Alquimia do Bonsai",
-      "This is a real website, published and in use. It presents the brand, book, courses, shop, educational content, and contact paths for Alquimia do Bonsai.",
+      "A real website, published and in use for Alquimia do Bonsai. The project presents the brand, book, courses, shop, educational content, and contact channels in Portuguese and English.",
       "Open website",
     ],
     caseBullets: [
@@ -115,19 +115,19 @@ const data = {
     about: [
       "About",
       "Who is behind the project",
-      "I study Computer Science and I am focusing my work on website development. My technical support experience helps me listen to the problem, organize information, and deliver something that makes sense for real users.",
+      "Luan Salles is a web developer based in Niterói, Brazil, with Computer Science training in progress and experience in technical support. He works on responsive websites, content organization, and publishing professional pages.",
     ],
     facts: ["Niterói/RJ, Brazil", "Computer Science", "JavaScript and React", "Responsive websites"],
     processTitle: "How the project works",
     steps: [
-      ["1", "First conversation", "You tell me what you need, share references, and send any materials you already have."],
-      ["2", "Planning", "I define the pages, content, timeline, and price before starting."],
-      ["3", "Build and publish", "I develop the website, review it with you, and leave it ready to share."],
+      ["1", "First conversation", "You explain what you need, share references, and send any materials you already have."],
+      ["2", "Planning", "Pages, content, timeline, price, and what needs to be ready before development are defined."],
+      ["3", "Build and publish", "The website is developed, reviewed with you, and prepared for sharing."],
     ],
     contact: [
       "Contact",
       "Want to create or improve your website?",
-      "You can message me directly on WhatsApp or fill out the form with more details. If the idea is still early, that is fine.",
+      "Contact me on WhatsApp or fill out the form with more details. If the idea is still early, that is fine: the first step is organizing what makes sense for your business.",
       "Quote form",
       "Send on WhatsApp",
       "Hi, Luan. I want to talk about a website.",
@@ -272,11 +272,12 @@ const document = html`<!doctype html>
 
       <section id="projeto" class="section case-section">
         <div class="wrap case">
-          <div class="case-image">
+          <div class="case-image case-devices">
             <picture>
               <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 50vw" type="image/jpeg" />
               <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="737" loading="lazy" />
             </picture>
+            <img class="case-mobile" src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai em celular" width="420" height="859" loading="lazy" />
           </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>
