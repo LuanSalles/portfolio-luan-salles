@@ -54,7 +54,7 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /srcset="alquimia-bonsai-760\.jpg 760w, alquimia-bonsai-1180\.jpg 1180w"/);
   assert.match(html, /fetchpriority="high"/);
   assert.match(html, /loading="lazy"/);
-  assert.match(html, /alquimia-bonsai-mobile\.jpg/);
+  assert.doesNotMatch(html, /case-mobile|alquimia-bonsai-mobile\.jpg/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /aria-pressed="true"/);
   assert.match(html, /<a class="skip-link" href="#conteudo">/);
@@ -66,9 +66,7 @@ test("published static site contains SEO and bilingual contact behavior", async 
 test("optimized case images stay lightweight", async () => {
   const desktop = await stat(new URL("../site/alquimia-bonsai-1180.jpg", import.meta.url));
   const mobile = await stat(new URL("../site/alquimia-bonsai-760.jpg", import.meta.url));
-  const phone = await stat(new URL("../site/alquimia-bonsai-mobile.jpg", import.meta.url));
 
   assert.ok(desktop.size < 300_000);
   assert.ok(mobile.size < 150_000);
-  assert.ok(phone.size < 120_000);
 });

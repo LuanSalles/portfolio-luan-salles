@@ -272,12 +272,11 @@ const document = html`<!doctype html>
 
       <section id="projeto" class="section case-section">
         <div class="wrap case">
-          <div class="case-image case-devices">
+          <div class="case-image">
             <picture>
               <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 50vw" type="image/jpeg" />
               <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="737" loading="lazy" />
             </picture>
-            <img class="case-mobile" src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai em celular" width="420" height="859" loading="lazy" />
           </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>

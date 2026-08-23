@@ -304,7 +304,7 @@ export default function Home() {
 
       <section id="projeto" className="section case-section">
         <div className="wrap case">
-          <div className="case-image case-devices">
+          <div className="case-image">
             <picture>
               <source
                 srcSet="/alquimia-bonsai-760.jpg 760w, /alquimia-bonsai-1180.jpg 1180w"
@@ -319,14 +319,6 @@ export default function Home() {
                 loading="lazy"
               />
             </picture>
-            <img
-              className="case-mobile"
-              src="/alquimia-bonsai-mobile.jpg"
-              alt="Site Alquimia do Bonsai em celular"
-              width="420"
-              height="859"
-              loading="lazy"
-            />
           </div>
           <div className="case-copy">
             <p className="eyebrow">{t.case.eyebrow}</p>
