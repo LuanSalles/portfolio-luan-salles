@@ -404,10 +404,11 @@ h3 {
 }
 
 .case-image {
-  position: relative;
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(86px, 18%, 128px);
+  gap: 14px;
+  align-items: end;
   padding: 18px;
-  overflow: hidden;
   border-radius: 24px;
   background: rgba(255, 250, 242, 0.96);
   box-shadow: var(--shadow);
@@ -420,7 +421,7 @@ h3 {
 .case-image img {
   display: block;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   background: #f7f1e6;
 }
@@ -429,6 +430,7 @@ h3 {
   overflow: hidden;
   border-radius: 18px;
   border: 1px solid rgba(18, 54, 40, 0.12);
+  box-shadow: 0 12px 28px rgba(18, 54, 40, 0.12);
 }
 
 .case-desktop img {
@@ -436,14 +438,10 @@ h3 {
 }
 
 .case-mobile {
-  position: absolute;
-  right: 22px;
-  bottom: 22px;
-  width: min(26%, 140px);
   overflow: hidden;
-  border: 8px solid var(--paper);
-  border-radius: 20px;
-  box-shadow: 0 18px 35px rgba(18, 54, 40, 0.25);
+  border: 6px solid var(--paper);
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(18, 54, 40, 0.18);
 }
 
 .case-mobile img {
@@ -717,14 +715,13 @@ footer a {
   }
 
   .case-image {
+    grid-template-columns: 1fr;
     padding: 12px;
   }
 
   .case-mobile {
-    right: 18px;
-    bottom: 18px;
-    width: min(28%, 104px);
-    border-width: 6px;
+    width: min(46%, 150px);
+    justify-self: end;
     border-radius: 16px;
   }
 
