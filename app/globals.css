@@ -8,7 +8,8 @@
   --line: rgba(20, 32, 25, 0.14);
   --green: #0d3428;
   --green-soft: #e4eee8;
-  --orange: #d86f45;
+  --orange: #a94b29;
+  --accent: #d86f45;
   --shadow: 0 24px 70px rgba(13, 52, 40, 0.12);
 }
 
@@ -31,7 +32,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--bg);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -121,7 +122,6 @@ p {
 .header-actions,
 .nav,
 .hero-actions,
-.hero-tags,
 .contact-actions,
 footer {
   display: flex;
@@ -208,7 +208,11 @@ footer {
 
 .btn-primary {
   color: #fff;
-  background: var(--orange);
+  background: var(--green);
+}
+
+.btn-primary:hover {
+  background: #164739;
 }
 
 .btn-secondary {
@@ -257,7 +261,6 @@ h3 {
 
 .lead,
 .section-copy p,
-.case-copy p,
 .about p,
 .step p,
 .contact-copy p,
@@ -286,13 +289,6 @@ h3 {
   gap: 12px;
 }
 
-.hero-tags {
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.hero-tags span,
 .facts span {
   padding: 9px 11px;
   border: 1px solid var(--line);
@@ -391,6 +387,17 @@ h3 {
   background: var(--green);
 }
 
+.case-section .btn-primary,
+.contact .btn-primary {
+  color: var(--green);
+  background: #fffaf2;
+}
+
+.case-section .btn-primary:hover,
+.contact .btn-primary:hover {
+  background: #f0e8da;
+}
+
 .case-showcase {
   display: grid;
   gap: 22px;
@@ -404,12 +411,20 @@ h3 {
 }
 
 .case-heading h2,
-.case-heading .eyebrow {
+.case-heading .eyebrow,
+.case-heading p {
   color: #fff;
 }
 
 .case-heading h2 {
-  margin-bottom: 0;
+  margin-bottom: 12px;
+}
+
+.case-heading p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
 }
 
 .case-browser {
@@ -452,40 +467,100 @@ h3 {
 .case-frame {
   display: block;
   width: 100%;
-  height: clamp(420px, 58vw, 680px);
+  height: clamp(500px, 58vw, 680px);
   border: 0;
   background: #f7f1e6;
 }
 
 .case-details {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.78fr);
-  gap: 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
   align-items: start;
 }
 
-.case-details p,
-.case-details li {
-  color: rgba(255, 255, 255, 0.78);
+.case-details article,
+.technical,
+.faq-list details {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 250, 242, 0.84);
+}
+
+.case-details article {
+  min-height: 100%;
+  padding: 22px;
+}
+
+.case-details span {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--orange);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.case-details h3 {
+  margin-bottom: 10px;
 }
 
 .case-details p {
   margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
-.case-details ul {
-  display: grid;
-  gap: 9px;
+.case-bullets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.case-details li::before {
-  content: "✓";
-  margin-right: 8px;
-  color: var(--orange);
+.case-bullets li {
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.92rem;
   font-weight: 900;
+}
+
+.technical {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.72fr);
+  gap: 34px;
+  align-items: center;
+  padding: 30px;
+}
+
+.technical h2 {
+  margin-bottom: 16px;
+}
+
+.technical p,
+.tech-card p,
+.faq-list p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.tech-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.tech-card h3 {
+  margin-bottom: 8px;
+}
+
+.tech-card .btn {
+  margin-top: 18px;
 }
 
 .about {
@@ -549,6 +624,29 @@ h3 {
 
 .step h3 {
   margin-bottom: 8px;
+}
+
+.faq h2 {
+  margin-bottom: 22px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-list details {
+  padding: 18px 20px;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  color: var(--green);
+  font-weight: 900;
+}
+
+.faq-list p {
+  margin: 12px 0 0;
 }
 
 .contact {
@@ -661,6 +759,7 @@ footer a {
   .hero,
   .split,
   .case-details,
+  .technical,
   .about,
   .contact {
     grid-template-columns: 1fr;
@@ -691,7 +790,9 @@ footer a {
   }
 
   .header-whatsapp {
-    display: none;
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: 0.82rem;
   }
 
   .brand span:last-child {
@@ -738,7 +839,7 @@ footer a {
   }
 
   .case-frame {
-    height: 480px;
+    height: 520px;
   }
 
   .browser-bar span {

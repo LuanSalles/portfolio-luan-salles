@@ -1,6 +1,6 @@
 # portfolio-luan-salles
 
-Portfólio profissional de Luan Salles, desenvolvido para apresentar serviços de desenvolvimento web com foco em sites institucionais, landing pages e evolução de sites para profissionais e pequenos negócios.
+Portfólio profissional de Luan Salles para apresentar serviços de desenvolvimento web com foco em sites institucionais, landing pages e melhorias em sites existentes.
 
 ![Prévia do portfólio](./docs/portfolio-preview.png)
 
@@ -8,41 +8,46 @@ Portfólio profissional de Luan Salles, desenvolvido para apresentar serviços d
 
 [portfolio-luan-one.vercel.app](https://portfolio-luan-one.vercel.app/)
 
-## Sobre o projeto
+## Objetivo
 
-Este portfólio foi criado com foco comercial: apresentar Luan Salles como desenvolvedor web especializado em criação de sites profissionais, mostrar para quem o serviço é indicado, como funciona o processo de contratação e quais projetos já foram construídos.
+O projeto foi criado para ajudar possíveis clientes a entenderem rapidamente:
 
-O site inclui:
+- que tipo de site podem contratar;
+- como funciona o processo de criação;
+- quem é o desenvolvedor responsável;
+- qual trabalho real já foi publicado;
+- como entrar em contato pelo WhatsApp ou por briefing.
 
-- apresentação dos serviços principais;
-- estudo de caso do projeto Alquimia do Bonsai;
-- demonstração sanitizada do FuteGestão CT como prova técnica complementar;
-- seção sobre o desenvolvedor;
-- área técnica para recrutadores e parceiros;
-- seletor de idioma em português e inglês;
-- FAQ com dúvidas comuns sobre domínio, hospedagem, conteúdo e revisões;
-- chamada para formulário de proposta e contato por WhatsApp.
+## Projeto em destaque
+
+O principal estudo de caso é o site da Alquimia do Bonsai:
+
+[alquimiadobonsai.com](https://alquimiadobonsai.com)
+
+O case apresenta o problema, a solução, o resultado e uma demonstração interativa do site publicado. O projeto reúne versão em português e inglês, catálogo, favoritos, carrinho local, páginas institucionais, cursos, vídeos, links externos e contato via WhatsApp.
 
 ## O que desenvolvi
 
 - Estrutura e implementação da página principal.
 - Layout responsivo para desktop e celular.
-- Organização da copy comercial.
-- Seções de serviços, estudo de caso, sobre, processo, tecnologias, FAQ e contato.
-- Reposicionamento do portfólio para desenvolvimento web focado em sites.
-- Integração com Google Forms para solicitação de proposta.
-- Mensagem pré-preenchida para contato via WhatsApp.
-- Tradução PT/EN do conteúdo principal e das mensagens de contato.
-- Imagem de preview para apresentação do projeto no GitHub.
+- Conteúdo comercial focado em sites para pequenos negócios e profissionais.
+- Estudo de caso do projeto Alquimia do Bonsai.
+- Bloco técnico complementar com FuteGestão CT.
+- Seção sobre Luan Salles.
+- Processo de contratação em três etapas.
+- FAQ com dúvidas comuns.
+- Contato por WhatsApp com mensagem pronta.
+- Link para briefing no Google Forms.
+- Alternância de conteúdo em português e inglês.
+- Metadados, favicon, Open Graph e JSON-LD.
 
-## Tecnologias utilizadas
+## Tecnologias
 
+- Next.js
 - React
 - TypeScript
-- Vinext
-- Next.js
 - CSS
-- Vite
+- JavaScript
 - Vercel
 
 ## Como executar localmente
@@ -63,6 +68,12 @@ Execute em desenvolvimento:
 npm run dev
 ```
 
+Gere a versão estática usada no deploy:
+
+```bash
+node scripts/generate-static-site.mjs
+```
+
 Gere a build de produção:
 
 ```bash
@@ -76,30 +87,21 @@ app/
   layout.tsx
   page.tsx
   globals.css
+scripts/
+  generate-static-site.mjs
 public/
-  alquimia-bonsai-desktop.png
-docs/
-  portfolio-preview.png
-  mercado-desenvolvimento-web-2026.md
-site/
-  index.html
   favicon-ls.svg
   luan-salles.jpeg
-  alquimia-bonsai-desktop.png
+  alquimia-bonsai-1180.jpg
+  alquimia-bonsai-760.jpg
+docs/
+  portfolio-preview.png
+site/
+  index.html
 ```
 
 ## Deploy
 
-O projeto publicado utiliza Vercel. A configuração em `vercel.json` publica a pasta `site/`, que contém a versão estática do portfólio.
+O projeto publicado utiliza Vercel. A configuração em `vercel.json` publica a pasta `site/`, que contém a versão estática gerada do portfólio.
 
 Depois de conectar o repositório à Vercel, novos commits na branch principal geram uma nova publicação automaticamente.
-
-## Projeto publicado
-
-O projeto Alquimia do Bonsai é apresentado como estudo de caso finalizado e publicado:
-
-[alquimiadobonsai.com](https://alquimiadobonsai.com)
-
-## Observações
-
-O FuteGestão CT é apresentado com dados fictícios para preservar informações privadas.

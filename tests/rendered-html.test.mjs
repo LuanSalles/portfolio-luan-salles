@@ -32,11 +32,15 @@ test("server-renders the web development portfolio", async () => {
   const html = await response.text();
   assert.match(html, /Luan Salles \| Desenvolvimento web para sites profissionais/);
   assert.match(html, /Desenvolvedor web/);
-  assert.match(html, /Sites profissionais para apresentar seu negócio com clareza e gerar contatos/);
+  assert.match(html, /Sites profissionais para pequenos negócios, profissionais e marcas/);
   assert.match(html, /Alquimia do Bonsai/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
-  assert.match(html, /Quem está por trás do projeto/);
-  assert.doesNotMatch(html, /Base técnica complementar|Dúvidas frequentes|FuteGestão CT/);
+  assert.match(html, /Luan Salles/);
+  assert.match(html, /FuteGestão CT/);
+  assert.match(html, /Dúvidas comuns/);
+  assert.match(html, /Problema/);
+  assert.match(html, /Solução/);
+  assert.match(html, /Resultado/);
   assert.doesNotMatch(html, /Codex is working|Your site is taking shape|codex-preview/i);
 });
 
@@ -45,23 +49,28 @@ test("published static site contains SEO and bilingual contact behavior", async 
 
   assert.match(html, /<link rel="canonical" href="https:\/\/portfolio-luan-one\.vercel\.app\/" \/>/);
   assert.match(html, /<meta property="og:title" content="Luan Salles \| Desenvolvimento web para sites profissionais" \/>/);
+  assert.match(html, /<meta property="og:image:height" content="533" \/>/);
   assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
   assert.match(html, /const i18n = /);
-  assert.match(html, /Website and landing page development for professionals/);
-  assert.match(html, /Want to create or improve your website\?/);
+  assert.match(html, /Business website and landing page development for professionals/);
+  assert.match(html, /Professional websites for small businesses/);
   assert.match(html, /localStorage\.getItem\("portfolioLang"\)/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
   assert.match(html, /class="hero-panel"/);
   assert.match(html, /class="case-browser"/);
   assert.match(html, /<iframe class="case-frame" src="https:\/\/alquimiadobonsai\.com"/);
   assert.match(html, /loading="lazy"/);
+  assert.match(html, /https:\/\/www\.linkedin\.com\/in\/luan-salles\//);
+  assert.match(html, /Quero criar meu site/);
+  assert.match(html, /Preencher briefing/);
+  assert.match(html, /O formulário detalhado é obrigatório\?/);
   assert.doesNotMatch(html, /case-summary|project-card|case-mobile|case-desktop|case-site|case-proof|alquimia-bonsai-mobile\.jpg/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /aria-pressed="true"/);
   assert.match(html, /<a class="skip-link" href="#conteudo">/);
   assert.match(html, /name="name" required/);
   assert.match(html, /name="message" required/);
-  assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview|Base técnica complementar|Dúvidas frequentes/i);
+  assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview|Base técnica complementar/i);
 });
 
 test("optimized social images stay lightweight", async () => {

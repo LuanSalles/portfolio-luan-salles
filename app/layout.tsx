@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       {
         url: "/alquimia-bonsai-1180.jpg",
         width: 1180,
-        height: 737,
+        height: 533,
         alt: "Site Alquimia do Bonsai desenvolvido por Luan Salles",
       },
     ],
@@ -62,7 +62,7 @@ const structuredData = {
       email: "mailto:luanspctrabalho@gmail.com",
       sameAs: [
         "https://github.com/LuanSalles",
-        "https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250",
+        "https://www.linkedin.com/in/luan-salles/",
       ],
       address: {
         "@type": "PostalAddress",

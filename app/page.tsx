@@ -1,89 +1,125 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import Image from "next/image";
+import { FormEvent, useEffect, useState } from "react";
 
 type Lang = "pt" | "en";
 
 const phone = "5521979231817";
 const briefingForm = "https://forms.gle/ebQXBwmDUHUt6zwn7";
 const alquimiaUrl = "https://alquimiadobonsai.com";
+const githubUrl = "https://github.com/LuanSalles";
+const linkedinUrl = "https://www.linkedin.com/in/luan-salles/";
 
 const copy = {
   pt: {
+    htmlLang: "pt-BR",
     nav: ["Serviços", "Projeto", "Sobre", "Contato"],
     lang: "Selecionar idioma",
     whatsapp: "WhatsApp",
-    whatsappText: "Oi, Luan. Quero conversar sobre um site.",
+    whatsappText: "Oi, Luan. Quero conversar sobre a criação de um site.",
     newTab: "abre em nova aba",
     status: "Idioma alterado para português.",
     hero: {
       eyebrow: "Desenvolvedor web",
-      title: "Sites profissionais para apresentar seu negócio com clareza e gerar contatos.",
+      title: "Sites profissionais para pequenos negócios, profissionais e marcas.",
       text:
-        "Desenvolvimento de sites e landing pages para profissionais, pequenos negócios e marcas que precisam de uma presença online organizada, bonita e fácil de acessar pelo celular.",
-      primary: "Solicitar orçamento",
+        "Criação de sites e landing pages com estrutura clara, versão mobile bem cuidada, contato por WhatsApp e publicação preparada para o cliente começar a divulgar.",
+      primary: "Quero criar meu site",
       secondary: "Ver projeto publicado",
-      helper: "Site para negócios · Landing pages · Ajustes em sites",
+      helper: "Atendimento direto · Escopo combinado antes do início · Entrega publicada",
     },
-    highlights: ["Site para negócios", "Landing pages", "Ajustes em sites"],
+    trust: {
+      eyebrow: "Como entrego",
+      title: "Um site precisa ficar bonito, carregar bem e deixar o contato fácil.",
+      items: [
+        ["Mobile primeiro", "Layout pensado para celular, sem depender de adaptações improvisadas."],
+        ["Contato visível", "Botões para WhatsApp, formulário, redes e links importantes no fluxo certo."],
+        ["Publicação organizada", "Entrega com domínio, hospedagem e ajustes finais combinados no escopo."],
+      ],
+    },
     services: {
-      title: "Sites para apresentar, vender e receber contatos",
+      title: "O que você pode contratar",
       text:
-        "Páginas objetivas, com boa aparência, conteúdo bem organizado e botões de contato no lugar certo.",
+        "Foco em sites que ajudam uma pessoa ou negócio a se apresentar melhor, explicar sua oferta e receber contatos com menos atrito.",
       cta: "Falar sobre meu site",
       items: [
         {
-          title: "Site para seu negócio",
+          title: "Site institucional",
           text:
-            "Uma página completa para mostrar quem você é, o que oferece e como o cliente pode falar com você.",
+            "Para apresentar uma empresa, profissional, clínica, marca ou projeto com páginas essenciais, contato e aparência profissional.",
         },
         {
           title: "Landing page",
           text:
-            "Uma página direta para divulgar uma oferta, serviço, curso, evento ou campanha específica.",
+            "Para divulgar uma oferta, curso, serviço, evento ou campanha com uma página direta e chamada clara para ação.",
         },
         {
-          title: "Melhoria de site",
+          title: "Ajustes em site existente",
           text:
-            "Para deixar um site atual mais bonito, mais organizado e melhor no celular.",
+            "Para melhorar organização, responsividade, textos, botões de contato e aparência de um site que já está no ar.",
         },
       ],
     },
     case: {
-      eyebrow: "Projeto publicado",
+      eyebrow: "Projeto real publicado",
       title: "Alquimia do Bonsai",
-      text:
-        "Site real, publicado e em uso para a marca Alquimia do Bonsai. O projeto apresenta a marca, o livro, os cursos, a loja, conteúdos educativos e canais de contato em português e inglês.",
+      intro:
+        "Site institucional e comercial desenvolvido para a Alquimia do Bonsai, marca de Luane Salles e Alexandre Braga.",
+      problem:
+        "A marca reunia livro, cursos, catálogo, conteúdos educativos, redes sociais e contatos em canais separados. Faltava uma presença digital única para organizar tudo e facilitar o caminho do visitante.",
+      solution:
+        "O site concentra a apresentação da marca, loja, escola, vídeos, livro, materiais externos e contato em português e inglês, com navegação responsiva para computador e celular.",
+      result:
+        "Hoje o projeto está publicado em domínio próprio e pode ser usado para apresentar a marca, divulgar produtos e direcionar interessados para WhatsApp, Amazon, formulários e redes sociais.",
       bullets: [
-        "Funciona bem no computador e no celular",
-        "Tem versão em português e inglês",
-        "Organiza catálogo, favoritos e carrinho local",
-        "Direciona visitantes para WhatsApp, redes sociais e formulários",
+        "Site responsivo em português e inglês",
+        "Catálogo, favoritos e carrinho com dados locais",
+        "Integração com WhatsApp, Google Drive, Amazon e redes sociais",
+        "Organização de conteúdo, navegação, interface e publicação",
       ],
-      summary: ["PT/EN", "Loja", "Cursos", "WhatsApp"],
-      button: "Abrir site",
+      button: "Abrir site ao vivo",
+      frameLabel: "Demonstração interativa do site Alquimia do Bonsai",
+    },
+    technical: {
+      eyebrow: "Projetos técnicos",
+      title: "Também desenvolvo sistemas web",
+      text:
+        "Além de sites, desenvolvo aplicações com login, painel administrativo, banco de dados e regras de negócio. O FuteGestão CT é um sistema privado para gestão interna de centros de futevôlei.",
+      cta: "Ver GitHub",
+      tags: ["React", "Node.js", "Prisma", "PostgreSQL", "Autenticação"],
     },
     about: {
       eyebrow: "Sobre",
-      title: "Quem está por trás do projeto",
+      title: "Luan Salles",
       text:
-        "Luan Salles é desenvolvedor web em Niterói, com formação em Ciência da Computação em andamento e experiência em suporte técnico. Atua na criação de sites responsivos, organização de conteúdo e publicação de páginas profissionais.",
-      facts: ["Niterói/RJ", "Ciência da Computação", "JavaScript e React", "Sites responsivos"],
+        "Sou desenvolvedor web em Niterói/RJ, estudante de Ciência da Computação e tenho experiência anterior com suporte técnico. Essa base ajuda a transformar necessidades reais de clientes em sites organizados, fáceis de usar e possíveis de manter.",
+      facts: ["Niterói/RJ", "Ciência da Computação", "JavaScript e React", "Suporte técnico"],
     },
     process: {
       title: "Como o projeto acontece",
       steps: [
-        ["1", "Conversa inicial", "Você conta o que precisa, mostra referências e envia os materiais que já tiver."],
-        ["2", "Organização", "São definidos páginas, conteúdo, prazo, valor e o que precisa estar pronto antes do desenvolvimento."],
-        ["3", "Criação e publicação", "O site é desenvolvido, revisado com você e preparado para divulgação."],
+        ["1", "Conversa inicial", "Entendo o objetivo, o público, as referências e o que o site precisa resolver."],
+        ["2", "Escopo e conteúdo", "Definimos páginas, textos, materiais, prazo, valor e responsabilidades antes do desenvolvimento."],
+        ["3", "Criação e publicação", "Desenvolvo, reviso com você, ajusto o necessário e preparo o site para divulgação."],
+      ],
+    },
+    faq: {
+      title: "Dúvidas comuns",
+      items: [
+        ["Quanto custa um site?", "O valor é sob orçamento, porque depende de páginas, funcionalidades, prazo, conteúdo e custos externos."],
+        ["O domínio e a hospedagem estão incluídos?", "Posso orientar a contratação e configurar a publicação. Custos de domínio, hospedagem e serviços externos são combinados à parte."],
+        ["O que preciso enviar para começar?", "Textos, logo, fotos, referências e informações principais do negócio. Se ainda não tiver tudo, eu ajudo a organizar."],
+        ["O site funciona no celular?", "Sim. A versão mobile é parte central do desenvolvimento."],
+        ["O formulário detalhado é obrigatório?", "Não. Você pode chamar direto no WhatsApp. O formulário ajuda quando o projeto já tem mais informações."],
       ],
     },
     contact: {
       eyebrow: "Contato",
-      title: "Quer criar ou melhorar seu site?",
+      title: "Vamos organizar seu site?",
       text:
-        "Entre em contato pelo WhatsApp ou preencha o formulário com mais detalhes. Se a ideia ainda estiver no começo, tudo bem: o primeiro passo é organizar o que faz sentido para o seu negócio.",
-      formButton: "Preencher formulário",
+        "Chame no WhatsApp para uma conversa direta. Se preferir detalhar o projeto antes, use o formulário de orçamento.",
+      formButton: "Preencher briefing",
       labels: ["Nome", "Tipo de site", "Mensagem"],
       placeholders: [
         "Seu nome",
@@ -91,91 +127,125 @@ const copy = {
         "Me conte o que você quer criar ou melhorar.",
       ],
       submit: "Enviar pelo WhatsApp",
-      note: "Ao enviar, o WhatsApp abre com a mensagem pronta.",
-      intro: "Oi, Luan. Quero conversar sobre um site.",
+      note: "O formulário abaixo monta uma mensagem pronta para WhatsApp.",
+      intro: "Oi, Luan. Quero conversar sobre a criação de um site.",
       fallbacks: ["Não informado", "Ainda não definido", "Quero criar ou melhorar um site."],
     },
     footer: "Luan Salles · Desenvolvimento de sites",
   },
   en: {
+    htmlLang: "en",
     nav: ["Services", "Project", "About", "Contact"],
     lang: "Select language",
     whatsapp: "WhatsApp",
-    whatsappText: "Hi, Luan. I want to talk about a website.",
+    whatsappText: "Hi, Luan. I want to talk about creating a website.",
     newTab: "opens in a new tab",
     status: "Language changed to English.",
     hero: {
       eyebrow: "Web developer",
-      title: "I build professional websites for people who need a stronger online presence.",
+      title: "Professional websites for small businesses, professionals, and brands.",
       text:
-        "Website and landing page development for professionals, small businesses, and brands that need an organized, attractive online presence that works well on mobile.",
-      primary: "Request a quote",
+        "Website and landing page development with clear structure, careful mobile layout, WhatsApp contact, and publishing ready for the client to start sharing.",
+      primary: "I need a website",
       secondary: "View published project",
-      helper: "Business websites · Landing pages · Website updates",
+      helper: "Direct contact · Scope defined before starting · Published delivery",
     },
-    highlights: ["Business websites", "Landing pages", "Website updates"],
+    trust: {
+      eyebrow: "How I deliver",
+      title: "A website needs to look good, work well, and make contact easy.",
+      items: [
+        ["Mobile first", "Layout planned for phones, not treated as an afterthought."],
+        ["Clear contact paths", "WhatsApp, forms, social links, and important actions placed in the right flow."],
+        ["Organized publishing", "Delivery with domain, hosting, and final adjustments defined in the scope."],
+      ],
+    },
     services: {
-      title: "Websites to present your work, sell, and receive contacts",
+      title: "What you can hire me for",
       text:
-        "Focused pages with a professional look, organized content, and contact buttons where they need to be.",
+        "Focused websites that help a person or business present itself better, explain the offer, and receive contacts with less friction.",
       cta: "Talk about my website",
       items: [
         {
           title: "Business website",
-          text: "A complete page to show who you are, what you offer, and how clients can reach you.",
+          text:
+            "For companies, professionals, clinics, brands, or projects that need essential pages, contact, and a professional look.",
         },
         {
           title: "Landing page",
           text:
-            "A direct page to promote an offer, service, course, event, or specific campaign.",
+            "For promoting an offer, course, service, event, or campaign with one clear page and a strong call to action.",
         },
         {
-          title: "Website improvement",
+          title: "Website improvements",
           text:
-            "For making an existing website cleaner, better organized, and easier to use on mobile.",
+            "For improving structure, mobile layout, copy, contact buttons, and visual quality on an existing website.",
         },
       ],
     },
     case: {
-      eyebrow: "Published project",
+      eyebrow: "Real published project",
       title: "Alquimia do Bonsai",
-      text:
-        "A real website, published and in use for Alquimia do Bonsai. The project presents the brand, book, courses, shop, educational content, and contact channels in Portuguese and English.",
+      intro:
+        "Institutional and commercial website developed for Alquimia do Bonsai, a brand by Luane Salles and Alexandre Braga.",
+      problem:
+        "The brand had a book, courses, catalog, educational content, social media, and contact channels spread across different places. It needed one digital presence to organize everything and guide visitors.",
+      solution:
+        "The website brings together the brand, shop, school, videos, book, external materials, and contact paths in Portuguese and English, with responsive navigation for desktop and mobile.",
+      result:
+        "The project is live on its own domain and helps present the brand, promote products, and send visitors to WhatsApp, Amazon, forms, and social media.",
       bullets: [
-        "Works well on desktop and mobile",
-        "Available in Portuguese and English",
-        "Organizes catalog, favorites, and local cart",
-        "Guides visitors to WhatsApp, social media, and forms",
+        "Responsive website in Portuguese and English",
+        "Catalog, favorites, and cart using local data",
+        "Integrations with WhatsApp, Google Drive, Amazon, and social media",
+        "Content structure, navigation, interface, and publishing",
       ],
-      summary: ["PT/EN", "Shop", "Courses", "WhatsApp"],
-      button: "Open website",
+      button: "Open live website",
+      frameLabel: "Interactive preview of the Alquimia do Bonsai website",
+    },
+    technical: {
+      eyebrow: "Technical projects",
+      title: "I also build web systems",
+      text:
+        "Beyond websites, I build applications with login, admin panels, databases, and business rules. FuteGestão CT is a private system for internal management of footvolley centers.",
+      cta: "View GitHub",
+      tags: ["React", "Node.js", "Prisma", "PostgreSQL", "Authentication"],
     },
     about: {
       eyebrow: "About",
-      title: "Who is behind the project",
+      title: "Luan Salles",
       text:
-        "Luan Salles is a web developer based in Niterói, Brazil, with Computer Science training in progress and experience in technical support. He works on responsive websites, content organization, and publishing professional pages.",
-      facts: ["Niterói/RJ, Brazil", "Computer Science", "JavaScript and React", "Responsive websites"],
+        "I am a web developer based in Niterói, Brazil, a Computer Science student, and I have previous technical support experience. That background helps me turn real client needs into organized, usable, maintainable websites.",
+      facts: ["Niterói/RJ, Brazil", "Computer Science", "JavaScript and React", "Technical support"],
     },
     process: {
       title: "How the project works",
       steps: [
-        ["1", "First conversation", "You explain what you need, share references, and send any materials you already have."],
-        ["2", "Planning", "Pages, content, timeline, price, and what needs to be ready before development are defined."],
-        ["3", "Build and publish", "The website is developed, reviewed with you, and prepared for sharing."],
+        ["1", "First conversation", "I understand the goal, audience, references, and what the website needs to solve."],
+        ["2", "Scope and content", "We define pages, copy, materials, timeline, price, and responsibilities before development."],
+        ["3", "Build and publish", "I develop, review with you, adjust what is needed, and prepare the site for sharing."],
+      ],
+    },
+    faq: {
+      title: "Common questions",
+      items: [
+        ["How much does a website cost?", "Pricing is quoted by scope because pages, features, timeline, content, and external costs change from project to project."],
+        ["Are domain and hosting included?", "I can guide and configure publishing. Domain, hosting, and external service costs are agreed separately."],
+        ["What do I need to send first?", "Copy, logo, photos, references, and main business information. If you do not have everything yet, I help organize it."],
+        ["Will the website work on mobile?", "Yes. The mobile version is a central part of the development."],
+        ["Is the detailed form required?", "No. You can message me directly on WhatsApp. The form helps when the project already has more information."],
       ],
     },
     contact: {
       eyebrow: "Contact",
-      title: "Want to create or improve your website?",
+      title: "Let us organize your website?",
       text:
-        "Contact me on WhatsApp or fill out the form with more details. If the idea is still early, that is fine: the first step is organizing what makes sense for your business.",
-      formButton: "Quote form",
+        "Message me on WhatsApp for a direct conversation. If you prefer to describe the project first, use the quote briefing form.",
+      formButton: "Fill briefing",
       labels: ["Name", "Website type", "Message"],
       placeholders: ["Your name", "Ex.: clinic website, landing page, local shop", "Tell me what you want to create or improve."],
       submit: "Send on WhatsApp",
-      note: "When you send it, WhatsApp opens with the message ready.",
-      intro: "Hi, Luan. I want to talk about a website.",
+      note: "The form below creates a ready-to-send WhatsApp message.",
+      intro: "Hi, Luan. I want to talk about creating a website.",
       fallbacks: ["Not provided", "Not defined yet", "I want to create or improve a website."],
     },
     footer: "Luan Salles · Website development",
@@ -188,6 +258,10 @@ export default function Home() {
   const [projectType, setProjectType] = useState("");
   const [message, setMessage] = useState("");
   const t = copy[lang];
+
+  useEffect(() => {
+    document.documentElement.lang = t.htmlLang;
+  }, [t.htmlLang]);
 
   function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -252,7 +326,7 @@ export default function Home() {
           <h1>{t.hero.title}</h1>
           <p className="lead">{t.hero.text}</p>
           <div className="hero-actions">
-            <a className="btn btn-primary" href={briefingForm} target="_blank" rel="noreferrer">
+            <a className="btn btn-primary" href={`https://wa.me/${phone}?text=${encodeURIComponent(t.whatsappText)}`} target="_blank" rel="noreferrer">
               {t.hero.primary}
             </a>
             <a className="btn btn-secondary" href="#projeto">
@@ -260,21 +334,16 @@ export default function Home() {
             </a>
           </div>
           <p className="cta-note">{t.hero.helper}</p>
-          <div className="hero-tags" aria-label="Serviços principais">
-            {t.highlights.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
         </div>
 
-        <div className="hero-panel" aria-label="Resumo dos serviços">
-          <p className="eyebrow">{t.hero.eyebrow}</p>
-          <h2>{t.services.title}</h2>
+        <div className="hero-panel" aria-label="Resumo de confiança">
+          <p className="eyebrow">{t.trust.eyebrow}</p>
+          <h2>{t.trust.title}</h2>
           <div className="hero-panel-list">
-            {t.services.items.map((service) => (
-              <article key={service.title}>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
+            {t.trust.items.map(([title, text]) => (
+              <article key={title}>
+                <h3>{title}</h3>
+                <p>{text}</p>
               </article>
             ))}
           </div>
@@ -306,13 +375,14 @@ export default function Home() {
             <div>
               <p className="eyebrow">{t.case.eyebrow}</p>
               <h2>{t.case.title}</h2>
+              <p>{t.case.intro}</p>
             </div>
             <a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" aria-label={`${t.case.button} (${t.newTab})`}>
               {t.case.button}
             </a>
           </div>
 
-          <div className="case-browser" aria-label={t.case.title}>
+          <div className="case-browser" aria-label={t.case.frameLabel}>
             <div className="browser-bar">
               <span>{alquimiaUrl.replace("https://", "")}</span>
             </div>
@@ -326,18 +396,53 @@ export default function Home() {
           </div>
 
           <div className="case-details">
-            <p>{t.case.text}</p>
-            <ul>
-              {t.case.bullets.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <article>
+              <span>01</span>
+              <h3>Problema</h3>
+              <p>{t.case.problem}</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Solução</h3>
+              <p>{t.case.solution}</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Resultado</h3>
+              <p>{t.case.result}</p>
+            </article>
           </div>
+
+          <ul className="case-bullets">
+            {t.case.bullets.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section wrap technical">
+        <div>
+          <p className="eyebrow">{t.technical.eyebrow}</p>
+          <h2>{t.technical.title}</h2>
+          <p>{t.technical.text}</p>
+        </div>
+        <div className="tech-card">
+          <h3>FuteGestão CT</h3>
+          <p>Gestão de alunos, turmas, presença, pagamentos, equipe e painel administrativo.</p>
+          <div className="facts">
+            {t.technical.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+          <a className="btn btn-secondary" href={githubUrl} target="_blank" rel="noreferrer" aria-label={`${t.technical.cta} (${t.newTab})`}>
+            {t.technical.cta}
+          </a>
         </div>
       </section>
 
       <section id="sobre" className="section wrap about">
-        <img src="/luan-salles.jpeg" alt="Foto de Luan Salles" width="220" height="220" loading="lazy" />
+        <Image src="/luan-salles.jpeg" alt="Foto de Luan Salles" width={220} height={220} loading="lazy" />
         <div>
           <p className="eyebrow">{t.about.eyebrow}</p>
           <h2>{t.about.title}</h2>
@@ -363,23 +468,35 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section wrap faq">
+        <h2>{t.faq.title}</h2>
+        <div className="faq-list">
+          {t.faq.items.map(([question, answer]) => (
+            <details key={question}>
+              <summary>{question}</summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section id="contato" className="section wrap contact">
         <div className="contact-copy">
           <p className="eyebrow">{t.contact.eyebrow}</p>
           <h2>{t.contact.title}</h2>
           <p>{t.contact.text}</p>
           <div className="contact-actions">
-            <a className="btn btn-primary" href={briefingForm} target="_blank" rel="noreferrer" aria-label={`${t.contact.formButton} (${t.newTab})`}>
-              {t.contact.formButton}
-            </a>
             <a
-              className="btn btn-secondary"
+              className="btn btn-primary"
               href={`https://wa.me/${phone}?text=${encodeURIComponent(t.whatsappText)}`}
               target="_blank"
               rel="noreferrer"
               aria-label={`${t.whatsapp} (${t.newTab})`}
             >
               {t.whatsapp}
+            </a>
+            <a className="btn btn-secondary" href={briefingForm} target="_blank" rel="noreferrer" aria-label={`${t.contact.formButton} (${t.newTab})`}>
+              {t.contact.formButton}
             </a>
           </div>
           <p className="contact-note">{t.contact.note}</p>
@@ -409,10 +526,10 @@ export default function Home() {
 
       <footer className="wrap">
         <span>{t.footer}</span>
-        <a href="https://github.com/LuanSalles" target="_blank" rel="noreferrer" aria-label={`GitHub (${t.newTab})`}>
+        <a href={githubUrl} target="_blank" rel="noreferrer" aria-label={`GitHub (${t.newTab})`}>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250" target="_blank" rel="noreferrer" aria-label={`LinkedIn (${t.newTab})`}>
+        <a href={linkedinUrl} target="_blank" rel="noreferrer" aria-label={`LinkedIn (${t.newTab})`}>
           LinkedIn
         </a>
       </footer>
