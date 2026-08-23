@@ -275,10 +275,7 @@ const document = html`<!doctype html>
       <section id="projeto" class="section case-section">
         <div class="wrap case">
           <div class="case-image" aria-label="${pt.case[1]}">
-            <picture class="case-desktop">
-              <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 48vw" type="image/jpeg" />
-              <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="533" loading="lazy" />
-            </picture>
+            <iframe class="case-site" src="${caseUrl}" title="Site Alquimia do Bonsai" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>

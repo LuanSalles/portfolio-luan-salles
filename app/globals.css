@@ -400,27 +400,15 @@ h3 {
     rgba(18, 54, 40, 0.06);
 }
 
-.case-image picture {
-  display: block;
-}
-
-.case-image img {
+.case-site {
   display: block;
   width: 100%;
-  object-fit: cover;
-  object-position: center;
-  background: #f7f1e6;
-}
-
-.case-desktop {
-  overflow: hidden;
-  border-radius: 14px;
+  min-height: 430px;
+  aspect-ratio: 16 / 10;
   border: 1px solid rgba(18, 54, 40, 0.12);
+  border-radius: 14px;
+  background: #f7f1e6;
   box-shadow: 0 10px 24px rgba(18, 54, 40, 0.1);
-}
-
-.case-desktop img {
-  aspect-ratio: 1180 / 533;
 }
 
 .case-copy h2,
