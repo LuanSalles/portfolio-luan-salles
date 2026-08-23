@@ -32,10 +32,10 @@ test("server-renders the web development portfolio", async () => {
   const html = await response.text();
   assert.match(html, /Luan Salles \| Desenvolvimento web para sites profissionais/);
   assert.match(html, /Desenvolvedor web/);
-  assert.match(html, /Sites claros, responsivos e prontos para gerar contato/);
+  assert.match(html, /Eu crio sites profissionais para quem precisa aparecer melhor na internet/);
   assert.match(html, /Alquimia do Bonsai/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
-  assert.match(html, /Quem vai construir seu site/);
+  assert.match(html, /Quem está por trás do projeto/);
   assert.doesNotMatch(html, /Base técnica complementar|Dúvidas frequentes|FuteGestão CT/);
   assert.doesNotMatch(html, /Codex is working|Your site is taking shape|codex-preview/i);
 });
@@ -47,8 +47,8 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /<meta property="og:title" content="Luan Salles \| Desenvolvimento web para sites profissionais" \/>/);
   assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
   assert.match(html, /const i18n = /);
-  assert.match(html, /Clear, responsive websites built to generate contact/);
-  assert.match(html, /Want to bring your website online\?/);
+  assert.match(html, /I build professional websites for people who need a stronger online presence/);
+  assert.match(html, /Want to create or improve your website\?/);
   assert.match(html, /localStorage\.getItem\("portfolioLang"\)/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
   assert.match(html, /srcset="alquimia-bonsai-760\.jpg 760w, alquimia-bonsai-1180\.jpg 1180w"/);
