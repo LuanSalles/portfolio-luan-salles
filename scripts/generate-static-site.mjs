@@ -47,6 +47,7 @@ const data = {
       "Organiza catálogo, favoritos e carrinho local",
       "Direciona visitantes para WhatsApp, redes sociais e formulários",
     ],
+    caseSummary: ["PT/EN", "Loja", "Cursos", "WhatsApp"],
     about: [
       "Sobre",
       "Quem está por trás do projeto",
@@ -112,6 +113,7 @@ const data = {
       "Organizes catalog, favorites, and local cart",
       "Guides visitors to WhatsApp, social media, and forms",
     ],
+    caseSummary: ["PT/EN", "Shop", "Courses", "WhatsApp"],
     about: [
       "About",
       "Who is behind the project",
@@ -253,11 +255,12 @@ const document = html`<!doctype html>
           <p class="cta-note" data-i="hero-helper">${pt.hero[5]}</p>
           <div class="hero-tags" aria-label="Serviços principais">${tags(pt.highlights)}</div>
         </div>
-        <div class="hero-preview">
-          <picture>
-            <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 42vw" type="image/jpeg" />
-            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="737" fetchpriority="high" />
-          </picture>
+        <div class="hero-preview project-card" aria-label="${pt.case[0]}">
+          <p class="eyebrow" data-i="hero-project-eyebrow">${pt.case[0]}</p>
+          <h2 data-i="hero-project-title">${pt.case[1]}</h2>
+          <p data-i="hero-project-text">${pt.case[2]}</p>
+          <div class="project-card-tags hero-project-tags">${tags(pt.caseBullets.slice(0, 3))}</div>
+          <a class="btn btn-primary case-link" href="${caseUrl}" target="_blank" rel="noreferrer" data-i="hero-project-button" aria-label="${pt.case[3]} (${pt.newTab})">${pt.case[3]}</a>
         </div>
       </section>
 
@@ -272,11 +275,11 @@ const document = html`<!doctype html>
 
       <section id="projeto" class="section case-section">
         <div class="wrap case">
-          <div class="case-image">
-            <picture>
-              <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 50vw" type="image/jpeg" />
-              <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="737" loading="lazy" />
-            </picture>
+          <div class="case-summary" aria-label="${pt.case[1]}">
+            <p class="eyebrow" data-i="case-summary-eyebrow">${pt.case[0]}</p>
+            <h2 data-i="case-summary-title">${pt.case[1]}</h2>
+            <div class="case-summary-grid">${tags(pt.caseSummary)}</div>
+            <p>${caseUrl.replace("https://", "")}</p>
           </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>
@@ -368,6 +371,11 @@ const document = html`<!doctype html>
         setText("[data-i='hero-secondary']", t.hero[4]);
         setText("[data-i='hero-helper']", t.hero[5]);
         setTexts(".hero-tags span", t.highlights);
+        setText("[data-i='hero-project-eyebrow']", t.case[0]);
+        setText("[data-i='hero-project-title']", t.case[1]);
+        setText("[data-i='hero-project-text']", t.case[2]);
+        setTexts(".hero-project-tags span", t.caseBullets.slice(0, 3));
+        setText("[data-i='hero-project-button']", t.case[3]);
 
         setText("[data-i='services-eyebrow']", t.nav[0]);
         setText("[data-i='services-title']", t.servicesTitle);
@@ -383,6 +391,9 @@ const document = html`<!doctype html>
         setText("[data-i='case-text']", t.case[2]);
         setTexts(".case-copy li", t.caseBullets);
         setText("[data-i='case-button']", t.case[3]);
+        setText("[data-i='case-summary-eyebrow']", t.case[0]);
+        setText("[data-i='case-summary-title']", t.case[1]);
+        setTexts(".case-summary-grid span", t.caseSummary);
 
         setText("[data-i='about-eyebrow']", t.about[0]);
         setText("[data-i='about-title']", t.about[1]);

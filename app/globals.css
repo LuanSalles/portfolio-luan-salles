@@ -304,19 +304,57 @@ h3 {
 }
 
 .hero-preview {
-  overflow: hidden;
-  border: 10px solid var(--paper);
+  align-self: stretch;
+  border: 1px solid rgba(18, 54, 40, 0.14);
   border-radius: 24px;
-  background: var(--paper);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(247, 239, 225, 0.7)),
+    var(--paper);
   box-shadow: var(--shadow);
 }
 
-.hero-preview img,
-.case-image img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top center;
+.project-card {
+  display: flex;
+  min-height: 430px;
+  padding: 34px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.project-card h2 {
+  max-width: 9ch;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  line-height: 0.95;
+}
+
+.project-card p:not(.eyebrow) {
+  max-width: 520px;
+  color: #4b5650;
+}
+
+.project-card-tags,
+.case-summary-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.project-card-tags {
+  grid-template-columns: 1fr;
+}
+
+.project-card-tags span,
+.case-summary-grid span {
+  border: 1px solid rgba(18, 54, 40, 0.15);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--green);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.project-card-tags span {
+  padding: 12px 14px;
 }
 
 .section {
@@ -376,11 +414,47 @@ h3 {
   align-items: center;
 }
 
-.case-image {
-  position: relative;
-  overflow: hidden;
+.case-summary {
+  display: flex;
+  min-height: 390px;
+  padding: 34px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 24px;
-  background: var(--paper);
+  background:
+    linear-gradient(135deg, rgba(255, 250, 242, 0.96), rgba(230, 215, 190, 0.9)),
+    var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.case-summary .eyebrow,
+.case-summary h2 {
+  color: var(--green);
+}
+
+.case-summary h2 {
+  max-width: 8ch;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.94;
+}
+
+.case-summary-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-summary-grid span {
+  min-height: 76px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.case-summary p:not(.eyebrow) {
+  margin: 0;
+  color: #4b5650;
+  font-weight: 850;
 }
 
 .case-copy h2,
@@ -645,8 +719,18 @@ footer a {
   }
 
   .hero-preview,
-  .case-image {
+  .case-summary {
     border-radius: 18px;
+  }
+
+  .project-card,
+  .case-summary {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .case-summary-grid {
+    grid-template-columns: 1fr;
   }
 
   .about,
