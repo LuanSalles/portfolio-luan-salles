@@ -316,8 +316,8 @@ h3 {
 .hero-preview img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: contain;
+  aspect-ratio: 1180 / 533;
+  object-fit: cover;
   object-position: center;
   background: #f7f1e6;
 }
@@ -381,8 +381,7 @@ h3 {
 
 .case-image {
   position: relative;
-  display: grid;
-  min-height: 430px;
+  display: block;
   padding: 18px;
   overflow: hidden;
   border-radius: 24px;
@@ -397,7 +396,7 @@ h3 {
 .case-image img {
   display: block;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   background: #f7f1e6;
 }
@@ -409,7 +408,7 @@ h3 {
 }
 
 .case-desktop img {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1180 / 533;
 }
 
 .case-mobile {
@@ -424,7 +423,7 @@ h3 {
 }
 
 .case-mobile img {
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 420 / 911;
 }
 
 .case-copy h2,
@@ -694,7 +693,6 @@ footer a {
   }
 
   .case-image {
-    min-height: auto;
     padding: 12px;
   }
 

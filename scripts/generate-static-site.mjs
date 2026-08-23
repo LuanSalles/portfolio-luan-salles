@@ -258,7 +258,7 @@ const document = html`<!doctype html>
         <div class="hero-preview">
           <picture>
             <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 42vw" type="image/jpeg" />
-            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="737" fetchpriority="high" />
+            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="533" fetchpriority="high" />
           </picture>
         </div>
       </section>
@@ -277,10 +277,10 @@ const document = html`<!doctype html>
           <div class="case-image" aria-label="${pt.case[1]}">
             <picture class="case-desktop">
               <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 48vw" type="image/jpeg" />
-              <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="737" loading="lazy" />
+              <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="533" loading="lazy" />
             </picture>
             <picture class="case-mobile">
-              <img src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai no celular" width="740" height="1600" loading="lazy" />
+              <img src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai no celular" width="420" height="911" loading="lazy" />
             </picture>
           </div>
           <div class="case-copy">

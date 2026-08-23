@@ -340,8 +340,8 @@ h3 {
 .hero-preview img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: contain;
+  aspect-ratio: 1180 / 533;
+  object-fit: cover;
   object-position: center;
   background: #f7f1e6;
 }
@@ -405,8 +405,7 @@ h3 {
 
 .case-image {
   position: relative;
-  display: grid;
-  min-height: 430px;
+  display: block;
   padding: 18px;
   overflow: hidden;
   border-radius: 24px;
@@ -421,7 +420,7 @@ h3 {
 .case-image img {
   display: block;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   background: #f7f1e6;
 }
@@ -433,7 +432,7 @@ h3 {
 }
 
 .case-desktop img {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1180 / 533;
 }
 
 .case-mobile {
@@ -448,7 +447,7 @@ h3 {
 }
 
 .case-mobile img {
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 420 / 911;
 }
 
 .case-copy h2,
@@ -718,7 +717,6 @@ footer a {
   }
 
   .case-image {
-    min-height: auto;
     padding: 12px;
   }
 
@@ -779,7 +777,7 @@ footer a {
         <div class="hero-preview">
           <picture>
             <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 42vw" type="image/jpeg" />
-            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="737" fetchpriority="high" />
+            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="533" fetchpriority="high" />
           </picture>
         </div>
       </section>
@@ -798,10 +796,10 @@ footer a {
           <div class="case-image" aria-label="Alquimia do Bonsai">
             <picture class="case-desktop">
               <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 48vw" type="image/jpeg" />
-              <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="737" loading="lazy" />
+              <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="533" loading="lazy" />
             </picture>
             <picture class="case-mobile">
-              <img src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai no celular" width="740" height="1600" loading="lazy" />
+              <img src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai no celular" width="420" height="911" loading="lazy" />
             </picture>
           </div>
           <div class="case-copy">

@@ -278,7 +278,7 @@ export default function Home() {
               src="/alquimia-bonsai-1180.jpg"
               alt="Página inicial do site Alquimia do Bonsai"
               width="1180"
-              height="737"
+              height="533"
               fetchPriority="high"
             />
           </picture>
@@ -317,7 +317,7 @@ export default function Home() {
                 src="/alquimia-bonsai-1180.jpg"
                 alt="Site Alquimia do Bonsai em desktop"
                 width="1180"
-                height="737"
+                height="533"
                 loading="lazy"
               />
             </picture>
@@ -325,8 +325,8 @@ export default function Home() {
               <img
                 src="/alquimia-bonsai-mobile.jpg"
                 alt="Site Alquimia do Bonsai no celular"
-                width="740"
-                height="1600"
+                width="420"
+                height="911"
                 loading="lazy"
               />
             </picture>
