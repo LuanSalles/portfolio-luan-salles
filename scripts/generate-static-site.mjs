@@ -15,17 +15,21 @@ const data = {
     nav: ["Serviços", "Projeto", "Sobre", "Contato"],
     whatsapp: "WhatsApp",
     whatsappText: "Oi, Luan. Quero conversar sobre um site.",
+    newTab: "abre em nova aba",
+    status: "Idioma alterado para português.",
     hero: [
       "Desenvolvedor web",
       "Sites claros, responsivos e prontos para gerar contato.",
-      "Sou Luan Salles. Desenvolvo sites institucionais e landing pages para profissionais, pequenos negócios e marcas que precisam organizar sua presença online.",
-      "Pedir orçamento",
+      "Sou Luan Salles, desenvolvedor web com formação em Ciência da Computação em andamento e experiência em suporte técnico, atendimento e resolução de problemas reais.",
+      "Solicitar orçamento sem compromisso",
       "Ver projeto real",
+      "Resposta em até 1 dia útil.",
     ],
     highlights: ["Sites institucionais", "Landing pages", "Melhoria de sites"],
     servicesTitle: "O que eu posso construir para você",
     servicesText:
       "Sem promessa exagerada e sem pacote confuso. O foco é entregar uma página profissional, fácil de entender e bem adaptada ao celular.",
+    servicesCta: "Conversar sobre meu site",
     services: [
       ["Site institucional", "Para apresentar seu negócio, serviços, história, diferenciais e canais de contato em um endereço profissional."],
       ["Landing page", "Para divulgar uma oferta, evento, curso, produto ou serviço com uma página objetiva e voltada para conversão."],
@@ -46,9 +50,9 @@ const data = {
     about: [
       "Sobre",
       "Quem vai construir seu site",
-      "Sou estudante de Ciência da Computação em Niterói e venho direcionando minha carreira para desenvolvimento web. Minha experiência em suporte técnico me ajuda a entender problemas reais, organizar informações e transformar necessidade em uma entrega prática.",
+      "Meu trabalho mistura código, organização de conteúdo e atenção ao atendimento. Eu cuido da estrutura, responsividade, publicação e orientação básica sobre domínio e hospedagem.",
     ],
-    facts: ["Niterói/RJ", "Ciência da Computação", "React e JavaScript", "Atendimento remoto"],
+    facts: ["Niterói/RJ", "Ciência da Computação", "React e JavaScript", "Domínio e publicação"],
     processTitle: "Como funciona",
     steps: [
       ["1", "Entendimento", "Você me envia o objetivo do site, referências, prazo e materiais disponíveis."],
@@ -62,6 +66,7 @@ const data = {
       "Formulário de orçamento",
       "Enviar pelo WhatsApp",
       "Oi, Luan. Quero conversar sobre um site.",
+      "O botão abre o WhatsApp com a mensagem preenchida.",
     ],
     labels: ["Nome", "Tipo de site", "Mensagem"],
     placeholders: ["Seu nome", "Ex.: site para clínica, landing page, loja local", "Conte em poucas linhas o que você precisa."],
@@ -75,17 +80,21 @@ const data = {
     nav: ["Services", "Project", "About", "Contact"],
     whatsapp: "WhatsApp",
     whatsappText: "Hi, Luan. I want to talk about a website.",
+    newTab: "opens in a new tab",
+    status: "Language changed to English.",
     hero: [
       "Web developer",
       "Clear, responsive websites built to generate contact.",
-      "I am Luan Salles. I build business websites and landing pages for professionals, small businesses, and brands that need a better online presence.",
+      "I am Luan Salles, a web developer with Computer Science training in progress and experience in technical support, service, and real problem solving.",
       "Request a quote",
       "View real project",
+      "Reply within one business day.",
     ],
     highlights: ["Business websites", "Landing pages", "Website improvements"],
     servicesTitle: "What I can build for you",
     servicesText:
       "No inflated promise and no confusing package. The focus is a professional page that is easy to understand and works well on mobile.",
+    servicesCta: "Talk about my website",
     services: [
       ["Business website", "To present your business, services, story, strengths, and contact channels in a professional address."],
       ["Landing page", "To promote an offer, event, course, product, or service with an objective conversion-focused page."],
@@ -106,9 +115,9 @@ const data = {
     about: [
       "About",
       "Who will build your website",
-      "I am a Computer Science student in Niterói, Brazil, and I am focusing my career on web development. My technical support experience helps me understand real problems, organize information, and turn needs into practical delivery.",
+      "My work combines code, content organization, and service awareness. I handle structure, responsiveness, publishing, and basic guidance on domain and hosting.",
     ],
-    facts: ["Niterói/RJ, Brazil", "Computer Science", "React and JavaScript", "Remote service"],
+    facts: ["Niterói/RJ, Brazil", "Computer Science", "React and JavaScript", "Domain and publishing"],
     processTitle: "How it works",
     steps: [
       ["1", "Understanding", "You send the website goal, references, timeline, and available materials."],
@@ -122,6 +131,7 @@ const data = {
       "Quote form",
       "Send on WhatsApp",
       "Hi, Luan. I want to talk about a website.",
+      "The button opens WhatsApp with the message filled in.",
     ],
     labels: ["Name", "Website type", "Message"],
     placeholders: ["Your name", "Ex.: clinic website, landing page, local shop", "Tell me briefly what you need."],
@@ -151,6 +161,43 @@ function steps(items) {
     .join("");
 }
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${portfolioUrl}#person`,
+      name: "Luan Salles",
+      jobTitle: "Desenvolvedor web",
+      url: portfolioUrl,
+      email: "mailto:luanspctrabalho@gmail.com",
+      sameAs: [
+        "https://github.com/LuanSalles",
+        "https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Niterói",
+        addressRegion: "RJ",
+        addressCountry: "BR",
+      },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${portfolioUrl}#service`,
+      name: "Luan Salles · Desenvolvimento de sites",
+      url: portfolioUrl,
+      image: `${portfolioUrl}alquimia-bonsai-1180.jpg`,
+      description: pt.description,
+      areaServed: ["Niterói", "Rio de Janeiro", "Brasil"],
+      serviceType: ["Criação de sites", "Landing pages", "Desenvolvimento web"],
+      founder: {
+        "@id": `${portfolioUrl}#person`,
+      },
+    },
+  ],
+};
+
 const document = html`<!doctype html>
 <html lang="pt-BR">
   <head>
@@ -166,28 +213,35 @@ const document = html`<!doctype html>
     <meta property="og:url" content="${portfolioUrl}" />
     <meta property="og:site_name" content="Luan Salles" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:image" content="${portfolioUrl}alquimia-bonsai-desktop.png" />
+    <meta property="og:image" content="${portfolioUrl}alquimia-bonsai-1180.jpg" />
+    <meta property="og:image:width" content="1180" />
+    <meta property="og:image:height" content="737" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="Site Alquimia do Bonsai desenvolvido por Luan Salles" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${pt.title}" />
     <meta name="twitter:description" content="${pt.description}" />
-    <meta name="twitter:image" content="${portfolioUrl}alquimia-bonsai-desktop.png" />
+    <meta name="twitter:image" content="${portfolioUrl}alquimia-bonsai-1180.jpg" />
     <style>${css}</style>
+    <script type="application/ld+json">${JSON.stringify(structuredData)}</script>
   </head>
   <body>
     <main id="inicio">
+      <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header class="topbar wrap">
         <a class="brand" href="#inicio" aria-label="Luan Salles"><span class="brand-mark">LS</span><span data-i="brand">Luan Salles</span></a>
         <nav class="nav" aria-label="Navegação principal">
           <a href="#servicos">${pt.nav[0]}</a><a href="#projeto">${pt.nav[1]}</a><a href="#sobre">${pt.nav[2]}</a><a href="#contato">${pt.nav[3]}</a>
         </nav>
         <div class="header-actions">
-          <div class="lang-switch" aria-label="Selecionar idioma"><button class="active" type="button" data-lang="pt">PT</button><button type="button" data-lang="en">EN</button></div>
-          <a class="btn btn-primary header-whatsapp" href="https://wa.me/${phone}?text=${encodeURIComponent(pt.whatsappText)}" target="_blank" rel="noreferrer">${pt.whatsapp}</a>
+          <div class="lang-switch" aria-label="Selecionar idioma"><button class="active" type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+          <a class="btn btn-primary header-whatsapp" href="https://wa.me/${phone}?text=${encodeURIComponent(pt.whatsappText)}" target="_blank" rel="noreferrer" aria-label="${pt.whatsapp} (${pt.newTab})">${pt.whatsapp}</a>
         </div>
       </header>
 
-      <section class="hero wrap">
+      <p class="sr-only" aria-live="polite" data-i="status">${pt.status}</p>
+
+      <section id="conteudo" class="hero wrap">
         <div class="hero-copy">
           <p class="eyebrow" data-i="hero-eyebrow">${pt.hero[0]}</p>
           <h1 data-i="hero-title">${pt.hero[1]}</h1>
@@ -196,9 +250,15 @@ const document = html`<!doctype html>
             <a class="btn btn-primary quote-link" href="${formUrl}" target="_blank" rel="noreferrer" data-i="hero-primary">${pt.hero[3]}</a>
             <a class="btn btn-secondary" href="#projeto" data-i="hero-secondary">${pt.hero[4]}</a>
           </div>
+          <p class="cta-note" data-i="hero-helper">${pt.hero[5]}</p>
           <div class="hero-tags" aria-label="Serviços principais">${tags(pt.highlights)}</div>
         </div>
-        <div class="hero-preview"><img src="alquimia-bonsai-desktop.png" alt="Página inicial do site Alquimia do Bonsai" /></div>
+        <div class="hero-preview">
+          <picture>
+            <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 42vw" type="image/jpeg" />
+            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="737" fetchpriority="high" />
+          </picture>
+        </div>
       </section>
 
       <section id="servicos" class="section wrap split">
@@ -207,24 +267,29 @@ const document = html`<!doctype html>
           <h2 data-i="services-title">${pt.servicesTitle}</h2>
           <p data-i="services-text">${pt.servicesText}</p>
         </div>
-        <div class="service-list">${serviceCards(pt.services)}</div>
+        <div class="service-list">${serviceCards(pt.services)}<a class="btn btn-secondary service-cta" href="#contato" data-i="services-cta">${pt.servicesCta}</a></div>
       </section>
 
       <section id="projeto" class="section case-section">
         <div class="wrap case">
-          <div class="case-image"><img src="alquimia-bonsai-desktop.png" alt="Site Alquimia do Bonsai em desktop" /></div>
+          <div class="case-image">
+            <picture>
+              <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 50vw" type="image/jpeg" />
+              <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="737" loading="lazy" />
+            </picture>
+          </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>
             <h2 data-i="case-title">${pt.case[1]}</h2>
             <p data-i="case-text">${pt.case[2]}</p>
             <ul>${list(pt.caseBullets)}</ul>
-            <a class="btn btn-primary case-link" href="${caseUrl}" target="_blank" rel="noreferrer" data-i="case-button">${pt.case[3]}</a>
+            <a class="btn btn-primary case-link" href="${caseUrl}" target="_blank" rel="noreferrer" data-i="case-button" aria-label="${pt.case[3]} (${pt.newTab})">${pt.case[3]}</a>
           </div>
         </div>
       </section>
 
       <section id="sobre" class="section wrap about">
-        <img src="luan-salles.jpeg" alt="Foto de Luan Salles" />
+        <img src="luan-salles.jpeg" alt="Foto de Luan Salles" width="220" height="220" loading="lazy" />
         <div>
           <p class="eyebrow" data-i="about-eyebrow">${pt.about[0]}</p>
           <h2 data-i="about-title">${pt.about[1]}</h2>
@@ -244,23 +309,24 @@ const document = html`<!doctype html>
           <h2 data-i="contact-title">${pt.contact[1]}</h2>
           <p data-i="contact-text">${pt.contact[2]}</p>
           <div class="contact-actions">
-            <a class="btn btn-primary quote-link" href="${formUrl}" target="_blank" rel="noreferrer" data-i="contact-form">${pt.contact[3]}</a>
-            <a class="btn btn-secondary contact-whatsapp" href="https://wa.me/${phone}?text=${encodeURIComponent(pt.whatsappText)}" target="_blank" rel="noreferrer">${pt.whatsapp}</a>
+            <a class="btn btn-primary quote-link" href="${formUrl}" target="_blank" rel="noreferrer" data-i="contact-form" aria-label="${pt.contact[3]} (${pt.newTab})">${pt.contact[3]}</a>
+            <a class="btn btn-secondary contact-whatsapp" href="https://wa.me/${phone}?text=${encodeURIComponent(pt.whatsappText)}" target="_blank" rel="noreferrer" aria-label="${pt.whatsapp} (${pt.newTab})">${pt.whatsapp}</a>
           </div>
+          <p class="contact-note" data-i="contact-note">${pt.contact[6]}</p>
           <a class="email" href="mailto:luanspctrabalho@gmail.com">luanspctrabalho@gmail.com</a>
         </div>
         <form id="contactForm">
-          <label><span>${pt.labels[0]}</span><input id="name" placeholder="${pt.placeholders[0]}" autocomplete="name" /></label>
-          <label><span>${pt.labels[1]}</span><input id="projectType" placeholder="${pt.placeholders[1]}" /></label>
-          <label><span>${pt.labels[2]}</span><textarea id="message" placeholder="${pt.placeholders[2]}"></textarea></label>
+          <label><span>${pt.labels[0]}</span><input id="name" name="name" required placeholder="${pt.placeholders[0]}" autocomplete="name" /></label>
+          <label><span>${pt.labels[1]}</span><input id="projectType" name="projectType" placeholder="${pt.placeholders[1]}" /></label>
+          <label><span>${pt.labels[2]}</span><textarea id="message" name="message" required placeholder="${pt.placeholders[2]}"></textarea></label>
           <button class="btn btn-secondary" type="submit" data-i="contact-submit">${pt.contact[4]}</button>
         </form>
       </section>
 
       <footer class="wrap">
         <span data-i="footer">${pt.footer}</span>
-        <a href="https://github.com/LuanSalles" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/LuanSalles" target="_blank" rel="noreferrer" aria-label="GitHub (${pt.newTab})">GitHub</a>
+        <a href="https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250" target="_blank" rel="noreferrer" aria-label="LinkedIn (${pt.newTab})">LinkedIn</a>
       </footer>
     </main>
 
@@ -291,6 +357,7 @@ const document = html`<!doctype html>
         document.querySelector('meta[name="description"]').setAttribute("content", t.description);
         document.querySelectorAll(".lang-switch button").forEach((button) => {
           button.classList.toggle("active", button.dataset.lang === lang);
+          button.setAttribute("aria-pressed", button.dataset.lang === lang ? "true" : "false");
         });
 
         setTexts(".nav a", t.nav);
@@ -299,11 +366,13 @@ const document = html`<!doctype html>
         setText("[data-i='hero-text']", t.hero[2]);
         setText("[data-i='hero-primary']", t.hero[3]);
         setText("[data-i='hero-secondary']", t.hero[4]);
+        setText("[data-i='hero-helper']", t.hero[5]);
         setTexts(".hero-tags span", t.highlights);
 
         setText("[data-i='services-eyebrow']", t.nav[0]);
         setText("[data-i='services-title']", t.servicesTitle);
         setText("[data-i='services-text']", t.servicesText);
+        setText("[data-i='services-cta']", t.servicesCta);
         document.querySelectorAll(".service").forEach((card, index) => {
           card.querySelector("h3").textContent = t.services[index][0];
           card.querySelector("p").textContent = t.services[index][1];
@@ -332,6 +401,8 @@ const document = html`<!doctype html>
         setText("[data-i='contact-text']", t.contact[2]);
         setText("[data-i='contact-form']", t.contact[3]);
         setText("[data-i='contact-submit']", t.contact[4]);
+        setText("[data-i='contact-note']", t.contact[6]);
+        setText("[data-i='status']", t.status);
         setTexts("form label span", t.labels);
         document.querySelector("#name").placeholder = t.placeholders[0];
         document.querySelector("#projectType").placeholder = t.placeholders[1];

@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     images: [
       {
-        url: "/alquimia-bonsai-desktop.png",
-        width: 1600,
-        height: 900,
+        url: "/alquimia-bonsai-1180.jpg",
+        width: 1180,
+        height: 737,
         alt: "Site Alquimia do Bonsai desenvolvido por Luan Salles",
       },
     ],
@@ -42,12 +42,50 @@ export const metadata: Metadata = {
     title: "Luan Salles | Desenvolvimento web para sites profissionais",
     description:
       "Sites institucionais e landing pages com foco em clareza, versão mobile, performance e contato rápido.",
-    images: ["/alquimia-bonsai-desktop.png"],
+    images: ["/alquimia-bonsai-1180.jpg"],
   },
   icons: {
     icon: [{ url: "/favicon-ls.svg", type: "image/svg+xml" }],
     shortcut: "/favicon-ls.svg",
   },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://portfolio-luan-one.vercel.app/#person",
+      name: "Luan Salles",
+      jobTitle: "Desenvolvedor web",
+      url: "https://portfolio-luan-one.vercel.app/",
+      email: "mailto:luanspctrabalho@gmail.com",
+      sameAs: [
+        "https://github.com/LuanSalles",
+        "https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Niterói",
+        addressRegion: "RJ",
+        addressCountry: "BR",
+      },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://portfolio-luan-one.vercel.app/#service",
+      name: "Luan Salles · Desenvolvimento de sites",
+      url: "https://portfolio-luan-one.vercel.app/",
+      image: "https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg",
+      description:
+        "Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios.",
+      areaServed: ["Niterói", "Rio de Janeiro", "Brasil"],
+      serviceType: ["Criação de sites", "Landing pages", "Desenvolvimento web"],
+      founder: {
+        "@id": "https://portfolio-luan-one.vercel.app/#person",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -60,6 +98,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {children}
       </body>
     </html>

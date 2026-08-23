@@ -14,19 +14,23 @@ const copy = {
     lang: "Selecionar idioma",
     whatsapp: "WhatsApp",
     whatsappText: "Oi, Luan. Quero conversar sobre um site.",
+    newTab: "abre em nova aba",
+    status: "Idioma alterado para português.",
     hero: {
       eyebrow: "Desenvolvedor web",
       title: "Sites claros, responsivos e prontos para gerar contato.",
       text:
-        "Sou Luan Salles. Desenvolvo sites institucionais e landing pages para profissionais, pequenos negócios e marcas que precisam organizar sua presença online.",
-      primary: "Pedir orçamento",
+        "Sou Luan Salles, desenvolvedor web com formação em Ciência da Computação em andamento e experiência em suporte técnico, atendimento e resolução de problemas reais.",
+      primary: "Solicitar orçamento sem compromisso",
       secondary: "Ver projeto real",
+      helper: "Resposta em até 1 dia útil.",
     },
     highlights: ["Sites institucionais", "Landing pages", "Melhoria de sites"],
     services: {
       title: "O que eu posso construir para você",
       text:
         "Sem promessa exagerada e sem pacote confuso. O foco é entregar uma página profissional, fácil de entender e bem adaptada ao celular.",
+      cta: "Conversar sobre meu site",
       items: [
         {
           title: "Site institucional",
@@ -62,8 +66,8 @@ const copy = {
       eyebrow: "Sobre",
       title: "Quem vai construir seu site",
       text:
-        "Sou estudante de Ciência da Computação em Niterói e venho direcionando minha carreira para desenvolvimento web. Minha experiência em suporte técnico me ajuda a entender problemas reais, organizar informações e transformar necessidade em uma entrega prática.",
-      facts: ["Niterói/RJ", "Ciência da Computação", "React e JavaScript", "Atendimento remoto"],
+        "Meu trabalho mistura código, organização de conteúdo e atenção ao atendimento. Eu cuido da estrutura, responsividade, publicação e orientação básica sobre domínio e hospedagem.",
+      facts: ["Niterói/RJ", "Ciência da Computação", "React e JavaScript", "Domínio e publicação"],
     },
     process: {
       title: "Como funciona",
@@ -86,6 +90,7 @@ const copy = {
         "Conte em poucas linhas o que você precisa.",
       ],
       submit: "Enviar pelo WhatsApp",
+      note: "O botão abre o WhatsApp com a mensagem preenchida.",
       intro: "Oi, Luan. Quero conversar sobre um site.",
       fallbacks: ["Não informado", "Ainda não definido", "Quero entender qual site faz sentido para meu negócio."],
     },
@@ -96,19 +101,23 @@ const copy = {
     lang: "Select language",
     whatsapp: "WhatsApp",
     whatsappText: "Hi, Luan. I want to talk about a website.",
+    newTab: "opens in a new tab",
+    status: "Language changed to English.",
     hero: {
       eyebrow: "Web developer",
       title: "Clear, responsive websites built to generate contact.",
       text:
-        "I am Luan Salles. I build business websites and landing pages for professionals, small businesses, and brands that need a better online presence.",
+        "I am Luan Salles, a web developer with Computer Science training in progress and experience in technical support, service, and real problem solving.",
       primary: "Request a quote",
       secondary: "View real project",
+      helper: "Reply within one business day.",
     },
     highlights: ["Business websites", "Landing pages", "Website improvements"],
     services: {
       title: "What I can build for you",
       text:
         "No inflated promise and no confusing package. The focus is a professional page that is easy to understand and works well on mobile.",
+      cta: "Talk about my website",
       items: [
         {
           title: "Business website",
@@ -143,8 +152,8 @@ const copy = {
       eyebrow: "About",
       title: "Who will build your website",
       text:
-        "I am a Computer Science student in Niterói, Brazil, and I am focusing my career on web development. My technical support experience helps me understand real problems, organize information, and turn needs into practical delivery.",
-      facts: ["Niterói/RJ, Brazil", "Computer Science", "React and JavaScript", "Remote service"],
+        "My work combines code, content organization, and service awareness. I handle structure, responsiveness, publishing, and basic guidance on domain and hosting.",
+      facts: ["Niterói/RJ, Brazil", "Computer Science", "React and JavaScript", "Domain and publishing"],
     },
     process: {
       title: "How it works",
@@ -163,6 +172,7 @@ const copy = {
       labels: ["Name", "Website type", "Message"],
       placeholders: ["Your name", "Ex.: clinic website, landing page, local shop", "Tell me briefly what you need."],
       submit: "Send on WhatsApp",
+      note: "The button opens WhatsApp with the message filled in.",
       intro: "Hi, Luan. I want to talk about a website.",
       fallbacks: ["Not provided", "Not defined yet", "I want to understand which website makes sense for my business."],
     },
@@ -193,6 +203,9 @@ export default function Home() {
 
   return (
     <main id="inicio">
+      <a className="skip-link" href="#conteudo">
+        Pular para o conteúdo
+      </a>
       <header className="topbar">
         <a className="brand" href="#inicio" aria-label="Luan Salles">
           <span className="brand-mark">LS</span>
@@ -208,10 +221,10 @@ export default function Home() {
 
         <div className="header-actions">
           <div className="lang-switch" aria-label={t.lang}>
-            <button className={lang === "pt" ? "active" : ""} type="button" onClick={() => setLang("pt")}>
+            <button aria-pressed={lang === "pt"} className={lang === "pt" ? "active" : ""} type="button" onClick={() => setLang("pt")}>
               PT
             </button>
-            <button className={lang === "en" ? "active" : ""} type="button" onClick={() => setLang("en")}>
+            <button aria-pressed={lang === "en"} className={lang === "en" ? "active" : ""} type="button" onClick={() => setLang("en")}>
               EN
             </button>
           </div>
@@ -220,13 +233,18 @@ export default function Home() {
             href={`https://wa.me/${phone}?text=${encodeURIComponent(t.whatsappText)}`}
             target="_blank"
             rel="noreferrer"
+            aria-label={`${t.whatsapp} (${t.newTab})`}
           >
             {t.whatsapp}
           </a>
         </div>
       </header>
 
-      <section className="hero wrap">
+      <p className="sr-only" aria-live="polite">
+        {t.status}
+      </p>
+
+      <section id="conteudo" className="hero wrap">
         <div className="hero-copy">
           <p className="eyebrow">{t.hero.eyebrow}</p>
           <h1>{t.hero.title}</h1>
@@ -239,6 +257,7 @@ export default function Home() {
               {t.hero.secondary}
             </a>
           </div>
+          <p className="cta-note">{t.hero.helper}</p>
           <div className="hero-tags" aria-label="Serviços principais">
             {t.highlights.map((item) => (
               <span key={item}>{item}</span>
@@ -247,7 +266,20 @@ export default function Home() {
         </div>
 
         <div className="hero-preview">
-          <img src="/alquimia-bonsai-desktop.png" alt="Página inicial do site Alquimia do Bonsai" />
+          <picture>
+            <source
+              srcSet="/alquimia-bonsai-760.jpg 760w, /alquimia-bonsai-1180.jpg 1180w"
+              sizes="(max-width: 900px) 100vw, 42vw"
+              type="image/jpeg"
+            />
+            <img
+              src="/alquimia-bonsai-1180.jpg"
+              alt="Página inicial do site Alquimia do Bonsai"
+              width="1180"
+              height="737"
+              fetchPriority="high"
+            />
+          </picture>
         </div>
       </section>
 
@@ -264,13 +296,29 @@ export default function Home() {
               <p>{service.text}</p>
             </article>
           ))}
+          <a className="btn btn-secondary service-cta" href="#contato">
+            {t.services.cta}
+          </a>
         </div>
       </section>
 
       <section id="projeto" className="section case-section">
         <div className="wrap case">
           <div className="case-image">
-            <img src="/alquimia-bonsai-desktop.png" alt="Site Alquimia do Bonsai em desktop" />
+            <picture>
+              <source
+                srcSet="/alquimia-bonsai-760.jpg 760w, /alquimia-bonsai-1180.jpg 1180w"
+                sizes="(max-width: 900px) 100vw, 50vw"
+                type="image/jpeg"
+              />
+              <img
+                src="/alquimia-bonsai-1180.jpg"
+                alt="Site Alquimia do Bonsai em desktop"
+                width="1180"
+                height="737"
+                loading="lazy"
+              />
+            </picture>
           </div>
           <div className="case-copy">
             <p className="eyebrow">{t.case.eyebrow}</p>
@@ -281,7 +329,7 @@ export default function Home() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer">
+            <a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" aria-label={`${t.case.button} (${t.newTab})`}>
               {t.case.button}
             </a>
           </div>
@@ -289,7 +337,7 @@ export default function Home() {
       </section>
 
       <section id="sobre" className="section wrap about">
-        <img src="/luan-salles.jpeg" alt="Foto de Luan Salles" />
+        <img src="/luan-salles.jpeg" alt="Foto de Luan Salles" width="220" height="220" loading="lazy" />
         <div>
           <p className="eyebrow">{t.about.eyebrow}</p>
           <h2>{t.about.title}</h2>
@@ -321,7 +369,7 @@ export default function Home() {
           <h2>{t.contact.title}</h2>
           <p>{t.contact.text}</p>
           <div className="contact-actions">
-            <a className="btn btn-primary" href={briefingForm} target="_blank" rel="noreferrer">
+            <a className="btn btn-primary" href={briefingForm} target="_blank" rel="noreferrer" aria-label={`${t.contact.formButton} (${t.newTab})`}>
               {t.contact.formButton}
             </a>
             <a
@@ -329,10 +377,12 @@ export default function Home() {
               href={`https://wa.me/${phone}?text=${encodeURIComponent(t.whatsappText)}`}
               target="_blank"
               rel="noreferrer"
+              aria-label={`${t.whatsapp} (${t.newTab})`}
             >
               {t.whatsapp}
             </a>
           </div>
+          <p className="contact-note">{t.contact.note}</p>
           <a className="email" href="mailto:luanspctrabalho@gmail.com">
             luanspctrabalho@gmail.com
           </a>
@@ -341,15 +391,15 @@ export default function Home() {
         <form onSubmit={submitContact}>
           <label>
             {t.contact.labels[0]}
-            <input value={name} onChange={(event) => setName(event.target.value)} placeholder={t.contact.placeholders[0]} autoComplete="name" />
+            <input name="name" required value={name} onChange={(event) => setName(event.target.value)} placeholder={t.contact.placeholders[0]} autoComplete="name" />
           </label>
           <label>
             {t.contact.labels[1]}
-            <input value={projectType} onChange={(event) => setProjectType(event.target.value)} placeholder={t.contact.placeholders[1]} />
+            <input name="projectType" value={projectType} onChange={(event) => setProjectType(event.target.value)} placeholder={t.contact.placeholders[1]} />
           </label>
           <label>
             {t.contact.labels[2]}
-            <textarea value={message} onChange={(event) => setMessage(event.target.value)} placeholder={t.contact.placeholders[2]} />
+            <textarea name="message" required value={message} onChange={(event) => setMessage(event.target.value)} placeholder={t.contact.placeholders[2]} />
           </label>
           <button className="btn btn-secondary" type="submit">
             {t.contact.submit}
@@ -359,10 +409,10 @@ export default function Home() {
 
       <footer className="wrap">
         <span>{t.footer}</span>
-        <a href="https://github.com/LuanSalles" target="_blank" rel="noreferrer">
+        <a href="https://github.com/LuanSalles" target="_blank" rel="noreferrer" aria-label={`GitHub (${t.newTab})`}>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250" target="_blank" rel="noreferrer">
+        <a href="https://www.linkedin.com/in/luan-salles-pinheiro-da-costa-440a59250" target="_blank" rel="noreferrer" aria-label={`LinkedIn (${t.newTab})`}>
           LinkedIn
         </a>
       </footer>

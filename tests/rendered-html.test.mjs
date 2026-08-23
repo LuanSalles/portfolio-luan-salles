@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { stat } from "node:fs/promises";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -50,5 +51,21 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /Want to bring your website online\?/);
   assert.match(html, /localStorage\.getItem\("portfolioLang"\)/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
+  assert.match(html, /srcset="alquimia-bonsai-760\.jpg 760w, alquimia-bonsai-1180\.jpg 1180w"/);
+  assert.match(html, /fetchpriority="high"/);
+  assert.match(html, /loading="lazy"/);
+  assert.match(html, /type="application\/ld\+json"/);
+  assert.match(html, /aria-pressed="true"/);
+  assert.match(html, /<a class="skip-link" href="#conteudo">/);
+  assert.match(html, /name="name" required/);
+  assert.match(html, /name="message" required/);
   assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview|Base técnica complementar|Dúvidas frequentes/i);
+});
+
+test("optimized case images stay lightweight", async () => {
+  const desktop = await stat(new URL("../site/alquimia-bonsai-1180.jpg", import.meta.url));
+  const mobile = await stat(new URL("../site/alquimia-bonsai-760.jpg", import.meta.url));
+
+  assert.ok(desktop.size < 300_000);
+  assert.ok(mobile.size < 150_000);
 });
