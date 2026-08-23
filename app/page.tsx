@@ -301,31 +301,37 @@ export default function Home() {
       </section>
 
       <section id="projeto" className="section case-section">
-        <div className="wrap case">
-          <div className="case-image" aria-label={t.case.title}>
-            <div className="case-proof">
+        <div className="wrap case-showcase">
+          <div className="case-heading">
+            <div>
               <p className="eyebrow">{t.case.eyebrow}</p>
               <h2>{t.case.title}</h2>
-              <p>{alquimiaUrl.replace("https://", "")}</p>
-              <div className="case-proof-grid">
-                {t.case.summary.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
             </div>
+            <a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" aria-label={`${t.case.button} (${t.newTab})`}>
+              {t.case.button}
+            </a>
           </div>
-          <div className="case-copy">
-            <p className="eyebrow">{t.case.eyebrow}</p>
-            <h2>{t.case.title}</h2>
+
+          <div className="case-browser" aria-label={t.case.title}>
+            <div className="browser-bar">
+              <span>{alquimiaUrl.replace("https://", "")}</span>
+            </div>
+            <iframe
+              className="case-frame"
+              src={alquimiaUrl}
+              title="Site Alquimia do Bonsai"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          </div>
+
+          <div className="case-details">
             <p>{t.case.text}</p>
             <ul>
               {t.case.bullets.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" aria-label={`${t.case.button} (${t.newTab})`}>
-              {t.case.button}
-            </a>
           </div>
         </div>
       </section>

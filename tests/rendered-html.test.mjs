@@ -52,10 +52,10 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /localStorage\.getItem\("portfolioLang"\)/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
   assert.match(html, /class="hero-panel"/);
-  assert.match(html, /class="case-proof"/);
-  assert.match(html, /class="case-proof-grid"/);
+  assert.match(html, /class="case-browser"/);
+  assert.match(html, /<iframe class="case-frame" src="https:\/\/alquimiadobonsai\.com"/);
   assert.match(html, /loading="lazy"/);
-  assert.doesNotMatch(html, /case-summary|project-card|case-mobile|case-desktop|case-site|<iframe|alquimia-bonsai-mobile\.jpg/);
+  assert.doesNotMatch(html, /case-summary|project-card|case-mobile|case-desktop|case-site|case-proof|alquimia-bonsai-mobile\.jpg/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /aria-pressed="true"/);
   assert.match(html, /<a class="skip-link" href="#conteudo">/);

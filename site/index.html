@@ -415,77 +415,97 @@ h3 {
   background: var(--green);
 }
 
-.case {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
-  gap: 44px;
-  align-items: center;
-}
-
-.case-image {
-  display: block;
-  padding: 28px;
-  border-radius: 24px;
-  background: rgba(255, 250, 242, 0.96);
-  box-shadow: var(--shadow);
-}
-
-.case-proof {
+.case-showcase {
   display: grid;
   gap: 22px;
 }
 
-.case-proof h2 {
-  max-width: 8ch;
-  margin-bottom: 0;
-  font-size: clamp(2.4rem, 5vw, 4.7rem);
-  line-height: 0.94;
-}
-
-.case-proof p:not(.eyebrow) {
-  margin: 0;
-  color: var(--muted);
-  font-weight: 900;
-}
-
-.case-proof-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.case-proof-grid span {
-  min-height: 74px;
-  padding: 16px;
+.case-heading {
   display: flex;
-  align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  color: var(--green);
-  background: rgba(255, 255, 255, 0.62);
-  font-weight: 900;
+  gap: 18px;
+  align-items: end;
+  justify-content: space-between;
 }
 
-.case-copy h2,
-.case-copy h3,
-.case-copy .eyebrow {
+.case-heading h2,
+.case-heading .eyebrow {
   color: #fff;
 }
 
-.case-copy p,
-.case-copy li {
+.case-heading h2 {
+  margin-bottom: 0;
+}
+
+.case-browser {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 22px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.browser-bar {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 18px 50%, #ff6b4a 0 4px, transparent 4.5px),
+    radial-gradient(circle at 34px 50%, #e3b24c 0 4px, transparent 4.5px),
+    radial-gradient(circle at 50px 50%, #6aa36f 0 4px, transparent 4.5px),
+    #fffaf2;
+}
+
+.browser-bar span {
+  width: fit-content;
+  max-width: min(440px, calc(100% - 64px));
+  margin-left: 64px;
+  padding: 7px 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.case-frame {
+  display: block;
+  width: 100%;
+  height: clamp(420px, 58vw, 680px);
+  border: 0;
+  background: #f7f1e6;
+}
+
+.case-details {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.78fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.case-details p,
+.case-details li {
   color: rgba(255, 255, 255, 0.78);
 }
 
-.case-copy ul {
+.case-details p {
+  margin: 0;
+}
+
+.case-details ul {
   display: grid;
   gap: 9px;
-  margin: 22px 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.case-copy li::before {
+.case-details li::before {
   content: "✓";
   margin-right: 8px;
   color: var(--orange);
@@ -664,7 +684,7 @@ footer a {
 
   .hero,
   .split,
-  .case,
+  .case-details,
   .about,
   .contact {
     grid-template-columns: 1fr;
@@ -728,7 +748,7 @@ footer a {
   }
 
   .hero-panel,
-  .case-image {
+  .case-browser {
     border-radius: 18px;
   }
 
@@ -736,12 +756,18 @@ footer a {
     padding: 20px;
   }
 
-  .case-image {
-    padding: 20px;
+  .case-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
-  .case-proof-grid {
-    grid-template-columns: 1fr;
+  .case-frame {
+    height: 480px;
+  }
+
+  .browser-bar span {
+    max-width: calc(100% - 56px);
+    margin-left: 54px;
   }
 
   .about,
@@ -807,21 +833,23 @@ footer a {
       </section>
 
       <section id="projeto" class="section case-section">
-        <div class="wrap case">
-          <div class="case-image" aria-label="Alquimia do Bonsai">
-            <div class="case-proof">
-              <p class="eyebrow" data-i="case-proof-eyebrow">Projeto publicado</p>
-              <h2 data-i="case-proof-title">Alquimia do Bonsai</h2>
-              <p>alquimiadobonsai.com</p>
-              <div class="case-proof-grid"><span>PT/EN</span><span>Loja</span><span>Cursos</span><span>WhatsApp</span></div>
+        <div class="wrap case-showcase">
+          <div class="case-heading">
+            <div>
+              <p class="eyebrow" data-i="case-eyebrow">Projeto publicado</p>
+              <h2 data-i="case-title">Alquimia do Bonsai</h2>
             </div>
+            <a class="btn btn-primary case-link" href="https://alquimiadobonsai.com" target="_blank" rel="noreferrer" data-i="case-button" aria-label="Abrir site (abre em nova aba)">Abrir site</a>
           </div>
-          <div class="case-copy">
-            <p class="eyebrow" data-i="case-eyebrow">Projeto publicado</p>
-            <h2 data-i="case-title">Alquimia do Bonsai</h2>
+
+          <div class="case-browser" aria-label="Alquimia do Bonsai">
+            <div class="browser-bar"><span>alquimiadobonsai.com</span></div>
+            <iframe class="case-frame" src="https://alquimiadobonsai.com" title="Site Alquimia do Bonsai" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+
+          <div class="case-details">
             <p data-i="case-text">Site real, publicado e em uso para a marca Alquimia do Bonsai. O projeto apresenta a marca, o livro, os cursos, a loja, conteúdos educativos e canais de contato em português e inglês.</p>
             <ul><li class="">Funciona bem no computador e no celular</li><li class="">Tem versão em português e inglês</li><li class="">Organiza catálogo, favoritos e carrinho local</li><li class="">Direciona visitantes para WhatsApp, redes sociais e formulários</li></ul>
-            <a class="btn btn-primary case-link" href="https://alquimiadobonsai.com" target="_blank" rel="noreferrer" data-i="case-button" aria-label="Abrir site (abre em nova aba)">Abrir site</a>
           </div>
         </div>
       </section>
@@ -925,11 +953,8 @@ footer a {
         setText("[data-i='case-eyebrow']", t.case[0]);
         setText("[data-i='case-title']", t.case[1]);
         setText("[data-i='case-text']", t.case[2]);
-        setTexts(".case-copy li", t.caseBullets);
+        setTexts(".case-details li", t.caseBullets);
         setText("[data-i='case-button']", t.case[3]);
-        setText("[data-i='case-proof-eyebrow']", t.case[0]);
-        setText("[data-i='case-proof-title']", t.case[1]);
-        setTexts(".case-proof-grid span", t.caseSummary);
 
         setText("[data-i='about-eyebrow']", t.about[0]);
         setText("[data-i='about-title']", t.about[1]);

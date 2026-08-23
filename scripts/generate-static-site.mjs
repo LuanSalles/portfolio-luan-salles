@@ -272,21 +272,23 @@ const document = html`<!doctype html>
       </section>
 
       <section id="projeto" class="section case-section">
-        <div class="wrap case">
-          <div class="case-image" aria-label="${pt.case[1]}">
-            <div class="case-proof">
-              <p class="eyebrow" data-i="case-proof-eyebrow">${pt.case[0]}</p>
-              <h2 data-i="case-proof-title">${pt.case[1]}</h2>
-              <p>${caseUrl.replace("https://", "")}</p>
-              <div class="case-proof-grid">${tags(pt.caseSummary)}</div>
+        <div class="wrap case-showcase">
+          <div class="case-heading">
+            <div>
+              <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>
+              <h2 data-i="case-title">${pt.case[1]}</h2>
             </div>
+            <a class="btn btn-primary case-link" href="${caseUrl}" target="_blank" rel="noreferrer" data-i="case-button" aria-label="${pt.case[3]} (${pt.newTab})">${pt.case[3]}</a>
           </div>
-          <div class="case-copy">
-            <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>
-            <h2 data-i="case-title">${pt.case[1]}</h2>
+
+          <div class="case-browser" aria-label="${pt.case[1]}">
+            <div class="browser-bar"><span>${caseUrl.replace("https://", "")}</span></div>
+            <iframe class="case-frame" src="${caseUrl}" title="Site Alquimia do Bonsai" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+
+          <div class="case-details">
             <p data-i="case-text">${pt.case[2]}</p>
             <ul>${list(pt.caseBullets)}</ul>
-            <a class="btn btn-primary case-link" href="${caseUrl}" target="_blank" rel="noreferrer" data-i="case-button" aria-label="${pt.case[3]} (${pt.newTab})">${pt.case[3]}</a>
           </div>
         </div>
       </section>
@@ -390,11 +392,8 @@ const document = html`<!doctype html>
         setText("[data-i='case-eyebrow']", t.case[0]);
         setText("[data-i='case-title']", t.case[1]);
         setText("[data-i='case-text']", t.case[2]);
-        setTexts(".case-copy li", t.caseBullets);
+        setTexts(".case-details li", t.caseBullets);
         setText("[data-i='case-button']", t.case[3]);
-        setText("[data-i='case-proof-eyebrow']", t.case[0]);
-        setText("[data-i='case-proof-title']", t.case[1]);
-        setTexts(".case-proof-grid span", t.caseSummary);
 
         setText("[data-i='about-eyebrow']", t.about[0]);
         setText("[data-i='about-title']", t.about[1]);
