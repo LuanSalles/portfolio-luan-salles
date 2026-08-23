@@ -279,9 +279,6 @@ const document = html`<!doctype html>
               <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 48vw" type="image/jpeg" />
               <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="533" loading="lazy" />
             </picture>
-            <picture class="case-mobile">
-              <img src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai no celular" width="420" height="911" loading="lazy" />
-            </picture>
           </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>

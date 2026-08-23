@@ -53,10 +53,9 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
   assert.match(html, /srcset="alquimia-bonsai-760\.jpg 760w, alquimia-bonsai-1180\.jpg 1180w"/);
   assert.match(html, /fetchpriority="high"/);
-  assert.match(html, /class="case-mobile"/);
-  assert.match(html, /alquimia-bonsai-mobile\.jpg/);
+  assert.match(html, /class="case-desktop"/);
   assert.match(html, /loading="lazy"/);
-  assert.doesNotMatch(html, /case-summary|project-card/);
+  assert.doesNotMatch(html, /case-summary|project-card|case-mobile|alquimia-bonsai-mobile\.jpg/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /aria-pressed="true"/);
   assert.match(html, /<a class="skip-link" href="#conteudo">/);

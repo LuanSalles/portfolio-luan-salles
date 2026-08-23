@@ -321,15 +321,6 @@ export default function Home() {
                 loading="lazy"
               />
             </picture>
-            <picture className="case-mobile">
-              <img
-                src="/alquimia-bonsai-mobile.jpg"
-                alt="Site Alquimia do Bonsai no celular"
-                width="420"
-                height="911"
-                loading="lazy"
-              />
-            </picture>
           </div>
           <div className="case-copy">
             <p className="eyebrow">{t.case.eyebrow}</p>

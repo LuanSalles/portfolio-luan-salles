@@ -404,14 +404,24 @@ h3 {
 }
 
 .case-image {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(86px, 18%, 128px);
-  gap: 14px;
-  align-items: end;
-  padding: 18px;
+  display: block;
+  padding: 14px;
   border-radius: 24px;
   background: rgba(255, 250, 242, 0.96);
   box-shadow: var(--shadow);
+}
+
+.case-image::before {
+  content: "";
+  display: block;
+  height: 12px;
+  margin: 0 0 12px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 6px 6px, #ff6b4a 0 4px, transparent 4.5px),
+    radial-gradient(circle at 22px 6px, #e3b24c 0 4px, transparent 4.5px),
+    radial-gradient(circle at 38px 6px, #6aa36f 0 4px, transparent 4.5px),
+    rgba(18, 54, 40, 0.06);
 }
 
 .case-image picture {
@@ -421,31 +431,20 @@ h3 {
 .case-image img {
   display: block;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   background: #f7f1e6;
 }
 
 .case-desktop {
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 14px;
   border: 1px solid rgba(18, 54, 40, 0.12);
-  box-shadow: 0 12px 28px rgba(18, 54, 40, 0.12);
+  box-shadow: 0 10px 24px rgba(18, 54, 40, 0.1);
 }
 
 .case-desktop img {
   aspect-ratio: 1180 / 533;
-}
-
-.case-mobile {
-  overflow: hidden;
-  border: 6px solid var(--paper);
-  border-radius: 18px;
-  box-shadow: 0 14px 28px rgba(18, 54, 40, 0.18);
-}
-
-.case-mobile img {
-  aspect-ratio: 420 / 911;
 }
 
 .case-copy h2,
@@ -715,14 +714,7 @@ footer a {
   }
 
   .case-image {
-    grid-template-columns: 1fr;
     padding: 12px;
-  }
-
-  .case-mobile {
-    width: min(46%, 150px);
-    justify-self: end;
-    border-radius: 16px;
   }
 
   .about,
@@ -794,9 +786,6 @@ footer a {
             <picture class="case-desktop">
               <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 48vw" type="image/jpeg" />
               <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="533" loading="lazy" />
-            </picture>
-            <picture class="case-mobile">
-              <img src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai no celular" width="420" height="911" loading="lazy" />
             </picture>
           </div>
           <div class="case-copy">
