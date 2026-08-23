@@ -13,14 +13,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Luan Salles | Criação de sites profissionais",
+  metadataBase: new URL("https://portfolio-luan-one.vercel.app"),
+  title: "Luan Salles | Desenvolvimento web para sites profissionais",
   description:
-    "Criação de sites institucionais, landing pages e soluções web para profissionais e pequenos negócios.",
+    "Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Luan Salles | Criação de sites profissionais",
+    title: "Luan Salles | Desenvolvimento web para sites profissionais",
     description:
-      "Sites institucionais e landing pages com foco em clareza, versão mobile e contato rápido.",
+      "Sites institucionais e landing pages com foco em clareza, versão mobile, performance e contato rápido.",
+    url: "/",
+    siteName: "Luan Salles",
     type: "website",
+    locale: "pt_BR",
+    images: [
+      {
+        url: "/alquimia-bonsai-desktop.png",
+        width: 1600,
+        height: 900,
+        alt: "Site Alquimia do Bonsai desenvolvido por Luan Salles",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Luan Salles | Desenvolvimento web para sites profissionais",
+    description:
+      "Sites institucionais e landing pages com foco em clareza, versão mobile, performance e contato rápido.",
+    images: ["/alquimia-bonsai-desktop.png"],
   },
   icons: {
     icon: [{ url: "/favicon-ls.svg", type: "image/svg+xml" }],

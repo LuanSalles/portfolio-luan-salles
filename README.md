@@ -1,6 +1,6 @@
 # portfolio-luan-salles
 
-Portfólio profissional de Luan Salles, desenvolvido para apresentar serviços de criação de sites institucionais, landing pages e sistemas web para profissionais e pequenos negócios.
+Portfólio profissional de Luan Salles, desenvolvido para apresentar serviços de desenvolvimento web com foco em sites institucionais, landing pages e evolução de sites para profissionais e pequenos negócios.
 
 ![Prévia do portfólio](./docs/portfolio-preview.png)
 
@@ -10,13 +10,13 @@ Portfólio profissional de Luan Salles, desenvolvido para apresentar serviços d
 
 ## Sobre o projeto
 
-Este portfólio foi criado com foco comercial: apresentar de forma clara o que Luan desenvolve, para quem o serviço é indicado, como funciona o processo de contratação e quais projetos já foram construídos.
+Este portfólio foi criado com foco comercial: apresentar Luan Salles como desenvolvedor web especializado em criação de sites profissionais, mostrar para quem o serviço é indicado, como funciona o processo de contratação e quais projetos já foram construídos.
 
 O site inclui:
 
 - apresentação dos serviços principais;
 - estudo de caso do projeto Alquimia do Bonsai;
-- demonstração sanitizada do FuteGestão CT com dados fictícios;
+- demonstração sanitizada do FuteGestão CT como prova técnica complementar;
 - seção sobre o desenvolvedor;
 - área técnica para recrutadores e parceiros;
 - seletor de idioma em português e inglês;
@@ -29,6 +29,7 @@ O site inclui:
 - Layout responsivo para desktop e celular.
 - Organização da copy comercial.
 - Seções de serviços, estudo de caso, sobre, processo, tecnologias, FAQ e contato.
+- Reposicionamento do portfólio para desenvolvimento web focado em sites.
 - Integração com Google Forms para solicitação de proposta.
 - Mensagem pré-preenchida para contato via WhatsApp.
 - Tradução PT/EN do conteúdo principal e das mensagens de contato.
@@ -79,6 +80,7 @@ public/
   alquimia-bonsai-desktop.png
 docs/
   portfolio-preview.png
+  mercado-desenvolvimento-web-2026.md
 site/
   index.html
   favicon-ls.svg
@@ -92,8 +94,12 @@ O projeto publicado utiliza Vercel. A configuração em `vercel.json` publica a 
 
 Depois de conectar o repositório à Vercel, novos commits na branch principal geram uma nova publicação automaticamente.
 
-## Observações
+## Projeto publicado
 
-O projeto Alquimia do Bonsai é apresentado como estudo de caso. O link público foi removido temporariamente do portfólio enquanto o projeto passa por revisão de segurança e conteúdo.
+O projeto Alquimia do Bonsai é apresentado como estudo de caso finalizado e publicado:
+
+[alquimiadobonsai.com](https://alquimiadobonsai.com)
+
+## Observações
 
 O FuteGestão CT é apresentado com dados fictícios para preservar informações privadas.

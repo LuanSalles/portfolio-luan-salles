@@ -6,6 +6,7 @@ type Lang = "pt" | "en";
 
 const phone = "5521979231817";
 const briefingForm = "https://forms.gle/ebQXBwmDUHUt6zwn7";
+const alquimiaUrl = "https://alquimiadobonsai.com";
 
 const content = {
   pt: {
@@ -17,54 +18,55 @@ const content = {
     whatsappText: "Oi, Luan. Quero tirar uma dúvida sobre criação de site.",
     floating: "Tirar dúvida",
     hero: {
-      eyebrow: "Sites profissionais sob medida",
-      title: "Sites profissionais para transformar visitas em contatos e oportunidades.",
+      eyebrow: "Desenvolvimento web focado em sites",
+      title: "Sites profissionais para negócios que precisam vender melhor online.",
       lead:
-        "Desenvolvo sites institucionais e landing pages para profissionais e pequenos negócios que precisam apresentar seus serviços com clareza, funcionar bem no celular e levar o cliente direto para o próximo passo.",
+        "Sou Luan Salles, desenvolvedor web em Niterói. Crio sites institucionais, landing pages e páginas comerciais para profissionais e pequenos negócios que precisam de presença digital clara, rápida e pronta para gerar contato.",
       primary: "Solicitar proposta",
-      secondary: "Ver projetos",
+      secondary: "Ver site publicado",
       imageAlt: "Página inicial do site Alquimia do Bonsai",
     },
-    servicesTitle: "O site certo para cada objetivo.",
+    servicesTitle: "Meu foco é construir sites. Bem feitos, responsivos e fáceis de entender.",
     services: [
       {
-        title: "Site institucional",
+        title: "Sites institucionais",
         text:
-          "Para profissionais, lojas locais, clínicas, estúdios, prestadores de serviço e pequenos negócios que precisam ser encontrados e gerar contato.",
-        items: ["Home, sobre, serviços e contato", "WhatsApp, mapa e redes sociais", "Layout responsivo para celular"],
+          "Para empresas, profissionais liberais, lojas locais, clínicas, estúdios e prestadores de serviço que precisam apresentar marca, serviços e formas de contato.",
+        items: ["Home, sobre, serviços e contato", "Versão mobile bem resolvida", "Publicação com domínio e SEO básico"],
       },
       {
-        title: "Landing page",
+        title: "Landing pages",
         text:
-          "Para divulgar uma oferta específica, curso, evento, campanha, produto ou serviço com uma página objetiva e pronta para receber leads.",
-        items: ["Headline e seções de venda", "Botões de ação bem posicionados", "Publicação em domínio próprio ou Vercel"],
+          "Para vender uma oferta específica, divulgar campanha, captar leads, apresentar um lançamento ou organizar uma página objetiva de conversão.",
+        items: ["Copy direta e seções de venda", "Botões de ação bem posicionados", "Integração com WhatsApp ou formulário"],
       },
       {
-        title: "Melhoria de site existente",
+        title: "Evolução de sites",
         text:
-          "Para quem já tem um site no ar, mas precisa melhorar aparência, organização, versão mobile ou caminho de contato.",
-        items: ["Correção visual", "Organização e adaptação dos textos e imagens fornecidos", "Novas seções ou páginas"],
+          "Para quem já tem um site no ar, mas precisa melhorar aparência, organização, performance, conteúdo, versão mobile ou caminho de contato.",
+        items: ["Correção visual e responsiva", "Novas seções ou páginas", "Ajustes de conteúdo e experiência"],
       },
     ],
     case: {
       eyebrow: "Estudo de caso",
       title: "Alquimia do Bonsai · Bonsai Alchemy",
       text:
-        "A marca precisava apresentar produtos, cursos, livro, materiais educativos e canais comerciais sem espalhar o visitante por vários links. O projeto organizou essa presença em um site responsivo e bilíngue, com navegação clara e caminhos diretos para compra, inscrição e contato.",
+        "Site completo, publicado e em uso para a marca Alquimia do Bonsai. O projeto reúne apresentação institucional, livro, cursos, conteúdos educativos, catálogo, loja, redes sociais e contato em uma experiência responsiva e bilíngue.",
       blocks: [
-        ["Problema", "Diferentes públicos precisavam encontrar produtos, escola, livro, conteúdos e contato em um único lugar."],
-        ["Solução", "Criação de uma plataforma bilíngue com catálogo, páginas comerciais, materiais digitais e integrações externas."],
+        ["Objetivo", "Centralizar produtos, escola, livro, conteúdos e canais comerciais em um site profissional, sem depender de vários links soltos."],
+        ["Solução", "Criação de um site bilíngue com páginas comerciais, catálogo, materiais digitais, navegação clara e integrações externas."],
         ["Minha atuação", "Estrutura das páginas, desenvolvimento frontend, responsividade, interações, organização dos conteúdos e publicação."],
-        ["Resultado", "Uma presença digital única para apresentar a marca e direcionar visitantes para WhatsApp, Amazon, formulários e materiais."],
+        ["Resultado", "Um site funcional, publicado em domínio próprio e pronto para receber visitantes, apresentar a marca e direcionar contatos."],
       ],
       proof: [
         "Estrutura e implementação das páginas",
         "Versões em português e inglês",
         "Catálogo com filtros, favoritos e carrinho local",
         "Integrações com WhatsApp, redes sociais, PDFs e formulários",
-        "Publicação na Vercel",
+        "Publicação em domínio próprio",
       ],
-      note: "Link público temporariamente removido do portfólio enquanto o projeto passa por revisão de segurança e conteúdo.",
+      note: "Projeto 100% funcional e publicado. Este é o principal estudo de caso do meu portfólio como desenvolvedor web focado em sites.",
+      liveLabel: "Ver site publicado",
       imageAlt: "Site Alquimia do Bonsai em desktop",
     },
     about: {
@@ -84,10 +86,10 @@ const content = {
       ],
     },
     system: {
-      eyebrow: "Além de sites",
-      title: "FuteGestão CT: sistema em desenvolvimento para gestão de centros de futevôlei.",
+      eyebrow: "Base técnica complementar",
+      title: "Também desenvolvo sistemas web, mas meu foco comercial agora é criação de sites.",
       text:
-        "O produto organiza alunos, turmas, chamada, frequência, pagamentos, equipe e permissões de acesso. A apresentação pública usa dados fictícios para mostrar a lógica do sistema sem expor nomes, telefones ou informações internas.",
+        "O FuteGestão CT mostra minha capacidade de trabalhar com regras de negócio, painéis, permissões e dados. Essa experiência fortalece meus projetos de site, porque me ajuda a pensar em estrutura, organização, performance e evolução técnica.",
       aria: "Demonstração sem dados reais do FuteGestão CT",
       metrics: ["alunos ativos", "turmas", "presença"],
       rows: [
@@ -97,10 +99,10 @@ const content = {
       ],
     },
     technical: {
-      eyebrow: "Para recrutadores e parceiros técnicos",
-      title: "Além do visual, eu trabalho com estrutura, implementação e entrega.",
+      eyebrow: "Tecnologias para desenvolvimento web",
+      title: "Construo sites com código, responsividade e atenção à entrega.",
       text:
-        "Este portfólio é voltado principalmente para clientes, mas também resume minha base técnica: desenvolvimento frontend, construção de sistemas web, autenticação, banco de dados, deploy e organização de produto a partir de problemas reais.",
+        "Meu caminho profissional é desenvolvimento web. Trabalho com HTML, CSS, JavaScript e React, organizando páginas, componentes, integrações, deploy e manutenção para entregar sites que funcionam bem no celular e no desktop.",
       groups: [
         ["Frontend", ["HTML", "CSS", "JavaScript", "React", "Vite", "Tailwind CSS"]],
         ["Backend e dados", ["Node.js", "Express", "Prisma", "SQLite", "PostgreSQL", "JWT"]],
@@ -109,23 +111,23 @@ const content = {
     },
     trust: {
       eyebrow: "Confiança",
-      title: "O que fica definido antes do desenvolvimento.",
+      title: "O que precisa ficar claro antes de construir um site.",
       text:
-        "O cliente envia identidade visual, textos, imagens e informações disponíveis. Quando necessário, oriento sobre formatos e materiais necessários para construir o site.",
+        "O mercado de sites varia muito de preço porque cada projeto tem escopo, conteúdo, prazo e integrações diferentes. Por isso eu trabalho com orçamento por projeto, depois de entender o objetivo do site.",
       items: [
         "Atendimento em Niterói e remoto",
         "Layout adaptado para celular, tablet e computador",
         "Orientação sobre domínio e hospedagem",
         "Escopo e investimento definidos antes do desenvolvimento",
         "Revisão antes da publicação",
-        "Mensagens de contato configuradas",
+        "Contato via WhatsApp, e-mail ou formulário configurado",
       ],
     },
     process: {
       eyebrow: "Processo",
       title: "Como o orçamento vira site publicado.",
       text:
-        "A entrega começa com informação organizada. Quanto melhor o levantamento, mais preciso fica o escopo, o prazo e o valor.",
+        "Um bom site não começa no código. Começa entendendo o negócio, o público, o objetivo da página e qual ação o visitante precisa tomar.",
       steps: [
         ["Levantamento do projeto", "Você envia tipo de negócio, objetivo, páginas necessárias, prazo, referências e materiais disponíveis."],
         ["Definição do escopo", "Eu organizo o que será entregue, quais materiais faltam, prazo estimado e custos externos possíveis."],
@@ -135,9 +137,9 @@ const content = {
     },
     contact: {
       eyebrow: "Proposta",
-      title: "Envie as informações do projeto antes da conversa.",
+      title: "Precisa de um site profissional para seu negócio?",
       text:
-        "O formulário reúne objetivo, tipo de site, páginas, prazo, referências e materiais disponíveis. Com isso, eu consigo responder com perguntas melhores e uma proposta mais realista.",
+        "Me envie o tipo de site, objetivo, prazo, referências e materiais disponíveis. Com essas informações eu consigo avaliar escopo, prazo e investimento com mais precisão.",
       proposal: "Solicitar proposta",
       labels: ["Nome", "Tipo de site ou negócio", "Mensagem"],
       placeholders: [
@@ -159,10 +161,10 @@ const content = {
       items: [
         ["O domínio está incluído?", "O domínio é contratado em nome do cliente. O custo é informado separadamente antes da contratação."],
         ["A hospedagem está incluída?", "Depende da estrutura do projeto. As opções e possíveis custos são apresentados junto com a proposta."],
+        ["Quanto custa um site?", "O valor depende do escopo. Como referência de mercado, landing pages e sites institucionais costumam variar bastante conforme páginas, conteúdo, integrações e prazo."],
         ["Quem envia textos e imagens?", "Os materiais são fornecidos pelo cliente. Eu organizo e adapto esse conteúdo para uso no site e oriento sobre o que estiver faltando."],
         ["O site funciona no celular?", "Sim. Todos os projetos são desenvolvidos com adaptação para celulares, tablets e computadores."],
         ["Posso solicitar alterações?", "Sim. O número de revisões e os tipos de alteração ficam definidos na proposta antes do início."],
-        ["Há mensalidade?", "Depende das ferramentas, hospedagem, banco de dados e manutenção escolhidos. Todos os custos recorrentes são informados antes da contratação."],
       ],
     },
     footer: ["Luan Salles · Desenvolvimento de sites", "Niterói/RJ · Atendimento remoto"],
@@ -176,54 +178,55 @@ const content = {
     whatsappText: "Hi, Luan. I want to ask a question about a website project.",
     floating: "Ask a question",
     hero: {
-      eyebrow: "Custom professional websites",
-      title: "Professional websites that turn visits into contacts and opportunities.",
+      eyebrow: "Web development focused on websites",
+      title: "Professional websites for businesses that need to sell better online.",
       lead:
-        "I build institutional websites and landing pages for professionals and small businesses that need to present their services clearly, work well on mobile, and guide visitors to the next step.",
+        "I am Luan Salles, a web developer based in Niterói, Brazil. I build business websites, landing pages, and commercial pages for professionals and small businesses that need a clear, fast, mobile-ready online presence.",
       primary: "Request a proposal",
-      secondary: "View projects",
+      secondary: "View live website",
       imageAlt: "Homepage of the Alquimia do Bonsai website",
     },
-    servicesTitle: "The right website for each goal.",
+    servicesTitle: "My focus is building websites. Clear, responsive, and easy to understand.",
     services: [
       {
-        title: "Business website",
+        title: "Business websites",
         text:
-          "For professionals, local shops, clinics, studios, service providers, and small businesses that need to be found and receive qualified contacts.",
-        items: ["Home, about, services, and contact", "WhatsApp, map, and social links", "Responsive layout for mobile"],
+          "For companies, independent professionals, local shops, clinics, studios, and service providers that need to present their brand, services, and contact paths.",
+        items: ["Home, about, services, and contact", "Strong mobile experience", "Publishing with domain and basic SEO"],
       },
       {
-        title: "Landing page",
+        title: "Landing pages",
         text:
-          "For promoting a specific offer, course, event, campaign, product, or service with a focused page designed to receive leads.",
-        items: ["Headline and sales sections", "Well-positioned call-to-action buttons", "Publishing on a custom domain or Vercel"],
+          "For selling a specific offer, promoting a campaign, capturing leads, launching a product, or organizing a focused conversion page.",
+        items: ["Direct copy and sales sections", "Well-positioned call-to-action buttons", "WhatsApp or form integration"],
       },
       {
-        title: "Existing website improvement",
+        title: "Website improvements",
         text:
-          "For businesses that already have a website online but need better visuals, organization, mobile experience, or contact flow.",
-        items: ["Visual corrections", "Organization and adaptation of provided text and images", "New sections or pages"],
+          "For businesses that already have a website online but need better visuals, organization, performance, content, mobile experience, or contact flow.",
+        items: ["Visual and responsive fixes", "New sections or pages", "Content and experience adjustments"],
       },
     ],
     case: {
       eyebrow: "Case study",
       title: "Alquimia do Bonsai · Bonsai Alchemy",
       text:
-        "The brand needed to present products, courses, a book, educational materials, and commercial channels without sending visitors through scattered links. The project organized that presence into a responsive bilingual website with clear navigation and direct paths to purchase, sign up, and contact.",
+        "A complete, published, live website for Alquimia do Bonsai. The project brings together institutional presentation, book, courses, educational content, catalog, shop, social channels, and contact in a responsive bilingual experience.",
       blocks: [
-        ["Problem", "Different audiences needed to find products, the school, the book, content, and contact channels in one place."],
-        ["Solution", "Creation of a bilingual platform with a catalog, commercial pages, digital materials, and external integrations."],
+        ["Goal", "Centralize products, school, book, content, and commercial channels in a professional website instead of relying on scattered links."],
+        ["Solution", "Creation of a bilingual website with commercial pages, catalog, digital materials, clear navigation, and external integrations."],
         ["My role", "Page structure, frontend development, responsiveness, interactions, content organization, and publishing."],
-        ["Result", "A single digital presence to present the brand and direct visitors to WhatsApp, Amazon, forms, and materials."],
+        ["Result", "A functional website, published on a custom domain and ready to receive visitors, present the brand, and direct contacts."],
       ],
       proof: [
         "Page structure and implementation",
         "Portuguese and English versions",
         "Catalog with filters, favorites, and local cart",
         "Integrations with WhatsApp, social networks, PDFs, and forms",
-        "Published on Vercel",
+        "Published on a custom domain",
       ],
-      note: "The public link is temporarily removed from the portfolio while the project goes through security and content review.",
+      note: "Fully functional and published project. This is the main case study in my portfolio as a web developer focused on websites.",
+      liveLabel: "View live website",
       imageAlt: "Alquimia do Bonsai website on desktop",
     },
     about: {
@@ -243,10 +246,10 @@ const content = {
       ],
     },
     system: {
-      eyebrow: "Beyond websites",
-      title: "FuteGestão CT: a web system in development for managing footvolley training centers.",
+      eyebrow: "Complementary technical background",
+      title: "I also build web systems, but my commercial focus now is website development.",
       text:
-        "The product organizes students, classes, attendance, frequency, payments, staff, and access permissions. The public presentation uses fictitious data to show the system logic without exposing names, phone numbers, or internal information.",
+        "FuteGestão CT shows my ability to work with business rules, dashboards, permissions, and data. That experience strengthens my website projects because it helps me think about structure, organization, performance, and technical evolution.",
       aria: "Demo without real FuteGestão CT data",
       metrics: ["active students", "classes", "attendance"],
       rows: [
@@ -256,10 +259,10 @@ const content = {
       ],
     },
     technical: {
-      eyebrow: "For recruiters and technical partners",
-      title: "Beyond visuals, I work with structure, implementation, and delivery.",
+      eyebrow: "Technologies for web development",
+      title: "I build websites with code, responsiveness, and delivery in mind.",
       text:
-        "This portfolio is mainly focused on clients, but it also summarizes my technical base: frontend development, web systems, authentication, databases, deployment, and product organization from real problems.",
+        "My professional path is web development. I work with HTML, CSS, JavaScript, and React, organizing pages, components, integrations, deployment, and maintenance to deliver websites that work well on mobile and desktop.",
       groups: [
         ["Frontend", ["HTML", "CSS", "JavaScript", "React", "Vite", "Tailwind CSS"]],
         ["Backend and data", ["Node.js", "Express", "Prisma", "SQLite", "PostgreSQL", "JWT"]],
@@ -268,23 +271,23 @@ const content = {
     },
     trust: {
       eyebrow: "Trust",
-      title: "What gets defined before development starts.",
+      title: "What needs to be clear before building a website.",
       text:
-        "The client sends available brand identity, text, images, and business information. When needed, I provide guidance on formats and materials required to build the website.",
+        "Website pricing varies a lot because each project has a different scope, content, timeline, and integrations. That is why I estimate each project after understanding the website goal.",
       items: [
         "Service in Niterói and remotely",
         "Layout adapted for mobile, tablet, and desktop",
         "Guidance on domain and hosting",
         "Scope and investment defined before development",
         "Review before publishing",
-        "Contact messages configured",
+        "WhatsApp, email, or form contact configured",
       ],
     },
     process: {
       eyebrow: "Process",
       title: "How a proposal becomes a published website.",
       text:
-        "Delivery starts with organized information. The better the initial briefing, the more precise the scope, timeline, and investment become.",
+        "A good website does not start with code. It starts by understanding the business, the audience, the page goal, and the action visitors should take.",
       steps: [
         ["Project briefing", "You send the business type, goal, required pages, timeline, references, and available materials."],
         ["Scope definition", "I organize what will be delivered, which materials are missing, the estimated timeline, and possible external costs."],
@@ -294,9 +297,9 @@ const content = {
     },
     contact: {
       eyebrow: "Proposal",
-      title: "Send the project information before the conversation.",
+      title: "Need a professional website for your business?",
       text:
-        "The form gathers the goal, website type, pages, timeline, references, and available materials. With that, I can respond with better questions and a more realistic proposal.",
+        "Send me the website type, goal, timeline, references, and available materials. With that, I can evaluate scope, timeline, and investment more precisely.",
       proposal: "Request a proposal",
       labels: ["Name", "Website or business type", "Message"],
       placeholders: [
@@ -318,10 +321,10 @@ const content = {
       items: [
         ["Is the domain included?", "The domain is registered under the client's name. The cost is informed separately before hiring."],
         ["Is hosting included?", "It depends on the project structure. Options and possible costs are presented with the proposal."],
+        ["How much does a website cost?", "It depends on the scope. As a market reference, landing pages and business websites vary a lot depending on pages, content, integrations, and timeline."],
         ["Who sends the text and images?", "The materials are provided by the client. I organize and adapt that content for the website and point out what is missing."],
         ["Does the website work on mobile?", "Yes. All projects are developed for mobile phones, tablets, and desktop computers."],
         ["Can I request changes?", "Yes. The number of revisions and types of changes are defined in the proposal before the start."],
-        ["Is there a monthly fee?", "It depends on the tools, hosting, database, and maintenance chosen. All recurring costs are informed before hiring."],
       ],
     },
     footer: ["Luan Salles · Website development", "Niterói/RJ, Brazil · Remote service"],
@@ -472,6 +475,11 @@ export default function Home() {
               <span>JavaScript</span>
               <span>Responsivo</span>
               <span>Vercel</span>
+            </div>
+            <div className="case-actions">
+              <a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer">
+                {t.case.liveLabel}
+              </a>
             </div>
             <p className="case-note">{t.case.note}</p>
           </div>
