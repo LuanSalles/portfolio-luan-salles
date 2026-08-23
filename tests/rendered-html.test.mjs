@@ -30,11 +30,12 @@ test("server-renders the web development portfolio", async () => {
 
   const html = await response.text();
   assert.match(html, /Luan Salles \| Desenvolvimento web para sites profissionais/);
-  assert.match(html, /Desenvolvimento web focado em sites/);
-  assert.match(html, /Sites profissionais para negócios que precisam vender melhor online/);
+  assert.match(html, /Desenvolvedor web/);
+  assert.match(html, /Sites claros, responsivos e prontos para gerar contato/);
   assert.match(html, /Alquimia do Bonsai/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
-  assert.match(html, /Base técnica complementar/);
+  assert.match(html, /Quem vai construir seu site/);
+  assert.doesNotMatch(html, /Base técnica complementar|Dúvidas frequentes|FuteGestão CT/);
   assert.doesNotMatch(html, /Codex is working|Your site is taking shape|codex-preview/i);
 });
 
@@ -44,10 +45,10 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /<link rel="canonical" href="https:\/\/portfolio-luan-one\.vercel\.app\/" \/>/);
   assert.match(html, /<meta property="og:title" content="Luan Salles \| Desenvolvimento web para sites profissionais" \/>/);
   assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
-  assert.match(html, /const i18n = \{/);
-  assert.match(html, /Web development focused on websites/);
-  assert.match(html, /Need a professional website for your business\?/);
+  assert.match(html, /const i18n = /);
+  assert.match(html, /Clear, responsive websites built to generate contact/);
+  assert.match(html, /Want to bring your website online\?/);
   assert.match(html, /localStorage\.getItem\("portfolioLang"\)/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
-  assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview/i);
+  assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview|Base técnica complementar|Dúvidas frequentes/i);
 });
