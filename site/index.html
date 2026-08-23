@@ -327,23 +327,42 @@ h3 {
   font-weight: 800;
 }
 
-.hero-preview {
-  overflow: hidden;
-  align-self: center;
-  width: 100%;
-  border: 10px solid var(--paper);
+.hero-panel {
+  align-self: stretch;
+  padding: 28px;
+  border: 1px solid var(--line);
   border-radius: 24px;
-  background: var(--paper);
+  background: rgba(255, 250, 242, 0.88);
   box-shadow: var(--shadow);
 }
 
-.hero-preview img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1180 / 533;
-  object-fit: cover;
-  object-position: center;
-  background: #f7f1e6;
+.hero-panel h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+}
+
+.hero-panel-list {
+  display: grid;
+  gap: 12px;
+}
+
+.hero-panel-list article {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.hero-panel-list h3 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.hero-panel-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.55;
 }
 
 .section {
@@ -405,34 +424,46 @@ h3 {
 
 .case-image {
   display: block;
-  padding: 14px;
+  padding: 28px;
   border-radius: 24px;
   background: rgba(255, 250, 242, 0.96);
   box-shadow: var(--shadow);
 }
 
-.case-image::before {
-  content: "";
-  display: block;
-  height: 12px;
-  margin: 0 0 12px;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 6px 6px, #ff6b4a 0 4px, transparent 4.5px),
-    radial-gradient(circle at 22px 6px, #e3b24c 0 4px, transparent 4.5px),
-    radial-gradient(circle at 38px 6px, #6aa36f 0 4px, transparent 4.5px),
-    rgba(18, 54, 40, 0.06);
+.case-proof {
+  display: grid;
+  gap: 22px;
 }
 
-.case-site {
-  display: block;
-  width: 100%;
-  min-height: 430px;
-  aspect-ratio: 16 / 10;
-  border: 1px solid rgba(18, 54, 40, 0.12);
-  border-radius: 14px;
-  background: #f7f1e6;
-  box-shadow: 0 10px 24px rgba(18, 54, 40, 0.1);
+.case-proof h2 {
+  max-width: 8ch;
+  margin-bottom: 0;
+  font-size: clamp(2.4rem, 5vw, 4.7rem);
+  line-height: 0.94;
+}
+
+.case-proof p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.case-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.case-proof-grid span {
+  min-height: 74px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--green);
+  background: rgba(255, 255, 255, 0.62);
+  font-weight: 900;
 }
 
 .case-copy h2,
@@ -696,13 +727,21 @@ footer a {
     padding: 54px 0;
   }
 
-  .hero-preview,
+  .hero-panel,
   .case-image {
     border-radius: 18px;
   }
 
+  .hero-panel {
+    padding: 20px;
+  }
+
   .case-image {
-    padding: 12px;
+    padding: 20px;
+  }
+
+  .case-proof-grid {
+    grid-template-columns: 1fr;
   }
 
   .about,
@@ -751,11 +790,10 @@ footer a {
           <p class="cta-note" data-i="hero-helper">Site para negócios · Landing pages · Ajustes em sites</p>
           <div class="hero-tags" aria-label="Serviços principais"><span>Site para negócios</span><span>Landing pages</span><span>Ajustes em sites</span></div>
         </div>
-        <div class="hero-preview">
-          <picture>
-            <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 42vw" type="image/jpeg" />
-            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="533" fetchpriority="high" />
-          </picture>
+        <div class="hero-panel" aria-label="Resumo dos serviços">
+          <p class="eyebrow" data-i="hero-panel-eyebrow">Desenvolvedor web</p>
+          <h2 data-i="hero-panel-title">Sites para apresentar, vender e receber contatos</h2>
+          <div class="hero-panel-list"><article class="hero-panel-item"><h3>Site para seu negócio</h3><p>Uma página completa para mostrar quem você é, o que oferece e como o cliente pode falar com você.</p></article><article class="hero-panel-item"><h3>Landing page</h3><p>Uma página direta para divulgar uma oferta, serviço, curso, evento ou campanha específica.</p></article><article class="hero-panel-item"><h3>Melhoria de site</h3><p>Para deixar um site atual mais bonito, mais organizado e melhor no celular.</p></article></div>
         </div>
       </section>
 
@@ -771,7 +809,12 @@ footer a {
       <section id="projeto" class="section case-section">
         <div class="wrap case">
           <div class="case-image" aria-label="Alquimia do Bonsai">
-            <iframe class="case-site" src="https://alquimiadobonsai.com" title="Site Alquimia do Bonsai" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <div class="case-proof">
+              <p class="eyebrow" data-i="case-proof-eyebrow">Projeto publicado</p>
+              <h2 data-i="case-proof-title">Alquimia do Bonsai</h2>
+              <p>alquimiadobonsai.com</p>
+              <div class="case-proof-grid"><span>PT/EN</span><span>Loja</span><span>Cursos</span><span>WhatsApp</span></div>
+            </div>
           </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">Projeto publicado</p>
@@ -863,6 +906,12 @@ footer a {
         setText("[data-i='hero-secondary']", t.hero[4]);
         setText("[data-i='hero-helper']", t.hero[5]);
         setTexts(".hero-tags span", t.highlights);
+        setText("[data-i='hero-panel-eyebrow']", t.hero[0]);
+        setText("[data-i='hero-panel-title']", t.servicesTitle);
+        document.querySelectorAll(".hero-panel-item").forEach((card, index) => {
+          card.querySelector("h3").textContent = t.services[index][0];
+          card.querySelector("p").textContent = t.services[index][1];
+        });
 
         setText("[data-i='services-eyebrow']", t.nav[0]);
         setText("[data-i='services-title']", t.servicesTitle);
@@ -878,6 +927,9 @@ footer a {
         setText("[data-i='case-text']", t.case[2]);
         setTexts(".case-copy li", t.caseBullets);
         setText("[data-i='case-button']", t.case[3]);
+        setText("[data-i='case-proof-eyebrow']", t.case[0]);
+        setText("[data-i='case-proof-title']", t.case[1]);
+        setTexts(".case-proof-grid span", t.caseSummary);
 
         setText("[data-i='about-eyebrow']", t.about[0]);
         setText("[data-i='about-title']", t.about[1]);

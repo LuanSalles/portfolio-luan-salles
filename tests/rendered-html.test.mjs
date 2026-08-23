@@ -51,11 +51,11 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /Want to create or improve your website\?/);
   assert.match(html, /localStorage\.getItem\("portfolioLang"\)/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
-  assert.match(html, /srcset="alquimia-bonsai-760\.jpg 760w, alquimia-bonsai-1180\.jpg 1180w"/);
-  assert.match(html, /fetchpriority="high"/);
-  assert.match(html, /<iframe class="case-site" src="https:\/\/alquimiadobonsai\.com"/);
+  assert.match(html, /class="hero-panel"/);
+  assert.match(html, /class="case-proof"/);
+  assert.match(html, /class="case-proof-grid"/);
   assert.match(html, /loading="lazy"/);
-  assert.doesNotMatch(html, /case-summary|project-card|case-mobile|case-desktop|alquimia-bonsai-mobile\.jpg/);
+  assert.doesNotMatch(html, /case-summary|project-card|case-mobile|case-desktop|case-site|<iframe|alquimia-bonsai-mobile\.jpg/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /aria-pressed="true"/);
   assert.match(html, /<a class="skip-link" href="#conteudo">/);

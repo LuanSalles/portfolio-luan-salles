@@ -267,21 +267,17 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-preview">
-          <picture>
-            <source
-              srcSet="/alquimia-bonsai-760.jpg 760w, /alquimia-bonsai-1180.jpg 1180w"
-              sizes="(max-width: 900px) 100vw, 42vw"
-              type="image/jpeg"
-            />
-            <img
-              src="/alquimia-bonsai-1180.jpg"
-              alt="Página inicial do site Alquimia do Bonsai"
-              width="1180"
-              height="533"
-              fetchPriority="high"
-            />
-          </picture>
+        <div className="hero-panel" aria-label="Resumo dos serviços">
+          <p className="eyebrow">{t.hero.eyebrow}</p>
+          <h2>{t.services.title}</h2>
+          <div className="hero-panel-list">
+            {t.services.items.map((service) => (
+              <article key={service.title}>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -307,13 +303,16 @@ export default function Home() {
       <section id="projeto" className="section case-section">
         <div className="wrap case">
           <div className="case-image" aria-label={t.case.title}>
-            <iframe
-              className="case-site"
-              src={alquimiaUrl}
-              title="Site Alquimia do Bonsai"
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
+            <div className="case-proof">
+              <p className="eyebrow">{t.case.eyebrow}</p>
+              <h2>{t.case.title}</h2>
+              <p>{alquimiaUrl.replace("https://", "")}</p>
+              <div className="case-proof-grid">
+                {t.case.summary.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="case-copy">
             <p className="eyebrow">{t.case.eyebrow}</p>

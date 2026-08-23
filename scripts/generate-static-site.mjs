@@ -255,11 +255,10 @@ const document = html`<!doctype html>
           <p class="cta-note" data-i="hero-helper">${pt.hero[5]}</p>
           <div class="hero-tags" aria-label="Serviços principais">${tags(pt.highlights)}</div>
         </div>
-        <div class="hero-preview">
-          <picture>
-            <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 42vw" type="image/jpeg" />
-            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="533" fetchpriority="high" />
-          </picture>
+        <div class="hero-panel" aria-label="Resumo dos serviços">
+          <p class="eyebrow" data-i="hero-panel-eyebrow">${pt.hero[0]}</p>
+          <h2 data-i="hero-panel-title">${pt.servicesTitle}</h2>
+          <div class="hero-panel-list">${pt.services.map(([title, text]) => html`<article class="hero-panel-item"><h3>${title}</h3><p>${text}</p></article>`).join("")}</div>
         </div>
       </section>
 
@@ -275,7 +274,12 @@ const document = html`<!doctype html>
       <section id="projeto" class="section case-section">
         <div class="wrap case">
           <div class="case-image" aria-label="${pt.case[1]}">
-            <iframe class="case-site" src="${caseUrl}" title="Site Alquimia do Bonsai" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <div class="case-proof">
+              <p class="eyebrow" data-i="case-proof-eyebrow">${pt.case[0]}</p>
+              <h2 data-i="case-proof-title">${pt.case[1]}</h2>
+              <p>${caseUrl.replace("https://", "")}</p>
+              <div class="case-proof-grid">${tags(pt.caseSummary)}</div>
+            </div>
           </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">${pt.case[0]}</p>
@@ -367,6 +371,12 @@ const document = html`<!doctype html>
         setText("[data-i='hero-secondary']", t.hero[4]);
         setText("[data-i='hero-helper']", t.hero[5]);
         setTexts(".hero-tags span", t.highlights);
+        setText("[data-i='hero-panel-eyebrow']", t.hero[0]);
+        setText("[data-i='hero-panel-title']", t.servicesTitle);
+        document.querySelectorAll(".hero-panel-item").forEach((card, index) => {
+          card.querySelector("h3").textContent = t.services[index][0];
+          card.querySelector("p").textContent = t.services[index][1];
+        });
 
         setText("[data-i='services-eyebrow']", t.nav[0]);
         setText("[data-i='services-title']", t.servicesTitle);
@@ -382,6 +392,9 @@ const document = html`<!doctype html>
         setText("[data-i='case-text']", t.case[2]);
         setTexts(".case-copy li", t.caseBullets);
         setText("[data-i='case-button']", t.case[3]);
+        setText("[data-i='case-proof-eyebrow']", t.case[0]);
+        setText("[data-i='case-proof-title']", t.case[1]);
+        setTexts(".case-proof-grid span", t.caseSummary);
 
         setText("[data-i='about-eyebrow']", t.about[0]);
         setText("[data-i='about-title']", t.about[1]);
