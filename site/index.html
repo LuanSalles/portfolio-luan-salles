@@ -328,57 +328,22 @@ h3 {
 }
 
 .hero-preview {
-  align-self: stretch;
-  border: 1px solid rgba(18, 54, 40, 0.14);
+  overflow: hidden;
+  align-self: center;
+  width: 100%;
+  border: 10px solid var(--paper);
   border-radius: 24px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(247, 239, 225, 0.7)),
-    var(--paper);
+  background: var(--paper);
   box-shadow: var(--shadow);
 }
 
-.project-card {
-  display: flex;
-  min-height: 430px;
-  padding: 34px;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.project-card h2 {
-  max-width: 9ch;
-  font-size: clamp(2.2rem, 5vw, 4.4rem);
-  line-height: 0.95;
-}
-
-.project-card p:not(.eyebrow) {
-  max-width: 520px;
-  color: #4b5650;
-}
-
-.project-card-tags,
-.case-summary-grid {
-  display: grid;
-  gap: 10px;
-}
-
-.project-card-tags {
-  grid-template-columns: 1fr;
-}
-
-.project-card-tags span,
-.case-summary-grid span {
-  border: 1px solid rgba(18, 54, 40, 0.15);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.58);
-  color: var(--green);
-  font-size: 0.9rem;
-  font-weight: 850;
-}
-
-.project-card-tags span {
-  padding: 12px 14px;
+.hero-preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  object-position: center;
+  background: #f7f1e6;
 }
 
 .section {
@@ -438,47 +403,52 @@ h3 {
   align-items: center;
 }
 
-.case-summary {
-  display: flex;
-  min-height: 390px;
-  padding: 34px;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+.case-image {
+  position: relative;
+  display: grid;
+  min-height: 430px;
+  padding: 18px;
+  overflow: hidden;
   border-radius: 24px;
-  background:
-    linear-gradient(135deg, rgba(255, 250, 242, 0.96), rgba(230, 215, 190, 0.9)),
-    var(--paper);
+  background: rgba(255, 250, 242, 0.96);
   box-shadow: var(--shadow);
 }
 
-.case-summary .eyebrow,
-.case-summary h2 {
-  color: var(--green);
+.case-image picture {
+  display: block;
 }
 
-.case-summary h2 {
-  max-width: 8ch;
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
-  line-height: 0.94;
+.case-image img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #f7f1e6;
 }
 
-.case-summary-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.case-desktop {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(18, 54, 40, 0.12);
 }
 
-.case-summary-grid span {
-  min-height: 76px;
-  padding: 18px;
-  display: flex;
-  align-items: center;
+.case-desktop img {
+  aspect-ratio: 16 / 10;
 }
 
-.case-summary p:not(.eyebrow) {
-  margin: 0;
-  color: #4b5650;
-  font-weight: 850;
+.case-mobile {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  width: min(26%, 140px);
+  overflow: hidden;
+  border: 8px solid var(--paper);
+  border-radius: 20px;
+  box-shadow: 0 18px 35px rgba(18, 54, 40, 0.25);
+}
+
+.case-mobile img {
+  aspect-ratio: 9 / 16;
 }
 
 .case-copy h2,
@@ -743,18 +713,21 @@ footer a {
   }
 
   .hero-preview,
-  .case-summary {
+  .case-image {
     border-radius: 18px;
   }
 
-  .project-card,
-  .case-summary {
+  .case-image {
     min-height: auto;
-    padding: 24px;
+    padding: 12px;
   }
 
-  .case-summary-grid {
-    grid-template-columns: 1fr;
+  .case-mobile {
+    right: 18px;
+    bottom: 18px;
+    width: min(28%, 104px);
+    border-width: 6px;
+    border-radius: 16px;
   }
 
   .about,
@@ -803,12 +776,11 @@ footer a {
           <p class="cta-note" data-i="hero-helper">Site para negócios · Landing pages · Ajustes em sites</p>
           <div class="hero-tags" aria-label="Serviços principais"><span>Site para negócios</span><span>Landing pages</span><span>Ajustes em sites</span></div>
         </div>
-        <div class="hero-preview project-card" aria-label="Projeto publicado">
-          <p class="eyebrow" data-i="hero-project-eyebrow">Projeto publicado</p>
-          <h2 data-i="hero-project-title">Alquimia do Bonsai</h2>
-          <p data-i="hero-project-text">Site real, publicado e em uso para a marca Alquimia do Bonsai. O projeto apresenta a marca, o livro, os cursos, a loja, conteúdos educativos e canais de contato em português e inglês.</p>
-          <div class="project-card-tags hero-project-tags"><span>Funciona bem no computador e no celular</span><span>Tem versão em português e inglês</span><span>Organiza catálogo, favoritos e carrinho local</span></div>
-          <a class="btn btn-primary case-link" href="https://alquimiadobonsai.com" target="_blank" rel="noreferrer" data-i="hero-project-button" aria-label="Abrir site (abre em nova aba)">Abrir site</a>
+        <div class="hero-preview">
+          <picture>
+            <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 42vw" type="image/jpeg" />
+            <img src="alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai" width="1180" height="737" fetchpriority="high" />
+          </picture>
         </div>
       </section>
 
@@ -823,11 +795,14 @@ footer a {
 
       <section id="projeto" class="section case-section">
         <div class="wrap case">
-          <div class="case-summary" aria-label="Alquimia do Bonsai">
-            <p class="eyebrow" data-i="case-summary-eyebrow">Projeto publicado</p>
-            <h2 data-i="case-summary-title">Alquimia do Bonsai</h2>
-            <div class="case-summary-grid"><span>PT/EN</span><span>Loja</span><span>Cursos</span><span>WhatsApp</span></div>
-            <p>alquimiadobonsai.com</p>
+          <div class="case-image" aria-label="Alquimia do Bonsai">
+            <picture class="case-desktop">
+              <source srcset="alquimia-bonsai-760.jpg 760w, alquimia-bonsai-1180.jpg 1180w" sizes="(max-width: 900px) 100vw, 48vw" type="image/jpeg" />
+              <img src="alquimia-bonsai-1180.jpg" alt="Site Alquimia do Bonsai em desktop" width="1180" height="737" loading="lazy" />
+            </picture>
+            <picture class="case-mobile">
+              <img src="alquimia-bonsai-mobile.jpg" alt="Site Alquimia do Bonsai no celular" width="740" height="1600" loading="lazy" />
+            </picture>
           </div>
           <div class="case-copy">
             <p class="eyebrow" data-i="case-eyebrow">Projeto publicado</p>
@@ -919,11 +894,6 @@ footer a {
         setText("[data-i='hero-secondary']", t.hero[4]);
         setText("[data-i='hero-helper']", t.hero[5]);
         setTexts(".hero-tags span", t.highlights);
-        setText("[data-i='hero-project-eyebrow']", t.case[0]);
-        setText("[data-i='hero-project-title']", t.case[1]);
-        setText("[data-i='hero-project-text']", t.case[2]);
-        setTexts(".hero-project-tags span", t.caseBullets.slice(0, 3));
-        setText("[data-i='hero-project-button']", t.case[3]);
 
         setText("[data-i='services-eyebrow']", t.nav[0]);
         setText("[data-i='services-title']", t.servicesTitle);
@@ -939,9 +909,6 @@ footer a {
         setText("[data-i='case-text']", t.case[2]);
         setTexts(".case-copy li", t.caseBullets);
         setText("[data-i='case-button']", t.case[3]);
-        setText("[data-i='case-summary-eyebrow']", t.case[0]);
-        setText("[data-i='case-summary-title']", t.case[1]);
-        setTexts(".case-summary-grid span", t.caseSummary);
 
         setText("[data-i='about-eyebrow']", t.about[0]);
         setText("[data-i='about-title']", t.about[1]);

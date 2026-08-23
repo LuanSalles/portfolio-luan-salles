@@ -267,18 +267,21 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-preview project-card" aria-label={t.case.eyebrow}>
-          <p className="eyebrow">{t.case.eyebrow}</p>
-          <h2>{t.case.title}</h2>
-          <p>{t.case.text}</p>
-          <div className="project-card-tags">
-            {t.case.bullets.slice(0, 3).map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-          <a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" aria-label={`${t.case.button} (${t.newTab})`}>
-            {t.case.button}
-          </a>
+        <div className="hero-preview">
+          <picture>
+            <source
+              srcSet="/alquimia-bonsai-760.jpg 760w, /alquimia-bonsai-1180.jpg 1180w"
+              sizes="(max-width: 900px) 100vw, 42vw"
+              type="image/jpeg"
+            />
+            <img
+              src="/alquimia-bonsai-1180.jpg"
+              alt="Página inicial do site Alquimia do Bonsai"
+              width="1180"
+              height="737"
+              fetchPriority="high"
+            />
+          </picture>
         </div>
       </section>
 
@@ -303,15 +306,30 @@ export default function Home() {
 
       <section id="projeto" className="section case-section">
         <div className="wrap case">
-          <div className="case-summary" aria-label={t.case.title}>
-            <p className="eyebrow">{t.case.eyebrow}</p>
-            <h2>{t.case.title}</h2>
-            <div className="case-summary-grid">
-              {t.case.summary.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-            <p>{alquimiaUrl.replace("https://", "")}</p>
+          <div className="case-image" aria-label={t.case.title}>
+            <picture className="case-desktop">
+              <source
+                srcSet="/alquimia-bonsai-760.jpg 760w, /alquimia-bonsai-1180.jpg 1180w"
+                sizes="(max-width: 900px) 100vw, 48vw"
+                type="image/jpeg"
+              />
+              <img
+                src="/alquimia-bonsai-1180.jpg"
+                alt="Site Alquimia do Bonsai em desktop"
+                width="1180"
+                height="737"
+                loading="lazy"
+              />
+            </picture>
+            <picture className="case-mobile">
+              <img
+                src="/alquimia-bonsai-mobile.jpg"
+                alt="Site Alquimia do Bonsai no celular"
+                width="740"
+                height="1600"
+                loading="lazy"
+              />
+            </picture>
           </div>
           <div className="case-copy">
             <p className="eyebrow">{t.case.eyebrow}</p>
