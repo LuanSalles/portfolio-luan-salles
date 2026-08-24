@@ -239,13 +239,13 @@ export default function Home() {
           <div className="browser-card main-card">
             <span>vulan.com.br</span>
             <strong>Sites pensados para negócios.</strong>
+            <p>Estrutura clara, versão mobile e contato direto pelo WhatsApp.</p>
           </div>
           <div className="hero-proof">
             <span>Mobile</span>
             <span>WhatsApp</span>
             <span>SEO básico</span>
           </div>
-          <div className="line-chart" aria-hidden="true"><span /><span /><span /></div>
         </div>
       </section>
 
