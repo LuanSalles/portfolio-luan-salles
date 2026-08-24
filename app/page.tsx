@@ -236,9 +236,15 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-board" aria-label="Resumo do serviço">
-          <div className="browser-card main-card"><span>vulan.com.br</span><strong>Sites pensados para negócios.</strong></div>
-          <div className="mini-card">Mobile</div>
-          <div className="mini-card orange">WhatsApp</div>
+          <div className="browser-card main-card">
+            <span>vulan.com.br</span>
+            <strong>Sites pensados para negócios.</strong>
+          </div>
+          <div className="hero-proof">
+            <span>Mobile</span>
+            <span>WhatsApp</span>
+            <span>SEO básico</span>
+          </div>
           <div className="line-chart" aria-hidden="true"><span /><span /><span /></div>
         </div>
       </section>
@@ -270,13 +276,23 @@ export default function Home() {
         <div className="wrap case-showcase">
           <div className="case-heading"><div><p className="eyebrow">Case principal</p><h2>Alquimia do Bonsai</h2><p>Presença digital para uma marca dedicada a bonsais, conteúdo educativo e catálogo de produtos.</p></div><a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" data-track="case-open">Visitar projeto</a></div>
           <div className="case-layout">
-            <div className="case-browser" aria-label="Demonstração interativa do site Alquimia do Bonsai">
+            <div className="case-browser" aria-label="Prévia do site Alquimia do Bonsai">
               <div className="browser-bar"><span>alquimiadobonsai.com</span></div>
-              <iframe className="case-frame" src={alquimiaUrl} title="Site Alquimia do Bonsai" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" />
+              <div className="case-preview">
+                <img src="/alquimia-bonsai-1180.jpg" alt="Página inicial do site Alquimia do Bonsai no desktop" />
+              </div>
+              <div className="case-strip" aria-label="Entregas do projeto">
+                <span>Site publicado</span>
+                <span>Catálogo</span>
+                <span>Vídeos</span>
+                <span>WhatsApp</span>
+              </div>
               <div className="case-fallback">
-                <strong>Prévia do projeto publicado</strong>
-                <p>Se a visualização não carregar no navegador, abra o site ao vivo em uma nova aba.</p>
-                <a className="btn btn-secondary" href={alquimiaUrl} target="_blank" rel="noreferrer">Abrir Alquimia do Bonsai</a>
+                <div>
+                  <strong>Projeto no ar</strong>
+                  <p>Abra o site real para navegar pela versão completa.</p>
+                </div>
+                <a className="btn btn-secondary" href={alquimiaUrl} target="_blank" rel="noreferrer">Abrir site</a>
               </div>
             </div>
             <div className="case-copy">

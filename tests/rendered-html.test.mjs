@@ -52,9 +52,10 @@ test("static site contains Vulan SEO and case preview", async () => {
   assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /"@type":"Organization"/);
-  assert.match(html, /<iframe class="case-frame" src="https:\/\/alquimiadobonsai\.com"/);
-  assert.match(html, /loading="lazy"/);
-  assert.match(html, /Prévia do projeto publicado/);
+  assert.match(html, /class="case-preview"/);
+  assert.match(html, /src="\/alquimia-bonsai-1180\.jpg"/);
+  assert.match(html, /Projeto no ar/);
+  assert.doesNotMatch(html, /<iframe class="case-frame"/);
   assert.match(budget, /Empresa \/ negócio/);
   assert.match(budget, /Enviar pelo WhatsApp/);
   assert.match(html, /href="\/politica-de-privacidade"/);

@@ -46,7 +46,7 @@ export function SiteFooter() {
         <a href="/termos-de-uso">Termos de Uso</a>
         <a href={whatsappUrl()} target="_blank" rel="noreferrer">WhatsApp</a>
       </nav>
-      <p>© 2026 Vulan. Todos os direitos reservados. Desenvolvido pela Vulan.</p>
+      <p className="footer-copy">© 2026 Vulan. Todos os direitos reservados.</p>
     </footer>
   );
 }
