@@ -44,6 +44,7 @@ test("server-renders the Vulan website", async () => {
 
 test("static site contains Vulan SEO and case preview", async () => {
   const html = await readFile(new URL("../site/index.html", import.meta.url), "utf8");
+  const budget = await readFile(new URL("../site/orcamento/index.html", import.meta.url), "utf8");
 
   assert.match(html, /<title>Vulan \| Criação de Sites para Negócios<\/title>/);
   assert.match(html, /<link rel="canonical" href="https:\/\/portfolio-luan-one\.vercel\.app\/" \/>/);
@@ -53,6 +54,9 @@ test("static site contains Vulan SEO and case preview", async () => {
   assert.match(html, /"@type":"Organization"/);
   assert.match(html, /<iframe class="case-frame" src="https:\/\/alquimiadobonsai\.com"/);
   assert.match(html, /loading="lazy"/);
+  assert.match(html, /Prévia do projeto publicado/);
+  assert.match(budget, /Empresa \/ negócio/);
+  assert.match(budget, /Enviar pelo WhatsApp/);
   assert.match(html, /href="\/politica-de-privacidade"/);
   assert.match(html, /href="\/termos-de-uso"/);
   assert.doesNotMatch(html, /Luan Salles Web|companySiteLang|aria-pressed|Business websites|Sites que explicam|operação enxuta|em construção/i);
