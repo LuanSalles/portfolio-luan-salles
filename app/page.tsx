@@ -224,13 +224,6 @@ export default function Home() {
   return (
     <main id="inicio">
       <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
-      <header className="topbar">
-        <a className="brand" href="#inicio" aria-label="Vulan"><span className="brand-mark">V</span><span>VULAN</span></a>
-        <nav className="nav" aria-label="Navegação principal">
-          <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
-        </nav>
-        <a className="btn btn-primary header-cta" href="#orcamento" data-track="header-budget">Pedir orçamento</a>
-      </header>
 
       <section id="conteudo" className="hero wrap">
         <div className="hero-copy">
@@ -277,7 +270,15 @@ export default function Home() {
         <div className="wrap case-showcase">
           <div className="case-heading"><div><p className="eyebrow">Case principal</p><h2>Alquimia do Bonsai</h2><p>Presença digital para uma marca dedicada a bonsais, conteúdo educativo e catálogo de produtos.</p></div><a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" data-track="case-open">Visitar projeto</a></div>
           <div className="case-layout">
-            <div className="case-browser" aria-label="Demonstração interativa do site Alquimia do Bonsai"><div className="browser-bar"><span>alquimiadobonsai.com</span></div><iframe className="case-frame" src={alquimiaUrl} title="Site Alquimia do Bonsai" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" /></div>
+            <div className="case-browser" aria-label="Demonstração interativa do site Alquimia do Bonsai">
+              <div className="browser-bar"><span>alquimiadobonsai.com</span></div>
+              <iframe className="case-frame" src={alquimiaUrl} title="Site Alquimia do Bonsai" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" />
+              <div className="case-fallback">
+                <strong>Prévia do projeto publicado</strong>
+                <p>Se a visualização não carregar no navegador, abra o site ao vivo em uma nova aba.</p>
+                <a className="btn btn-secondary" href={alquimiaUrl} target="_blank" rel="noreferrer">Abrir Alquimia do Bonsai</a>
+              </div>
+            </div>
             <div className="case-copy">
               <article><span>Necessidade</span><p>Criar uma presença digital profissional para apresentar a marca, divulgar bonsais disponíveis e publicar conteúdos sem depender de alterações no código.</p></article>
               <article><span>Solução desenvolvida</span><p>A Vulan criou uma estrutura com presença institucional, catálogo, administração de conteúdo, vídeos, WhatsApp e interface responsiva.</p></article>
@@ -301,8 +302,6 @@ export default function Home() {
       <section id="orcamento" className="section wrap budget-section"><div className="section-head"><p className="eyebrow">Orçamento</p><h2>Conte um pouco sobre o projeto.</h2><p>As informações ajudam a Vulan entender o escopo, prazo e tipo de site adequado para o seu negócio.</p></div><BudgetForm /></section>
 
       <section id="contato" className="section final-cta"><div className="wrap"><p className="eyebrow">Próximo passo</p><h2>Vamos tirar o seu site do papel?</h2><p>Conte um pouco sobre o seu negócio e receba uma proposta pensada para o seu projeto.</p><div className="hero-actions"><a className="btn btn-primary" href="#orcamento" data-track="final-budget">Pedir orçamento</a><a className="btn btn-secondary" href={whatsappUrl()} target="_blank" rel="noreferrer" data-track="whatsapp-click">Falar pelo WhatsApp</a></div><a className="email-link" href={`mailto:${email}`}>{email}</a></div></section>
-
-      <footer className="wrap footer"><div><strong>VULAN</strong><p>Sites pensados para negócios.</p></div><nav aria-label="Links do rodapé"><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#orcamento">Orçamento</a><a href="#contato">Contato</a><a href="/politica-de-privacidade">Política de Privacidade</a><a href="/termos-de-uso">Termos de Uso</a></nav><p>© 2026 Vulan. Todos os direitos reservados. Desenvolvido pela Vulan.</p></footer>
     </main>
   );
 }

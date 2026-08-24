@@ -68,6 +68,18 @@ test("legal routes render", async () => {
   assert.match(await terms.text(), /Termos de Uso/);
 });
 
+test("budget route renders a real form", async () => {
+  const response = await render("/orcamento");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /Conte um pouco sobre o projeto/);
+  assert.match(html, /Empresa \/ negócio/);
+  assert.match(html, /Seu negócio já possui site/);
+  assert.match(html, /Enviar pelo WhatsApp/);
+  assert.doesNotMatch(html, /O formulário principal está na página inicial/);
+});
+
 test("optimized social images stay lightweight", async () => {
   const desktop = await stat(new URL("../site/alquimia-bonsai-1180.jpg", import.meta.url));
   const mobile = await stat(new URL("../site/alquimia-bonsai-760.jpg", import.meta.url));

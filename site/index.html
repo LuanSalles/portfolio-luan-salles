@@ -545,6 +545,26 @@ p {
   background: #f7f1e6;
 }
 
+.case-fallback {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.case-fallback strong {
+  color: var(--green);
+}
+
+.case-fallback p {
+  flex: 1;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
 .case-copy {
   display: grid;
   gap: 12px;
@@ -758,6 +778,11 @@ input[type="checkbox"] {
   padding: 72px 0;
 }
 
+.budget-page {
+  display: grid;
+  gap: 28px;
+}
+
 .legal-page article,
 .simple-page article {
   max-width: 840px;
@@ -897,6 +922,11 @@ input[type="checkbox"] {
 
   .case-frame {
     height: 520px;
+  }
+
+  .case-fallback {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .budget-form,
