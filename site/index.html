@@ -3,38 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luan Salles Web | Criação de sites para pequenos negócios</title>
-    <meta name="description" content="Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas." />
+    <title>Vulan | Criação de Sites para Negócios</title>
+    <meta name="description" content="A Vulan cria sites profissionais para pequenos e médios negócios, com desenvolvimento personalizado, processo simples e foco nos objetivos de cada empresa." />
     <link rel="canonical" href="https://portfolio-luan-one.vercel.app/" />
-    <link rel="icon" href="favicon-ls.svg" type="image/svg+xml" />
-    <meta property="og:title" content="Luan Salles Web | Criação de sites para pequenos negócios" />
-    <meta property="og:description" content="Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas." />
+    <meta property="og:title" content="Vulan | Criação de Sites para Negócios" />
+    <meta property="og:description" content="Sites profissionais pensados para o seu negócio, sem complicação." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://portfolio-luan-one.vercel.app/" />
-    <meta property="og:site_name" content="Luan Salles Web" />
-    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Vulan" />
     <meta property="og:image" content="https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg" />
     <meta property="og:image:width" content="1180" />
     <meta property="og:image:height" content="533" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="Site Alquimia do Bonsai desenvolvido por Luan Salles Web" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Luan Salles Web | Criação de sites para pequenos negócios" />
-    <meta name="twitter:description" content="Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas." />
-    <meta name="twitter:image" content="https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg" />
+    <link rel="icon" href="/favicon-vulan.svg" type="image/svg+xml" />
     <style>
 
 :root {
-  --bg: #f7f3ea;
-  --paper: #fffaf2;
-  --ink: #142019;
-  --muted: #5f665f;
-  --line: rgba(20, 32, 25, 0.14);
-  --green: #0d3428;
-  --green-soft: #e4eee8;
-  --orange: #a94b29;
-  --accent: #d86f45;
-  --shadow: 0 24px 70px rgba(13, 52, 40, 0.12);
+  --bg: #f7f4ee;
+  --paper: #fffdf8;
+  --ink: #151713;
+  --muted: #62665f;
+  --line: rgba(21, 23, 19, 0.13);
+  --green: #073f32;
+  --mint: #dcece3;
+  --lime: #d7ee60;
+  --orange: #d85f35;
+  --blue: #284bff;
+  --shadow: 0 26px 70px rgba(7, 63, 50, 0.12);
 }
 
 @theme inline {
@@ -55,7 +50,11 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--bg);
+  background:
+    linear-gradient(rgba(21, 23, 19, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 23, 19, 0.035) 1px, transparent 1px),
+    var(--bg);
+  background-size: 72px 72px;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
@@ -64,26 +63,11 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-:focus-visible {
-  outline: 3px solid var(--orange);
-  outline-offset: 4px;
-}
-
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
 }
 
 h1,
@@ -93,8 +77,48 @@ p {
   margin-top: 0;
 }
 
+h1,
+h2 {
+  color: var(--green);
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 780px;
+  margin-bottom: 22px;
+  font-size: clamp(3rem, 7vw, 6.6rem);
+  line-height: 0.92;
+}
+
+h2 {
+  margin-bottom: 16px;
+  font-size: clamp(2rem, 4.4vw, 4.2rem);
+  line-height: 0.98;
+}
+
+h3 {
+  color: var(--green);
+  letter-spacing: 0;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .wrap {
-  width: min(1120px, calc(100% - 40px));
+  width: min(1160px, calc(100% - 40px));
   margin-inline: auto;
 }
 
@@ -115,64 +139,52 @@ p {
   transform: translateY(0);
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
 .topbar {
   position: sticky;
   top: 12px;
-  z-index: 10;
+  z-index: 20;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 18px;
   align-items: center;
-  width: min(1120px, calc(100% - 40px));
+  width: min(1160px, calc(100% - 40px));
   margin: 12px auto 0;
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.82);
   border-radius: 999px;
-  background: rgba(255, 250, 242, 0.9);
-  box-shadow: 0 16px 42px rgba(13, 52, 40, 0.08);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 253, 248, 0.88);
+  box-shadow: 0 16px 40px rgba(7, 63, 50, 0.08);
+  backdrop-filter: blur(18px);
 }
 
 .brand,
-.header-actions,
 .nav,
 .hero-actions,
-.contact-actions,
-footer {
+.footer nav {
   display: flex;
   align-items: center;
 }
 
 .brand {
   gap: 10px;
-  font-weight: 900;
-  white-space: nowrap;
+  font-weight: 950;
+  letter-spacing: 0.04em;
 }
 
 .brand-mark {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   place-items: center;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--green);
-  font-size: 0.86rem;
+  border-radius: 14px;
+  color: var(--green);
+  background: var(--lime);
+  font-weight: 950;
 }
 
 .nav {
   justify-content: center;
-  gap: 4px;
-  min-width: 0;
+  gap: 2px;
 }
 
 .nav a {
@@ -185,37 +197,7 @@ footer {
 
 .nav a:hover {
   color: var(--green);
-  background: var(--green-soft);
-}
-
-.header-actions {
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.lang-switch {
-  display: inline-flex;
-  padding: 3px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fff;
-}
-
-.lang-switch button {
-  min-width: 36px;
-  min-height: 30px;
-  border: 0;
-  border-radius: 999px;
-  color: var(--muted);
-  background: transparent;
-  cursor: pointer;
-  font-size: 0.78rem;
-  font-weight: 900;
-}
-
-.lang-switch button.active {
-  color: #fff;
-  background: var(--green);
+  background: var(--mint);
 }
 
 .btn {
@@ -236,219 +218,266 @@ footer {
 }
 
 .btn-primary:hover {
-  background: #164739;
+  background: #0b5745;
 }
 
 .btn-secondary {
   color: var(--green);
   border-color: var(--line);
-  background: #fffaf2;
+  background: var(--paper);
 }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.82fr);
-  gap: 52px;
+  grid-template-columns: minmax(0, 0.96fr) minmax(320px, 0.74fr);
+  gap: 58px;
   align-items: center;
-  padding: 82px 0 70px;
+  min-height: calc(100vh - 72px);
+  padding: 76px 0 66px;
 }
 
 .eyebrow {
   margin-bottom: 14px;
   color: var(--orange);
-  font-size: 0.82rem;
-  font-weight: 900;
+  font-size: 0.8rem;
+  font-weight: 950;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-h1 {
-  max-width: 760px;
-  margin-bottom: 22px;
-  color: var(--green);
-  font-size: clamp(2.7rem, 6vw, 5.8rem);
-  line-height: 0.96;
-  letter-spacing: 0;
-}
-
-h2 {
-  color: var(--green);
-  font-size: clamp(2rem, 4vw, 3.35rem);
-  line-height: 1.04;
-  letter-spacing: 0;
-}
-
-h3 {
-  color: var(--green);
-  letter-spacing: 0;
-}
-
-.lead,
-.section-copy p,
-.about p,
-.step p,
-.contact-copy p,
-.service p {
-  color: var(--muted);
-  line-height: 1.65;
 }
 
 .lead {
   max-width: 640px;
   margin-bottom: 28px;
-  font-size: 1.17rem;
+  font-size: 1.2rem;
 }
 
-.cta-note,
-.contact-note {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  font-weight: 800;
-}
-
-.hero-actions,
-.contact-actions {
+.hero-actions {
   flex-wrap: wrap;
   gap: 12px;
 }
 
-.facts span {
-  padding: 9px 11px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: #38443d;
-  background: rgba(255, 255, 255, 0.55);
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.hero-panel {
-  align-self: center;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: rgba(255, 250, 242, 0.88);
+.hero-board {
+  position: relative;
+  min-height: 430px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 24% 20%, rgba(216, 95, 53, 0.22), transparent 28%),
+    linear-gradient(145deg, var(--green), #09281f);
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-.hero-panel h2 {
-  max-width: 360px;
-  margin-bottom: 18px;
-  font-size: clamp(1.55rem, 2.4vw, 2.25rem);
-  line-height: 1.08;
+.browser-card,
+.mini-card,
+.line-chart {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.14);
 }
 
-.hero-panel-list {
+.main-card {
+  left: 32px;
+  right: 32px;
+  top: 54px;
   display: grid;
-  border-top: 1px solid var(--line);
+  gap: 42px;
+  padding: 22px;
 }
 
-.hero-panel-list article {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 12px;
-  align-items: center;
-  padding: 15px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.hero-panel-list article:last-child {
-  border-bottom: 0;
-}
-
-.hero-panel-list h3 {
-  margin: 0;
-  color: var(--orange);
-  font-size: 0.86rem;
-}
-
-.hero-panel-list p {
-  margin: 0;
-  color: var(--green);
-  font-size: 0.98rem;
+.main-card span {
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--bg);
+  font-size: 0.85rem;
   font-weight: 900;
-  line-height: 1.35;
+}
+
+.main-card strong {
+  max-width: 360px;
+  color: var(--green);
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 0.95;
+}
+
+.mini-card {
+  left: 38px;
+  bottom: 42px;
+  padding: 18px 22px;
+  color: var(--green);
+  font-weight: 950;
+}
+
+.mini-card.orange {
+  left: auto;
+  right: 38px;
+  color: #fff;
+  background: var(--orange);
+}
+
+.line-chart {
+  right: 46px;
+  top: 208px;
+  display: flex;
+  gap: 8px;
+  align-items: end;
+  padding: 18px;
+}
+
+.line-chart span {
+  display: block;
+  width: 22px;
+  border-radius: 999px;
+  background: var(--lime);
+}
+
+.line-chart span:nth-child(1) {
+  height: 42px;
+}
+
+.line-chart span:nth-child(2) {
+  height: 74px;
+}
+
+.line-chart span:nth-child(3) {
+  height: 110px;
 }
 
 .section {
-  padding: 76px 0;
+  padding: 82px 0;
+}
+
+.section-head {
+  max-width: 820px;
+  margin-bottom: 28px;
+}
+
+.pillar-grid,
+.service-list,
+.steps,
+.check-list,
+.faq-list,
+.form-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.pillar-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pillar,
+.service,
+.step,
+.faq-list details,
+.budget-form,
+.about,
+.included {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 253, 248, 0.84);
+  box-shadow: 0 16px 48px rgba(7, 63, 50, 0.06);
+}
+
+.pillar,
+.service,
+.step {
+  padding: 24px;
+}
+
+.pillar p,
+.service p,
+.step p,
+.case-copy p,
+.about p {
+  margin-bottom: 0;
+}
+
+.split,
+.why-grid,
+.included,
+.about,
+.case-layout {
+  display: grid;
+  gap: 44px;
 }
 
 .split {
-  display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(340px, 1fr);
-  gap: 48px;
+  grid-template-columns: minmax(0, 0.72fr) minmax(360px, 1fr);
   align-items: start;
 }
 
 .section-copy {
   position: sticky;
-  top: 110px;
+  top: 112px;
 }
 
-.section-copy h2 {
-  margin-bottom: 18px;
-}
-
-.section-head {
-  max-width: 780px;
-  margin-bottom: 26px;
-}
-
-.section-head h2 {
-  margin-bottom: 14px;
-}
-
-.section-head p:not(.eyebrow) {
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-.service-list {
-  display: grid;
-  gap: 12px;
-}
-
-.service {
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 250, 242, 0.82);
+.section-copy .btn {
+  margin-top: 12px;
 }
 
 .service h3 {
-  margin-bottom: 8px;
-  font-size: 1.35rem;
+  font-size: 1.42rem;
 }
 
-.service p {
-  margin-bottom: 0;
+.service ul,
+.check-list {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.service-cta {
-  width: fit-content;
-  margin-top: 6px;
+.service li,
+.check-list li {
+  padding: 11px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 800;
 }
 
-.case-section {
+.service li::before,
+.check-list li::before {
+  content: "✓";
+  margin-right: 9px;
+  color: var(--green);
+  font-weight: 950;
+}
+
+.why,
+.case-section,
+.final-cta {
   background: var(--green);
 }
 
-.case-section .btn-primary,
-.contact .btn-primary {
-  color: var(--green);
-  background: #fffaf2;
+.why-grid {
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.6fr);
+  align-items: end;
 }
 
-.case-section .btn-primary:hover,
-.contact .btn-primary:hover {
-  background: #f0e8da;
+.why h2,
+.why .eyebrow,
+.why p,
+.case-heading h2,
+.case-heading .eyebrow,
+.case-heading p,
+.final-cta h2,
+.final-cta .eyebrow,
+.final-cta p {
+  color: #fff;
+}
+
+.why p,
+.case-heading p,
+.final-cta p {
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .case-showcase {
   display: grid;
-  gap: 22px;
+  gap: 24px;
 }
 
 .case-heading {
@@ -458,56 +487,52 @@ h3 {
   justify-content: space-between;
 }
 
-.case-heading h2,
-.case-heading .eyebrow,
 .case-heading p {
+  max-width: 650px;
+}
+
+.case-section .btn-primary,
+.final-cta .btn-primary {
+  color: var(--green);
+  background: var(--lime);
+}
+
+.final-cta .btn-secondary {
   color: #fff;
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.case-heading h2 {
-  margin-bottom: 12px;
-}
-
-.case-heading p:not(.eyebrow) {
-  max-width: 680px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  line-height: 1.6;
+.case-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.48fr);
+  align-items: stretch;
 }
 
 .case-browser {
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 26px;
   background: var(--paper);
-  box-shadow: var(--shadow);
 }
 
 .browser-bar {
-  display: flex;
   min-height: 42px;
-  align-items: center;
-  padding: 0 16px;
   border-bottom: 1px solid var(--line);
   background:
     radial-gradient(circle at 18px 50%, #ff6b4a 0 4px, transparent 4.5px),
     radial-gradient(circle at 34px 50%, #e3b24c 0 4px, transparent 4.5px),
     radial-gradient(circle at 50px 50%, #6aa36f 0 4px, transparent 4.5px),
-    #fffaf2;
+    #fffdf8;
 }
 
 .browser-bar span {
-  width: fit-content;
-  max-width: min(440px, calc(100% - 64px));
-  margin-left: 64px;
-  padding: 7px 12px;
+  display: inline-block;
+  max-width: calc(100% - 80px);
+  margin: 7px 0 0 70px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 999px;
   color: var(--muted);
-  background: rgba(255, 255, 255, 0.7);
   font-size: 0.86rem;
-  font-weight: 800;
+  font-weight: 900;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -515,217 +540,85 @@ h3 {
 .case-frame {
   display: block;
   width: 100%;
-  height: clamp(500px, 58vw, 680px);
+  height: clamp(520px, 56vw, 690px);
   border: 0;
   background: #f7f1e6;
 }
 
-.case-details {
+.case-copy {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  align-items: start;
+  gap: 12px;
 }
 
-.case-details article,
-.technical,
-.faq-list details {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 250, 242, 0.84);
-}
-
-.case-details article {
-  min-height: 100%;
+.case-copy article {
   padding: 22px;
+  border-radius: 20px;
+  background: rgba(255, 253, 248, 0.94);
 }
 
-.case-details span {
-  display: inline-block;
-  margin-bottom: 16px;
-  color: var(--orange);
-  font-size: 0.82rem;
-  font-weight: 900;
-}
-
-.case-details h3 {
+.case-copy span {
+  display: block;
   margin-bottom: 10px;
-}
-
-.case-details p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.case-bullets {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.case-bullets li {
-  padding: 10px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.86);
-  background: rgba(255, 255, 255, 0.08);
-  font-size: 0.92rem;
-  font-weight: 900;
-}
-
-.technical {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.72fr);
-  gap: 34px;
-  align-items: center;
-  padding: 30px;
-}
-
-.technical h2 {
-  margin-bottom: 16px;
-}
-
-.technical p,
-.tech-card p,
-.faq-list p {
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-.tech-card {
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.58);
-}
-
-.tech-card h3 {
-  margin-bottom: 8px;
-}
-
-.tech-card .btn {
-  margin-top: 18px;
-}
-
-.clean-list {
-  display: grid;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.clean-list li {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-  font-weight: 800;
-}
-
-.clean-list li:last-child {
-  border-bottom: 0;
-}
-
-.about {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 34px;
-  align-items: center;
-  padding: 32px;
-  border: 1px solid var(--line);
-  border-radius: 26px;
-  background: rgba(255, 250, 242, 0.82);
-}
-
-.about img {
-  width: 220px;
-  aspect-ratio: 1;
-  border-radius: 22px;
-  object-fit: cover;
-  object-position: center 32%;
-}
-
-.founder-mark {
-  display: grid;
-  width: 220px;
-  aspect-ratio: 1;
-  place-items: center;
-  border-radius: 28px;
-  color: #fffaf2;
-  background:
-    linear-gradient(145deg, rgba(216, 111, 69, 0.2), transparent 42%),
-    var(--green);
-  font-size: 3.2rem;
+  color: var(--orange);
+  font-size: 0.8rem;
   font-weight: 950;
-}
-
-.about h2 {
-  margin-bottom: 16px;
-}
-
-.facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.company-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 20px;
-}
-
-.company-links a {
-  color: var(--green);
-  font-weight: 900;
-}
-
-.process h2 {
-  margin-bottom: 22px;
+  text-transform: uppercase;
 }
 
 .steps {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.step {
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 250, 242, 0.82);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .step span {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   place-items: center;
   margin-bottom: 18px;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--green);
-  font-weight: 900;
+  border-radius: 14px;
+  color: var(--green);
+  background: var(--lime);
+  font-weight: 950;
 }
 
-.step h3 {
-  margin-bottom: 8px;
+.included {
+  grid-template-columns: minmax(0, 0.7fr) minmax(360px, 1fr);
+  align-items: start;
+  padding: 30px;
 }
 
-.faq h2 {
-  margin-bottom: 22px;
+.check-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
 }
 
-.faq-list {
+.about {
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.74fr);
+  padding: 32px;
+}
+
+.founder {
   display: grid;
-  gap: 10px;
+  gap: 18px;
+  align-content: start;
+}
+
+.founder-mark {
+  display: grid;
+  width: 112px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 30px;
+  color: var(--green);
+  background: var(--lime);
+  font-size: 2rem;
+  font-weight: 950;
+}
+
+.founder a,
+.email-link {
+  color: var(--green);
+  font-weight: 950;
 }
 
 .faq-list details {
@@ -735,107 +628,157 @@ h3 {
 .faq-list summary {
   cursor: pointer;
   color: var(--green);
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .faq-list p {
   margin: 12px 0 0;
 }
 
-.contact {
+.budget-form {
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.74fr);
-  gap: 36px;
-  align-items: start;
-  padding: 34px;
-  border-radius: 28px;
-  color: #fff;
-  background: var(--green);
-  box-shadow: var(--shadow);
+  gap: 18px;
+  padding: 26px;
 }
 
-.contact h2,
-.contact .eyebrow {
-  color: #fff;
+.form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.contact-copy p {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.contact .contact-note {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.contact .btn-secondary {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.24);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.email {
-  display: inline-block;
-  margin-top: 22px;
-  color: rgba(255, 255, 255, 0.86);
-  font-weight: 800;
-}
-
-form {
+label,
+fieldset {
   display: grid;
-  gap: 12px;
+  gap: 8px;
+  color: #3d443e;
+  font-size: 0.92rem;
+  font-weight: 850;
 }
 
-label {
-  display: grid;
-  gap: 7px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.9rem;
-  font-weight: 800;
+fieldset {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+legend {
+  padding: 0 8px;
+  color: var(--green);
+  font-weight: 950;
+}
+
+.check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  color: var(--ink);
+  background: #fff;
   outline: none;
   padding: 13px 14px;
 }
 
 textarea {
-  min-height: 118px;
+  min-height: 120px;
   resize: vertical;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.62);
+input[type="checkbox"] {
+  width: auto;
 }
 
-form .btn {
-  width: 100%;
+.hp-field {
+  position: absolute;
+  left: -9999px;
 }
 
-footer {
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 34px 0 42px;
+.form-note,
+.success-message {
+  margin: 0;
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.success-message {
+  color: var(--green);
+}
+
+.final-cta {
+  text-align: left;
+}
+
+.final-cta .wrap {
+  max-width: 850px;
+}
+
+.email-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.5fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 36px 0 44px;
   color: var(--muted);
-  font-size: 0.92rem;
 }
 
-footer span {
-  margin-right: auto;
+.footer strong {
+  display: block;
+  color: var(--green);
+  font-size: 1.2rem;
 }
 
-footer a {
-  font-weight: 900;
+.footer p {
+  margin-bottom: 0;
 }
 
-@media (max-width: 900px) {
+.footer nav {
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  justify-content: flex-end;
+}
+
+.footer a {
+  font-weight: 850;
+}
+
+.legal-page,
+.simple-page {
+  padding: 72px 0;
+}
+
+.legal-page article,
+.simple-page article {
+  max-width: 840px;
+}
+
+.legal-page h1,
+.simple-page h1 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+}
+
+.legal-page h2 {
+  margin-top: 34px;
+  font-size: 1.5rem;
+}
+
+.legal-page ul {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 920px) {
   .topbar {
     grid-template-columns: 1fr auto;
     border-radius: 24px;
@@ -851,10 +794,11 @@ footer a {
 
   .hero,
   .split,
-  .case-details,
-  .technical,
+  .why-grid,
+  .case-layout,
+  .included,
   .about,
-  .contact {
+  .footer {
     grid-template-columns: 1fr;
   }
 
@@ -862,69 +806,88 @@ footer a {
     position: static;
   }
 
-  .steps {
+  .pillar-grid,
+  .steps,
+  .check-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .about img,
-  .founder-mark {
-    width: min(260px, 100%);
+  .footer nav {
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 620px) {
   .wrap {
-    width: min(100% - 24px, 1120px);
+    width: min(100% - 24px, 1160px);
   }
 
   .topbar {
     top: 8px;
-    gap: 8px;
-    width: min(100% - 24px, 1120px);
-  }
-
-  .header-whatsapp {
-    min-height: 38px;
-    padding: 0 12px;
-    font-size: 0.82rem;
+    width: min(100% - 24px, 1160px);
   }
 
   .brand span:last-child {
-    max-width: 120px;
+    max-width: 78px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .nav a {
-    padding: 8px 10px;
-    font-size: 0.86rem;
-    white-space: nowrap;
+  .header-cta {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.84rem;
   }
 
   .hero {
-    gap: 34px;
-    padding: 56px 0 52px;
+    gap: 32px;
+    min-height: auto;
+    padding: 58px 0 54px;
   }
 
   h1 {
-    font-size: 2.65rem;
+    font-size: 3.05rem;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
+  }
+
+  .hero-board {
+    min-height: 360px;
+    border-radius: 24px;
+  }
+
+  .main-card {
+    left: 18px;
+    right: 18px;
+    top: 34px;
+  }
+
+  .mini-card {
+    left: 20px;
+    bottom: 24px;
+  }
+
+  .mini-card.orange {
+    right: 20px;
+  }
+
+  .line-chart {
+    right: 24px;
+    top: 184px;
   }
 
   .section {
-    padding: 54px 0;
+    padding: 58px 0;
   }
 
-  .hero-panel,
-  .case-browser {
-    border-radius: 18px;
-  }
-
-  .hero-panel {
-    padding: 20px;
+  .pillar-grid,
+  .steps,
+  .check-list,
+  .form-grid,
+  fieldset {
+    grid-template-columns: 1fr;
   }
 
   .case-heading {
@@ -936,288 +899,59 @@ footer a {
     height: 520px;
   }
 
-  .browser-bar span {
-    max-width: calc(100% - 56px);
-    margin-left: 54px;
-  }
-
-  .about,
-  .contact {
+  .budget-form,
+  .included,
+  .about {
     padding: 20px;
     border-radius: 22px;
   }
 
-  .steps {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-actions .btn,
-  .contact-actions .btn {
+  .hero-actions .btn {
     width: 100%;
-  }
-
-  footer {
-    display: grid;
   }
 }
 </style>
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://portfolio-luan-one.vercel.app/#person","name":"Luan Salles","jobTitle":"Desenvolvedor web","url":"https://portfolio-luan-one.vercel.app/","email":"mailto:luanspctrabalho@gmail.com","sameAs":["https://github.com/LuanSalles","https://www.linkedin.com/in/luan-salles/"],"address":{"@type":"PostalAddress","addressLocality":"Niterói","addressRegion":"RJ","addressCountry":"BR"}},{"@type":"ProfessionalService","@id":"https://portfolio-luan-one.vercel.app/#service","name":"Luan Salles Web","url":"https://portfolio-luan-one.vercel.app/","image":"https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg","description":"Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas.","areaServed":["Niterói","Rio de Janeiro","Brasil"],"serviceType":["Criação de sites","Landing pages","Manutenção de sites"],"founder":{"@id":"https://portfolio-luan-one.vercel.app/#person"}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://portfolio-luan-one.vercel.app/#organization","name":"Vulan","url":"https://portfolio-luan-one.vercel.app/","email":"mailto:luanspctrabalho@gmail.com","founder":{"@type":"Person","name":"Luan Salles","jobTitle":"Desenvolvedor web"},"areaServed":["Brasil"]},{"@type":"Service","@id":"https://portfolio-luan-one.vercel.app/#service","name":"Criação de sites para negócios","provider":{"@id":"https://portfolio-luan-one.vercel.app/#organization"},"serviceType":["Landing pages","Sites institucionais","Sites com catálogo"]}]}</script>
   </head>
   <body>
     <main id="inicio">
       <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header class="topbar">
-        <a class="brand" href="#inicio" aria-label="Luan Salles Web"><span class="brand-mark">LS</span><span data-i="brand">Luan Salles Web</span></a>
+        <a class="brand" href="#inicio" aria-label="Vulan"><span class="brand-mark">V</span><span>VULAN</span></a>
         <nav class="nav" aria-label="Navegação principal">
-          <a href="#solucoes">Soluções</a><a href="#metodo">Método</a><a href="#projeto">Projeto</a><a href="#empresa">Empresa</a><a href="#contato">Contato</a>
+          <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
         </nav>
-        <div class="header-actions">
-          <div class="lang-switch" aria-label="Selecionar idioma"><button class="active" type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
-          <a class="btn btn-primary header-whatsapp whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer" aria-label="WhatsApp (abre em nova aba)">WhatsApp</a>
-        </div>
+        <a class="btn btn-primary header-cta" href="#orcamento">Pedir orçamento</a>
       </header>
-
-      <p class="sr-only" aria-live="polite" data-i="status">Idioma alterado para português.</p>
 
       <section id="conteudo" class="hero wrap">
         <div class="hero-copy">
-          <p class="eyebrow" data-i="hero-eyebrow">Criação de sites para negócios</p>
-          <h1 data-i="hero-title">Sites institucionais e landing pages para negócios que precisam vender com clareza.</h1>
-          <p class="lead" data-i="hero-text">Desenvolvimento de páginas responsivas com conteúdo organizado, botões de contato, publicação e orientação sobre domínio e hospedagem.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer" data-i="hero-primary">Falar sobre meu site</a>
-            <a class="btn btn-secondary" href="#metodo" data-i="hero-secondary">Ver método</a>
-          </div>
-          <p class="cta-note" data-i="hero-helper">Orçamento por escopo · Atendimento direto · Site publicado</p>
+          <p class="eyebrow">Criação de sites para negócios</p>
+          <h1>Sites profissionais pensados para o seu negócio, sem complicação.</h1>
+          <p class="lead">A Vulan cria sites modernos, rápidos e adaptados à realidade de cada empresa, cuidando do processo da estrutura à publicação.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#orcamento">Pedir orçamento</a><a class="btn btn-secondary" href="#projetos">Ver projetos</a></div>
         </div>
-        <div class="hero-panel" aria-label="Entregas principais">
-          <p class="eyebrow" data-i="hero-panel-eyebrow">Entrega</p>
-          <h2 data-i="proof-title">Site pronto para divulgar</h2>
-          <div class="hero-panel-list"><article class="hero-panel-item"><h3>01</h3><p>Estrutura das páginas</p></article><article class="hero-panel-item"><h3>02</h3><p>Versão mobile</p></article><article class="hero-panel-item"><h3>03</h3><p>WhatsApp e formulário</p></article><article class="hero-panel-item"><h3>04</h3><p>Publicação orientada</p></article></div>
-        </div>
+        <div class="hero-board" aria-label="Resumo do serviço"><div class="browser-card main-card"><span>vulan.com.br</span><strong>Sites pensados para negócios.</strong></div><div class="mini-card">Mobile</div><div class="mini-card orange">WhatsApp</div><div class="line-chart" aria-hidden="true"><span></span><span></span><span></span></div></div>
       </section>
 
-      <section id="solucoes" class="section wrap split">
-        <div class="section-copy">
-          <p class="eyebrow" data-i="solutions-eyebrow">Serviços</p>
-          <h2 data-i="solutions-title">Formatos de site</h2>
-          <p data-i="solutions-text">Escolha o formato mais adequado para apresentar seu negócio, divulgar uma oferta ou melhorar um site existente.</p>
-        </div>
-        <div class="service-list"><article class="service"><h3>Site institucional</h3><p>Páginas para apresentar empresa, serviços, diferenciais, localização, redes sociais e canais de contato.</p></article><article class="service"><h3>Landing page</h3><p>Para divulgar uma oferta, campanha, curso, evento ou serviço específico com uma página direta e chamada clara para ação.</p></article><article class="service"><h3>Reforma de site</h3><p>Ajustes de layout, conteúdo, versão mobile, botões de contato, links e organização das páginas.</p></article><article class="service"><h3>Manutenção mensal</h3><p>Para manter pequenos ajustes, novas seções, troca de conteúdo e suporte básico depois que o site estiver publicado.</p></article><a class="btn btn-secondary service-cta whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer" data-i="solutions-cta">Conversar no WhatsApp</a></div>
+      <section class="section wrap value">
+        <div class="section-head"><p class="eyebrow">Proposta de valor</p><h2>Seu negócio merece mais do que simplesmente estar na internet.</h2><p>Cada projeto começa entendendo a empresa, seus serviços, seus clientes e o objetivo do site.</p></div>
+        <div class="pillar-grid"><article class="pillar"><h3>Pensado para o negócio</h3><p>Estrutura e conteúdo organizados conforme o que sua empresa precisa apresentar.</p></article><article class="pillar"><h3>Processo simples</h3><p>Você não precisa entender programação, hospedagem ou infraestrutura.</p></article><article class="pillar"><h3>Desenvolvimento ágil</h3><p>Etapas claras, comunicação direta e prazo definido.</p></article></div>
       </section>
 
-      <section id="metodo" class="section wrap process method">
-        <div class="section-head">
-          <p class="eyebrow" data-i="method-eyebrow">Processo</p>
-          <h2 data-i="method-title">Como funciona</h2>
-          <p data-i="method-text">O projeto segue etapas objetivas, com escopo, prazos e revisões definidos antes do desenvolvimento.</p>
-        </div>
-        <div class="steps"><article class="step"><span>1</span><h3>Briefing</h3><p>Objetivo, páginas, referências, conteúdo disponível e prazo desejado.</p></article><article class="step"><span>2</span><h3>Proposta</h3><p>Escopo, valor, prazo e responsabilidades definidos antes do desenvolvimento.</p></article><article class="step"><span>3</span><h3>Desenvolvimento</h3><p>Layout, responsividade, textos organizados, links e integrações.</p></article><article class="step"><span>4</span><h3>Publicação</h3><p>Revisão final, ajustes combinados e site pronto para divulgação.</p></article></div>
-      </section>
+      <section id="servicos" class="section wrap split"><div class="section-copy"><p class="eyebrow">Serviços</p><h2>Sites para apresentar, vender e receber contatos.</h2><p>A Vulan trabalha com formatos objetivos para empresas que precisam sair do improviso e organizar sua presença digital.</p></div><div class="service-list"><article class="service"><h3>Landing Page</h3><p>Página única para apresentar uma empresa, serviço, produto ou campanha e direcionar o visitante para uma ação.</p></article><article class="service"><h3>Site Institucional</h3><p>Presença digital completa para empresas que precisam apresentar serviços, estrutura, diferenciais e contato.</p></article><article class="service"><h3>Catálogo</h3><p>Estrutura para apresentar produtos, serviços ou itens disponíveis, com opção estática ou painel administrativo.</p></article></div></section>
 
-      <section id="projeto" class="section case-section">
-        <div class="wrap case-showcase">
-          <div class="case-heading">
-            <div>
-              <p class="eyebrow" data-i="case-eyebrow">Projeto publicado</p>
-              <h2 data-i="case-title">Alquimia do Bonsai</h2>
-              <p data-i="case-intro">Site institucional e comercial desenvolvido para organizar a presença digital da marca Alquimia do Bonsai.</p>
-            </div>
-            <a class="btn btn-primary case-link" href="https://alquimiadobonsai.com" target="_blank" rel="noreferrer" data-i="case-button" aria-label="Abrir site ao vivo (abre em nova aba)">Abrir site ao vivo</a>
-          </div>
-          <div class="case-browser" aria-label="Demonstração interativa do site Alquimia do Bonsai">
-            <div class="browser-bar"><span>alquimiadobonsai.com</span></div>
-            <iframe class="case-frame" src="https://alquimiadobonsai.com" title="Site Alquimia do Bonsai" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-          </div>
-          <div class="case-details">
-            <article><span>01</span><h3>Problema</h3><p data-i="case-problem">A marca reunia livro, cursos, catálogo, conteúdos educativos, redes sociais e contatos em lugares diferentes. Faltava uma página central para apresentar tudo com clareza.</p></article>
-            <article><span>02</span><h3>Solução</h3><p data-i="case-solution">Foi desenvolvido um site responsivo e bilíngue com apresentação da marca, escola, vídeos, livro, loja, catálogo, materiais externos e contato via WhatsApp.</p></article>
-            <article><span>03</span><h3>Resultado</h3><p data-i="case-result">O site está publicado em domínio próprio e já pode ser usado como canal oficial da marca para receber visitantes, apresentar produtos e direcionar interessados.</p></article>
-          </div>
-          <ul class="case-bullets"><li>Site em português e inglês</li><li>Catálogo, favoritos e carrinho local</li><li>Integração com WhatsApp, Amazon, Google Drive e redes sociais</li><li>Navegação pensada para desktop e celular</li></ul>
-        </div>
-      </section>
+      <section id="projetos" class="section case-section"><div class="wrap case-showcase"><div class="case-heading"><div><p class="eyebrow">Case principal</p><h2>Alquimia do Bonsai</h2><p>Presença digital para uma marca dedicada a bonsais, conteúdo educativo e catálogo de produtos.</p></div><a class="btn btn-primary" href="https://alquimiadobonsai.com" target="_blank" rel="noreferrer">Visitar projeto</a></div><div class="case-browser"><div class="browser-bar"><span>alquimiadobonsai.com</span></div><iframe class="case-frame" src="https://alquimiadobonsai.com" title="Site Alquimia do Bonsai" loading="lazy"></iframe></div></div></section>
 
-      <section class="section wrap technical recurring">
-        <div>
-          <p class="eyebrow" data-i="recurring-eyebrow">Manutenção</p>
-          <h2 data-i="recurring-title">Atualizações para manter o site útil</h2>
-          <p data-i="recurring-text">Plano mensal para ajustes de conteúdo, links, imagens e pequenas melhorias após a publicação.</p>
-        </div>
-        <div class="tech-card">
-          <h3 data-i="recurring-card">Manutenção opcional</h3>
-          <ul class="clean-list"><li>Troca de textos e imagens</li><li>Novas seções simples</li><li>Ajustes de botões e links</li><li>Suporte básico para publicação</li></ul>
-        </div>
-      </section>
+      <section class="section wrap process"><div class="section-head"><p class="eyebrow">Como funciona</p><h2>Do primeiro contato à publicação.</h2></div><div class="steps six"><article class="step"><span>1</span><h3>Conversa inicial</h3><p>A Vulan entende o negócio, objetivo e necessidades do projeto.</p></article><article class="step"><span>2</span><h3>Proposta</h3><p>São definidos escopo, prazo e investimento.</p></article><article class="step"><span>3</span><h3>Publicação</h3><p>Após aprovação e pagamento final, o site é publicado.</p></article></div></section>
 
-      <section id="empresa" class="section wrap about company">
-        <div class="founder-mark" aria-hidden="true">LS</div>
-        <div>
-          <p class="eyebrow" data-i="company-eyebrow">Empresa</p>
-          <h2 data-i="company-title">Desenvolvimento web com atendimento direto</h2>
-          <p data-i="company-text">A Luan Salles Web atende pequenos negócios e profissionais que precisam de site institucional, landing page ou melhoria em site existente. O projeto é conduzido por Luan Salles, desenvolvedor web em Niterói/RJ e estudante de Ciência da Computação.</p>
-          <div class="facts company-facts"><span>Niterói/RJ</span><span>Atendimento remoto</span><span>Sites para pequenos negócios</span><span>JavaScript e React</span></div>
-          <div class="company-links">
-            <a href="https://github.com/LuanSalles" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/luan-salles/" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
-        </div>
-      </section>
+      <section id="sobre" class="section wrap about"><div><p class="eyebrow">Sobre a Vulan</p><h2>Tecnologia sem transformar o seu projeto em complicação.</h2><p>A Vulan nasceu para ajudar negócios a construírem uma presença digital profissional de forma mais simples.</p></div><div class="founder"><div class="founder-mark">LS</div><div><h3>Quem está por trás da Vulan</h3><p>A Vulan foi fundada por Luan Salles, desenvolvedor web e estudante de Ciência da Computação.</p></div></div></section>
 
-      <section class="section wrap faq">
-        <h2 data-i="faq-title">Dúvidas comuns</h2>
-        <div class="faq-list"><details><summary>Como o valor é definido?</summary><p>O investimento é calculado pelo escopo: número de páginas, funcionalidades, prazo, conteúdo disponível e integrações.</p></details><details><summary>O que preciso enviar?</summary><p>Logo, textos, fotos, serviços, contatos e referências. Quando faltar material, o escopo considera organização de conteúdo.</p></details><details><summary>Domínio e hospedagem entram no projeto?</summary><p>A configuração pode ser incluída. Custos externos são informados separadamente.</p></details><details><summary>O site funciona no celular?</summary><p>A versão mobile faz parte da entrega desde o início do projeto.</p></details><details><summary>Como peço orçamento?</summary><p>Envie uma mensagem no WhatsApp ou preencha o briefing com os detalhes do site.</p></details></div>
-      </section>
+      <section id="orcamento" class="section wrap budget-section"><div class="section-head"><p class="eyebrow">Orçamento</p><h2>Conte um pouco sobre o projeto.</h2><p>Solicite um orçamento pelo WhatsApp com as principais informações do seu site.</p><a class="btn btn-primary" href="https://wa.me/5521979231817?text=Ol%C3%A1!%20Conheci%20a%20Vulan%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20a%20cria%C3%A7%C3%A3o%20de%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer">Pedir orçamento</a></div></section>
 
-      <section id="contato" class="section wrap contact">
-        <div class="contact-copy">
-          <p class="eyebrow" data-i="contact-eyebrow">Contato</p>
-          <h2 data-i="contact-title">Solicite um orçamento para o seu site</h2>
-          <p data-i="contact-text">Envie o tipo de negócio, objetivo do site, prazo e referências. A resposta já vem com os próximos passos para definir escopo e valor.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer">WhatsApp</a>
-            <a class="btn btn-secondary quote-link" href="https://forms.gle/ebQXBwmDUHUt6zwn7" target="_blank" rel="noreferrer" data-i="contact-form">Preencher briefing</a>
-          </div>
-          <p class="contact-note" data-i="contact-note">A mensagem será enviada pelo WhatsApp com os dados preenchidos.</p>
-          <a class="email" href="mailto:luanspctrabalho@gmail.com">luanspctrabalho@gmail.com</a>
-        </div>
-        <form id="contactForm">
-          <label><span>Nome</span><input id="name" name="name" required placeholder="Seu nome" autocomplete="name" /></label>
-          <label><span>Tipo de negócio ou site</span><input id="projectType" name="projectType" placeholder="Ex.: clínica, loja local, landing page de serviço" /></label>
-          <label><span>Mensagem</span><textarea id="message" name="message" required placeholder="Descreva negócio, objetivo, prazo e referências."></textarea></label>
-          <button class="btn btn-secondary" type="submit" data-i="contact-submit">Enviar pelo WhatsApp</button>
-        </form>
-      </section>
+      <section id="contato" class="section final-cta"><div class="wrap"><p class="eyebrow">Próximo passo</p><h2>Vamos tirar o seu site do papel?</h2><p>Conte um pouco sobre o seu negócio e receba uma proposta pensada para o seu projeto.</p><div class="hero-actions"><a class="btn btn-primary" href="#orcamento">Pedir orçamento</a><a class="btn btn-secondary" href="https://wa.me/5521979231817?text=Ol%C3%A1!%20Conheci%20a%20Vulan%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20a%20cria%C3%A7%C3%A3o%20de%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer">Falar pelo WhatsApp</a></div></div></section>
 
-      <footer class="wrap">
-        <span data-i="footer">Luan Salles Web · Criação de sites para negócios</span>
-        <a href="#solucoes">Soluções</a>
-        <a href="#contato">Contato</a>
-      </footer>
+      <footer class="wrap footer"><div><strong>VULAN</strong><p>Sites pensados para negócios.</p></div><nav><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#orcamento">Orçamento</a><a href="/politica-de-privacidade">Política de Privacidade</a><a href="/termos-de-uso">Termos de Uso</a></nav><p>© 2026 Vulan. Todos os direitos reservados. Desenvolvido pela Vulan.</p></footer>
     </main>
-
-    <script>
-      const i18n = {"pt":{"lang":"pt-BR","title":"Luan Salles Web | Criação de sites para pequenos negócios","description":"Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas.","brand":"Luan Salles Web","nav":["Soluções","Método","Projeto","Empresa","Contato"],"whatsapp":"WhatsApp","whatsappText":"Oi, Luan. Quero conversar sobre um site para meu negócio.","newTab":"abre em nova aba","status":"Idioma alterado para português.","hero":["Criação de sites para negócios","Sites institucionais e landing pages para negócios que precisam vender com clareza.","Desenvolvimento de páginas responsivas com conteúdo organizado, botões de contato, publicação e orientação sobre domínio e hospedagem.","Falar sobre meu site","Ver método","Orçamento por escopo · Atendimento direto · Site publicado"],"panelEyebrow":"Entrega","proof":["Site pronto para divulgar",["01","Estrutura das páginas"],["02","Versão mobile"],["03","WhatsApp e formulário"],["04","Publicação orientada"]],"solutions":["Serviços","Formatos de site","Escolha o formato mais adequado para apresentar seu negócio, divulgar uma oferta ou melhorar um site existente.","Conversar no WhatsApp"],"services":[["Site institucional","Páginas para apresentar empresa, serviços, diferenciais, localização, redes sociais e canais de contato."],["Landing page","Para divulgar uma oferta, campanha, curso, evento ou serviço específico com uma página direta e chamada clara para ação."],["Reforma de site","Ajustes de layout, conteúdo, versão mobile, botões de contato, links e organização das páginas."],["Manutenção mensal","Para manter pequenos ajustes, novas seções, troca de conteúdo e suporte básico depois que o site estiver publicado."]],"method":["Processo","Como funciona","O projeto segue etapas objetivas, com escopo, prazos e revisões definidos antes do desenvolvimento."],"steps":[["1","Briefing","Objetivo, páginas, referências, conteúdo disponível e prazo desejado."],["2","Proposta","Escopo, valor, prazo e responsabilidades definidos antes do desenvolvimento."],["3","Desenvolvimento","Layout, responsividade, textos organizados, links e integrações."],["4","Publicação","Revisão final, ajustes combinados e site pronto para divulgação."]],"case":["Projeto publicado","Alquimia do Bonsai","Site institucional e comercial desenvolvido para organizar a presença digital da marca Alquimia do Bonsai.","A marca reunia livro, cursos, catálogo, conteúdos educativos, redes sociais e contatos em lugares diferentes. Faltava uma página central para apresentar tudo com clareza.","Foi desenvolvido um site responsivo e bilíngue com apresentação da marca, escola, vídeos, livro, loja, catálogo, materiais externos e contato via WhatsApp.","O site está publicado em domínio próprio e já pode ser usado como canal oficial da marca para receber visitantes, apresentar produtos e direcionar interessados.","Abrir site ao vivo"],"caseLabels":["Problema","Solução","Resultado"],"caseBullets":["Site em português e inglês","Catálogo, favoritos e carrinho local","Integração com WhatsApp, Amazon, Google Drive e redes sociais","Navegação pensada para desktop e celular"],"recurring":["Manutenção","Atualizações para manter o site útil","Plano mensal para ajustes de conteúdo, links, imagens e pequenas melhorias após a publicação.","Manutenção opcional"],"recurringItems":["Troca de textos e imagens","Novas seções simples","Ajustes de botões e links","Suporte básico para publicação"],"company":["Empresa","Desenvolvimento web com atendimento direto","A Luan Salles Web atende pequenos negócios e profissionais que precisam de site institucional, landing page ou melhoria em site existente. O projeto é conduzido por Luan Salles, desenvolvedor web em Niterói/RJ e estudante de Ciência da Computação."],"facts":["Niterói/RJ","Atendimento remoto","Sites para pequenos negócios","JavaScript e React"],"faqTitle":"Dúvidas comuns","faq":[["Como o valor é definido?","O investimento é calculado pelo escopo: número de páginas, funcionalidades, prazo, conteúdo disponível e integrações."],["O que preciso enviar?","Logo, textos, fotos, serviços, contatos e referências. Quando faltar material, o escopo considera organização de conteúdo."],["Domínio e hospedagem entram no projeto?","A configuração pode ser incluída. Custos externos são informados separadamente."],["O site funciona no celular?","A versão mobile faz parte da entrega desde o início do projeto."],["Como peço orçamento?","Envie uma mensagem no WhatsApp ou preencha o briefing com os detalhes do site."]],"contact":["Contato","Solicite um orçamento para o seu site","Envie o tipo de negócio, objetivo do site, prazo e referências. A resposta já vem com os próximos passos para definir escopo e valor.","Preencher briefing","Enviar pelo WhatsApp","Oi, Luan. Quero conversar sobre um site para meu negócio.","A mensagem será enviada pelo WhatsApp com os dados preenchidos."],"labels":["Nome","Tipo de negócio ou site","Mensagem"],"placeholders":["Seu nome","Ex.: clínica, loja local, landing page de serviço","Descreva negócio, objetivo, prazo e referências."],"fallbacks":["Não informado","Ainda não definido","Quero criar ou melhorar um site."],"footer":"Luan Salles Web · Criação de sites para negócios"},"en":{"lang":"en","title":"Luan Salles Web | Website creation for small businesses","description":"Business websites, landing pages, and website improvements for small businesses, professionals, and brands.","brand":"Luan Salles Web","nav":["Solutions","Method","Project","Company","Contact"],"whatsapp":"WhatsApp","whatsappText":"Hi, Luan. I want to talk about a website for my business.","newTab":"opens in a new tab","status":"Language changed to English.","hero":["Website creation for businesses","Business websites and landing pages for companies that need to sell with clarity.","Responsive pages with organized content, contact buttons, publishing, and guidance on domain and hosting.","Talk about my website","See method","Scoped quote · Direct contact · Published website"],"panelEyebrow":"Delivery","proof":["Website ready to share",["01","Page structure"],["02","Mobile version"],["03","WhatsApp and form"],["04","Guided publishing"]],"solutions":["Services","Website formats","Choose the right format to present your business, promote an offer, or improve an existing website.","Talk on WhatsApp"],"services":[["Business website","Pages to present the business, services, strengths, location, social links, and contact channels."],["Landing page","For promoting an offer, campaign, course, event, or specific service with a direct page and clear call to action."],["Website refresh","Layout, content, mobile, contact buttons, links, and page structure improvements."],["Monthly care","For small updates, new sections, content changes, and basic support after the website is published."]],"method":["Process","How it works","Each project follows clear stages, with scope, timeline, and review points defined before development."],"steps":[["1","Briefing","Goal, pages, references, available content, and desired timeline."],["2","Proposal","Scope, price, timeline, and responsibilities defined before development."],["3","Development","Layout, responsiveness, organized copy, links, and integrations."],["4","Publishing","Final review, agreed adjustments, and website ready to share."]],"case":["Published project","Alquimia do Bonsai","Institutional and commercial website developed to organize the digital presence of Alquimia do Bonsai.","The brand had a book, courses, catalog, educational content, social media, and contact channels in different places. It needed one central page to present everything clearly.","A responsive bilingual website was developed with brand presentation, school, videos, book, shop, catalog, external materials, and WhatsApp contact.","The website is live on its own domain and can already be used as the brand's official channel to receive visitors, present products, and guide interested people.","Open live website"],"caseLabels":["Problem","Solution","Result"],"caseBullets":["Website in Portuguese and English","Catalog, favorites, and local cart","Integrations with WhatsApp, Amazon, Google Drive, and social media","Navigation planned for desktop and mobile"],"recurring":["Maintenance","Updates to keep the website useful","Monthly plan for content, links, images, and small improvements after publishing.","Optional monthly care"],"recurringItems":["Text and image changes","Simple new sections","Button and link adjustments","Basic publishing support"],"company":["Company","Web development with direct service","Luan Salles Web serves small businesses and professionals that need a business website, landing page, or improvements to an existing website. Projects are led by Luan Salles, a web developer based in Niterói, Brazil, and a Computer Science student."],"facts":["Niterói/RJ, Brazil","Remote service","Websites for small businesses","JavaScript and React"],"faqTitle":"Common questions","faq":[["How is pricing defined?","Investment is calculated by scope: number of pages, features, timeline, available content, and integrations."],["What do I need to send?","Logo, copy, photos, services, contact details, and references. When material is missing, content organization is included in the scope."],["Are domain and hosting included?","Configuration can be included. External costs are listed separately."],["Will the website work on mobile?","The mobile version is part of the delivery from the start."],["How do I request a quote?","Send a WhatsApp message or fill out the briefing with the website details."]],"contact":["Contact","Request a quote for your website","Send the business type, website goal, timeline, and references. The reply comes with the next steps to define scope and price.","Fill briefing","Send on WhatsApp","Hi, Luan. I want to talk about a website for my business.","The message will be sent through WhatsApp with the filled details."],"labels":["Name","Business or website type","Message"],"placeholders":["Your name","Ex.: clinic, local shop, service landing page","Describe the business, goal, timeline, and references."],"fallbacks":["Not provided","Not defined yet","I want to create or improve a website."],"footer":"Luan Salles Web · Website creation for businesses"}};
-      const phone = "5521979231817";
-
-      function setText(selector, value) {
-        const element = document.querySelector(selector);
-        if (element) element.textContent = value;
-      }
-
-      function setTexts(selector, values) {
-        document.querySelectorAll(selector).forEach((element, index) => {
-          if (values[index]) element.textContent = values[index];
-        });
-      }
-
-      function setCards(selector, values) {
-        document.querySelectorAll(selector).forEach((card, index) => {
-          if (!values[index]) return;
-          card.querySelector("h3").textContent = values[index][0];
-          card.querySelector("p").textContent = values[index][1];
-        });
-      }
-
-      function setWhatsApp(message) {
-        document.querySelectorAll(".whatsapp-link").forEach((element) => {
-          element.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-        });
-      }
-
-      function applyLanguage(lang) {
-        const t = i18n[lang];
-        document.documentElement.lang = t.lang;
-        document.title = t.title;
-        document.querySelector('meta[name="description"]').setAttribute("content", t.description);
-        document.querySelectorAll(".lang-switch button").forEach((button) => {
-          button.classList.toggle("active", button.dataset.lang === lang);
-          button.setAttribute("aria-pressed", button.dataset.lang === lang ? "true" : "false");
-        });
-
-        setText("[data-i='brand']", t.brand);
-        setTexts(".nav a", t.nav);
-        setText("[data-i='hero-eyebrow']", t.hero[0]);
-        setText("[data-i='hero-title']", t.hero[1]);
-        setText("[data-i='hero-text']", t.hero[2]);
-        setText("[data-i='hero-primary']", t.hero[3]);
-        setText("[data-i='hero-secondary']", t.hero[4]);
-        setText("[data-i='hero-helper']", t.hero[5]);
-        setText("[data-i='hero-panel-eyebrow']", t.panelEyebrow);
-        setText("[data-i='proof-title']", t.proof[0]);
-        setCards(".hero-panel-item", t.proof.slice(1));
-        setText("[data-i='solutions-eyebrow']", t.solutions[0]);
-        setText("[data-i='solutions-title']", t.solutions[1]);
-        setText("[data-i='solutions-text']", t.solutions[2]);
-        setText("[data-i='solutions-cta']", t.solutions[3]);
-        setCards(".service", t.services);
-        setText("[data-i='method-eyebrow']", t.method[0]);
-        setText("[data-i='method-title']", t.method[1]);
-        setText("[data-i='method-text']", t.method[2]);
-        document.querySelectorAll(".step").forEach((step, index) => {
-          step.querySelector("span").textContent = t.steps[index][0];
-          step.querySelector("h3").textContent = t.steps[index][1];
-          step.querySelector("p").textContent = t.steps[index][2];
-        });
-        setText("[data-i='case-eyebrow']", t.case[0]);
-        setText("[data-i='case-title']", t.case[1]);
-        setText("[data-i='case-intro']", t.case[2]);
-        setText("[data-i='case-problem']", t.case[3]);
-        setText("[data-i='case-solution']", t.case[4]);
-        setText("[data-i='case-result']", t.case[5]);
-        setText("[data-i='case-button']", t.case[6]);
-        setTexts(".case-details h3", t.caseLabels);
-        setTexts(".case-bullets li", t.caseBullets);
-        setText("[data-i='recurring-eyebrow']", t.recurring[0]);
-        setText("[data-i='recurring-title']", t.recurring[1]);
-        setText("[data-i='recurring-text']", t.recurring[2]);
-        setText("[data-i='recurring-card']", t.recurring[3]);
-        setTexts(".clean-list li", t.recurringItems);
-        setText("[data-i='company-eyebrow']", t.company[0]);
-        setText("[data-i='company-title']", t.company[1]);
-        setText("[data-i='company-text']", t.company[2]);
-        setTexts(".company-facts span", t.facts);
-        setText("[data-i='faq-title']", t.faqTitle);
-        document.querySelectorAll(".faq-list details").forEach((item, index) => {
-          item.querySelector("summary").textContent = t.faq[index][0];
-          item.querySelector("p").textContent = t.faq[index][1];
-        });
-        setText("[data-i='contact-eyebrow']", t.contact[0]);
-        setText("[data-i='contact-title']", t.contact[1]);
-        setText("[data-i='contact-text']", t.contact[2]);
-        setText("[data-i='contact-form']", t.contact[3]);
-        setText("[data-i='contact-submit']", t.contact[4]);
-        setText("[data-i='contact-note']", t.contact[6]);
-        setText("[data-i='status']", t.status);
-        setTexts("form label span", t.labels);
-        document.querySelector("#name").placeholder = t.placeholders[0];
-        document.querySelector("#projectType").placeholder = t.placeholders[1];
-        document.querySelector("#message").placeholder = t.placeholders[2];
-        setText("[data-i='footer']", t.footer);
-        setTexts("footer a", [t.nav[0], t.nav[4]]);
-        setWhatsApp(t.whatsappText);
-        localStorage.setItem("companySiteLang", lang);
-      }
-
-      document.querySelectorAll(".lang-switch button").forEach((button) => {
-        button.addEventListener("click", () => applyLanguage(button.dataset.lang));
-      });
-
-      document.querySelector("#contactForm").addEventListener("submit", (event) => {
-        event.preventDefault();
-        const lang = localStorage.getItem("companySiteLang") === "en" ? "en" : "pt";
-        const t = i18n[lang];
-        const text = [
-          t.contact[5],
-          "",
-          t.labels[0] + ": " + (document.querySelector("#name").value.trim() || t.fallbacks[0]),
-          t.labels[1] + ": " + (document.querySelector("#projectType").value.trim() || t.fallbacks[1]),
-          t.labels[2] + ": " + (document.querySelector("#message").value.trim() || t.fallbacks[2]),
-        ].join("\\n");
-        window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(text), "_blank", "noreferrer");
-      });
-
-      applyLanguage(localStorage.getItem("companySiteLang") === "en" ? "en" : "pt");
-    </script>
   </body>
 </html>

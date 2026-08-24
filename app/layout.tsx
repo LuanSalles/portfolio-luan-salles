@@ -12,20 +12,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://portfolio-luan-one.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-luan-one.vercel.app"),
-  title: "Luan Salles Web | Criação de sites para pequenos negócios",
+  metadataBase: new URL(siteUrl),
+  title: "Vulan | Criação de Sites para Negócios",
   description:
-    "Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas.",
+    "A Vulan cria sites profissionais para pequenos e médios negócios, com desenvolvimento personalizado, processo simples e foco nos objetivos de cada empresa.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Luan Salles Web | Criação de sites para pequenos negócios",
+    title: "Vulan | Criação de Sites para Negócios",
     description:
-      "Sites profissionais com foco em clareza, versão mobile, contato rápido e publicação organizada.",
+      "Sites profissionais pensados para o seu negócio, sem complicação.",
     url: "/",
-    siteName: "Luan Salles Web",
+    siteName: "Vulan",
     type: "website",
     locale: "pt_BR",
     images: [
@@ -33,20 +35,20 @@ export const metadata: Metadata = {
         url: "/alquimia-bonsai-1180.jpg",
         width: 1180,
         height: 533,
-        alt: "Site Alquimia do Bonsai desenvolvido por Luan Salles",
+        alt: "Case Alquimia do Bonsai desenvolvido pela Vulan",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luan Salles Web | Criação de sites para pequenos negócios",
+    title: "Vulan | Criação de Sites para Negócios",
     description:
-      "Sites profissionais com foco em clareza, versão mobile, contato rápido e publicação organizada.",
+      "Sites profissionais pensados para o seu negócio, sem complicação.",
     images: ["/alquimia-bonsai-1180.jpg"],
   },
   icons: {
-    icon: [{ url: "/favicon-ls.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon-ls.svg",
+    icon: [{ url: "/favicon-vulan.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon-vulan.svg",
   },
 };
 
@@ -54,36 +56,29 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Person",
-      "@id": "https://portfolio-luan-one.vercel.app/#person",
-      name: "Luan Salles",
-      jobTitle: "Desenvolvedor web",
-      url: "https://portfolio-luan-one.vercel.app/",
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Vulan",
+      url: `${siteUrl}/`,
       email: "mailto:luanspctrabalho@gmail.com",
-      sameAs: [
-        "https://github.com/LuanSalles",
-        "https://www.linkedin.com/in/luan-salles/",
-      ],
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Niterói",
-        addressRegion: "RJ",
-        addressCountry: "BR",
+      founder: {
+        "@type": "Person",
+        name: "Luan Salles",
+        jobTitle: "Desenvolvedor web",
+        sameAs: ["https://www.linkedin.com/in/luan-salles/"],
       },
+      areaServed: ["Brasil"],
     },
     {
-      "@type": "ProfessionalService",
-      "@id": "https://portfolio-luan-one.vercel.app/#service",
-      name: "Luan Salles Web",
-      url: "https://portfolio-luan-one.vercel.app/",
-      image: "https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg",
-      description:
-        "Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas.",
-      areaServed: ["Niterói", "Rio de Janeiro", "Brasil"],
-      serviceType: ["Criação de sites", "Landing pages", "Desenvolvimento web"],
-      founder: {
-        "@id": "https://portfolio-luan-one.vercel.app/#person",
+      "@type": "Service",
+      "@id": `${siteUrl}/#service`,
+      name: "Criação de sites para negócios",
+      provider: {
+        "@id": `${siteUrl}/#organization`,
       },
+      serviceType: ["Landing pages", "Sites institucionais", "Sites com catálogo"],
+      description:
+        "Criação de sites profissionais para pequenos e médios negócios, com processo simples e desenvolvimento adaptado ao objetivo da empresa.",
     },
   ],
 };
@@ -95,9 +90,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

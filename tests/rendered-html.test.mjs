@@ -3,13 +3,13 @@ import { stat } from "node:fs/promises";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${path}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -24,54 +24,48 @@ async function render() {
   );
 }
 
-test("server-renders the company website", async () => {
+test("server-renders the Vulan website", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /Luan Salles Web \| Criação de sites para pequenos negócios/);
-  assert.match(html, /Criação de sites para negócios/);
-  assert.match(html, /Sites institucionais e landing pages/);
+  assert.match(html, /Vulan \| Criação de Sites para Negócios/);
+  assert.match(html, /Sites profissionais pensados para o seu negócio, sem complicação/);
+  assert.match(html, /Pedir orçamento/);
+  assert.match(html, /Landing Page/);
+  assert.match(html, /Site Institucional/);
+  assert.match(html, /Catálogo/);
   assert.match(html, /Alquimia do Bonsai/);
-  assert.match(html, /https:\/\/alquimiadobonsai\.com/);
-  assert.match(html, /Luan Salles Web/);
-  assert.match(html, /Manutenção mensal/);
-  assert.match(html, /Dúvidas comuns/);
-  assert.match(html, /Problema/);
-  assert.match(html, /Solução/);
-  assert.match(html, /Resultado/);
-  assert.doesNotMatch(html, /Codex is working|Your site is taking shape|codex-preview/i);
+  assert.match(html, /Do primeiro contato à publicação/);
+  assert.match(html, /Política de Privacidade/);
+  assert.doesNotMatch(html, /Luan Salles Web|portfolio de desenvolvedor|FuteGestão CT|Codex is working|Your site is taking shape|codex-preview/i);
 });
 
-test("published static site contains SEO and bilingual contact behavior", async () => {
+test("static site contains Vulan SEO and case preview", async () => {
   const html = await readFile(new URL("../site/index.html", import.meta.url), "utf8");
 
+  assert.match(html, /<title>Vulan \| Criação de Sites para Negócios<\/title>/);
   assert.match(html, /<link rel="canonical" href="https:\/\/portfolio-luan-one\.vercel\.app\/" \/>/);
-  assert.match(html, /<meta property="og:title" content="Luan Salles Web \| Criação de sites para pequenos negócios" \/>/);
-  assert.match(html, /<meta property="og:image:height" content="533" \/>/);
+  assert.match(html, /<meta property="og:title" content="Vulan \| Criação de Sites para Negócios" \/>/);
   assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
-  assert.match(html, /const i18n = /);
-  assert.match(html, /Business websites, landing pages, and website improvements/);
-  assert.match(html, /Website creation for small businesses/);
-  assert.match(html, /localStorage\.getItem\("companySiteLang"\)/);
-  assert.match(html, /https:\/\/alquimiadobonsai\.com/);
-  assert.match(html, /class="hero-panel"/);
-  assert.match(html, /class="case-browser"/);
+  assert.match(html, /type="application\/ld\+json"/);
+  assert.match(html, /"@type":"Organization"/);
   assert.match(html, /<iframe class="case-frame" src="https:\/\/alquimiadobonsai\.com"/);
   assert.match(html, /loading="lazy"/);
-  assert.match(html, /https:\/\/www\.linkedin\.com\/in\/luan-salles\//);
-  assert.match(html, /Falar sobre meu site/);
-  assert.match(html, /Preencher briefing/);
-  assert.match(html, /Como peço orçamento\?/);
-  assert.doesNotMatch(html, /case-summary|project-card|case-mobile|case-desktop|case-site|case-proof|alquimia-bonsai-mobile\.jpg/);
-  assert.match(html, /type="application\/ld\+json"/);
-  assert.match(html, /aria-pressed="true"/);
-  assert.match(html, /<a class="skip-link" href="#conteudo">/);
-  assert.match(html, /name="name" required/);
-  assert.match(html, /name="message" required/);
-  assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview|Base técnica complementar|FuteGestão CT/i);
-  assert.doesNotMatch(html, /operação enxuta|em construção|Por enquanto|quando fizer sentido|não precisa|proposta inicial|formulário é obrigatório|A clear digital presence|operation is lean|Not yet|in progress|should not be left/i);
+  assert.match(html, /href="\/politica-de-privacidade"/);
+  assert.match(html, /href="\/termos-de-uso"/);
+  assert.doesNotMatch(html, /Luan Salles Web|companySiteLang|aria-pressed|Business websites|Sites que explicam|operação enxuta|em construção/i);
+});
+
+test("legal routes render", async () => {
+  const privacy = await render("/politica-de-privacidade");
+  const terms = await render("/termos-de-uso");
+
+  assert.equal(privacy.status, 200);
+  assert.equal(terms.status, 200);
+  assert.match(await privacy.text(), /Política de Privacidade/);
+  assert.match(await terms.text(), /Termos de Uso/);
 });
 
 test("optimized social images stay lightweight", async () => {

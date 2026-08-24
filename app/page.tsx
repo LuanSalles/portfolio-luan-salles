@@ -1,566 +1,308 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
-
-type Lang = "pt" | "en";
+import { FormEvent, useMemo, useState } from "react";
 
 const phone = "5521979231817";
-const briefingForm = "https://forms.gle/ebQXBwmDUHUt6zwn7";
+const email = "luanspctrabalho@gmail.com";
 const alquimiaUrl = "https://alquimiadobonsai.com";
-const githubUrl = "https://github.com/LuanSalles";
 const linkedinUrl = "https://www.linkedin.com/in/luan-salles/";
+const whatsappText =
+  "Olá! Conheci a Vulan pelo site e gostaria de conversar sobre a criação de um site para meu negócio.";
 
-const copy = {
-  pt: {
-    htmlLang: "pt-BR",
-    brand: "Luan Salles Web",
-    nav: ["Soluções", "Método", "Projeto", "Empresa", "Contato"],
-    lang: "Selecionar idioma",
-    whatsapp: "WhatsApp",
-    whatsappText: "Oi, Luan. Quero conversar sobre um site para meu negócio.",
-    newTab: "abre em nova aba",
-    status: "Idioma alterado para português.",
-    hero: {
-      eyebrow: "Criação de sites para negócios",
-      title: "Sites institucionais e landing pages para negócios que precisam vender com clareza.",
-      text:
-        "Desenvolvimento de páginas responsivas com conteúdo organizado, botões de contato, publicação e orientação sobre domínio e hospedagem.",
-      primary: "Falar sobre meu site",
-      secondary: "Ver método",
-      helper: "Orçamento por escopo · Atendimento direto · Site publicado",
-    },
-    panelEyebrow: "Entrega",
-    proof: [
-      ["Site pronto para divulgar"],
-      ["01", "Estrutura das páginas"],
-      ["02", "Versão mobile"],
-      ["03", "WhatsApp e formulário"],
-      ["04", "Publicação orientada"],
-    ],
-    solutions: {
-      eyebrow: "Serviços",
-      title: "Formatos de site",
-      text:
-        "Escolha o formato mais adequado para apresentar seu negócio, divulgar uma oferta ou melhorar um site existente.",
-      cta: "Conversar no WhatsApp",
-      items: [
-        {
-          title: "Site institucional",
-          text:
-            "Páginas para apresentar empresa, serviços, diferenciais, localização, redes sociais e canais de contato.",
-        },
-        {
-          title: "Landing page",
-          text:
-            "Para divulgar uma oferta, campanha, curso, evento ou serviço específico com uma página direta e chamada clara para ação.",
-        },
-        {
-          title: "Reforma de site",
-          text:
-            "Ajustes de layout, conteúdo, versão mobile, botões de contato, links e organização das páginas.",
-        },
-        {
-          title: "Manutenção mensal",
-          text:
-            "Para manter pequenos ajustes, novas seções, troca de conteúdo e suporte básico depois que o site estiver publicado.",
-        },
-      ],
-    },
-    method: {
-      eyebrow: "Processo",
-      title: "Como funciona",
-      text:
-        "O projeto segue etapas objetivas, com escopo, prazos e revisões definidos antes do desenvolvimento.",
-      steps: [
-        ["1", "Briefing", "Objetivo, páginas, referências, conteúdo disponível e prazo desejado."],
-        ["2", "Proposta", "Escopo, valor, prazo e responsabilidades definidos antes do desenvolvimento."],
-        ["3", "Desenvolvimento", "Layout, responsividade, textos organizados, links e integrações."],
-        ["4", "Publicação", "Revisão final, ajustes combinados e site pronto para divulgação."],
-      ],
-    },
-    case: {
-      eyebrow: "Projeto publicado",
-      title: "Alquimia do Bonsai",
-      intro:
-        "Site institucional e comercial desenvolvido para organizar a presença digital da marca Alquimia do Bonsai.",
-      problem:
-        "A marca reunia livro, cursos, catálogo, conteúdos educativos, redes sociais e contatos em lugares diferentes. Faltava uma página central para apresentar tudo com clareza.",
-      solution:
-        "Foi desenvolvido um site responsivo e bilíngue com apresentação da marca, escola, vídeos, livro, loja, catálogo, materiais externos e contato via WhatsApp.",
-      result:
-        "O site está publicado em domínio próprio e já pode ser usado como canal oficial da marca para receber visitantes, apresentar produtos e direcionar interessados.",
-      bullets: [
-        "Site em português e inglês",
-        "Catálogo, favoritos e carrinho local",
-        "Integração com WhatsApp, Amazon, Google Drive e redes sociais",
-        "Navegação pensada para desktop e celular",
-      ],
-      labels: ["Problema", "Solução", "Resultado"],
-      button: "Abrir site ao vivo",
-      frameLabel: "Demonstração interativa do site Alquimia do Bonsai",
-    },
-    company: {
-      eyebrow: "Empresa",
-      title: "Desenvolvimento web com atendimento direto",
-      text:
-        "A Luan Salles Web atende pequenos negócios e profissionais que precisam de site institucional, landing page ou melhoria em site existente. O projeto é conduzido por Luan Salles, desenvolvedor web em Niterói/RJ e estudante de Ciência da Computação.",
-      facts: ["Niterói/RJ", "Atendimento remoto", "Sites para pequenos negócios", "JavaScript e React"],
-    },
-    recurring: {
-      eyebrow: "Manutenção",
-      title: "Atualizações para manter o site útil",
-      text:
-        "Plano mensal para ajustes de conteúdo, links, imagens e pequenas melhorias após a publicação.",
-      cardTitle: "Manutenção opcional",
-      items: ["Troca de textos e imagens", "Novas seções simples", "Ajustes de botões e links", "Suporte básico para publicação"],
-    },
-    faq: {
-      title: "Dúvidas comuns",
-      items: [
-        ["Como o valor é definido?", "O investimento é calculado pelo escopo: número de páginas, funcionalidades, prazo, conteúdo disponível e integrações."],
-        ["O que preciso enviar?", "Logo, textos, fotos, serviços, contatos e referências. Quando faltar material, o escopo considera organização de conteúdo."],
-        ["Domínio e hospedagem entram no projeto?", "A configuração pode ser incluída. Custos externos são informados separadamente."],
-        ["O site funciona no celular?", "A versão mobile faz parte da entrega desde o início do projeto."],
-        ["Como peço orçamento?", "Envie uma mensagem no WhatsApp ou preencha o briefing com os detalhes do site."],
-      ],
-    },
-    contact: {
-      eyebrow: "Contato",
-      title: "Solicite um orçamento para o seu site",
-      text:
-        "Envie o tipo de negócio, objetivo do site, prazo e referências. A resposta já vem com os próximos passos para definir escopo e valor.",
-      formButton: "Preencher briefing",
-      labels: ["Nome", "Tipo de negócio ou site", "Mensagem"],
-      placeholders: [
-        "Seu nome",
-        "Ex.: clínica, loja local, landing page de serviço",
-        "Descreva negócio, objetivo, prazo e referências.",
-      ],
-      submit: "Enviar pelo WhatsApp",
-      note: "A mensagem será enviada pelo WhatsApp com os dados preenchidos.",
-      intro: "Oi, Luan. Quero conversar sobre um site para meu negócio.",
-      fallbacks: ["Não informado", "Ainda não definido", "Quero criar ou melhorar um site."],
-    },
-    footer: "Luan Salles Web · Criação de sites para negócios",
+const services = [
+  {
+    title: "Landing Page",
+    text: "Página única para apresentar uma empresa, serviço, produto ou campanha e direcionar o visitante para uma ação.",
+    items: ["Design responsivo", "WhatsApp e formulário", "SEO básico", "Publicação", "Duas rodadas de ajustes"],
   },
-  en: {
-    htmlLang: "en",
-    brand: "Luan Salles Web",
-    nav: ["Solutions", "Method", "Project", "Company", "Contact"],
-    lang: "Select language",
-    whatsapp: "WhatsApp",
-    whatsappText: "Hi, Luan. I want to talk about a website for my business.",
-    newTab: "opens in a new tab",
-    status: "Language changed to English.",
-    hero: {
-      eyebrow: "Website creation for businesses",
-      title: "Business websites and landing pages for companies that need to sell with clarity.",
-      text:
-        "Responsive pages with organized content, contact buttons, publishing, and guidance on domain and hosting.",
-      primary: "Talk about my website",
-      secondary: "See method",
-      helper: "Scoped quote · Direct contact · Published website",
-    },
-    panelEyebrow: "Delivery",
-    proof: [
-      ["Website ready to share"],
-      ["01", "Page structure"],
-      ["02", "Mobile version"],
-      ["03", "WhatsApp and form"],
-      ["04", "Guided publishing"],
-    ],
-    solutions: {
-      eyebrow: "Services",
-      title: "Website formats",
-      text:
-        "Choose the right format to present your business, promote an offer, or improve an existing website.",
-      cta: "Talk on WhatsApp",
-      items: [
-        {
-          title: "Business website",
-          text:
-            "Pages to present the business, services, strengths, location, social links, and contact channels.",
-        },
-        {
-          title: "Landing page",
-          text:
-            "For promoting an offer, campaign, course, event, or specific service with a direct page and clear call to action.",
-        },
-        {
-          title: "Website refresh",
-          text:
-            "Layout, content, mobile, contact buttons, links, and page structure improvements.",
-        },
-        {
-          title: "Monthly care",
-          text:
-            "For small updates, new sections, content changes, and basic support after the website is published.",
-        },
-      ],
-    },
-    method: {
-      eyebrow: "Process",
-      title: "How it works",
-      text:
-        "Each project follows clear stages, with scope, timeline, and review points defined before development.",
-      steps: [
-        ["1", "Briefing", "Goal, pages, references, available content, and desired timeline."],
-        ["2", "Proposal", "Scope, price, timeline, and responsibilities defined before development."],
-        ["3", "Development", "Layout, responsiveness, organized copy, links, and integrations."],
-        ["4", "Publishing", "Final review, agreed adjustments, and website ready to share."],
-      ],
-    },
-    case: {
-      eyebrow: "Published project",
-      title: "Alquimia do Bonsai",
-      intro:
-        "Institutional and commercial website developed to organize the digital presence of Alquimia do Bonsai.",
-      problem:
-        "The brand had a book, courses, catalog, educational content, social media, and contact channels in different places. It needed one central page to present everything clearly.",
-      solution:
-        "A responsive bilingual website was developed with brand presentation, school, videos, book, shop, catalog, external materials, and WhatsApp contact.",
-      result:
-        "The website is live on its own domain and can already be used as the brand's official channel to receive visitors, present products, and guide interested people.",
-      bullets: [
-        "Website in Portuguese and English",
-        "Catalog, favorites, and local cart",
-        "Integrations with WhatsApp, Amazon, Google Drive, and social media",
-        "Navigation planned for desktop and mobile",
-      ],
-      labels: ["Problem", "Solution", "Result"],
-      button: "Open live website",
-      frameLabel: "Interactive preview of the Alquimia do Bonsai website",
-    },
-    company: {
-      eyebrow: "Company",
-      title: "Web development with direct service",
-      text:
-        "Luan Salles Web serves small businesses and professionals that need a business website, landing page, or improvements to an existing website. Projects are led by Luan Salles, a web developer based in Niterói, Brazil, and a Computer Science student.",
-      facts: ["Niterói/RJ, Brazil", "Remote service", "Websites for small businesses", "JavaScript and React"],
-    },
-    recurring: {
-      eyebrow: "Maintenance",
-      title: "Updates to keep the website useful",
-      text:
-        "Monthly plan for content, links, images, and small improvements after publishing.",
-      cardTitle: "Optional monthly care",
-      items: ["Text and image changes", "Simple new sections", "Button and link adjustments", "Basic publishing support"],
-    },
-    faq: {
-      title: "Common questions",
-      items: [
-        ["How is pricing defined?", "Investment is calculated by scope: number of pages, features, timeline, available content, and integrations."],
-        ["What do I need to send?", "Logo, copy, photos, services, contact details, and references. When material is missing, content organization is included in the scope."],
-        ["Are domain and hosting included?", "Configuration can be included. External costs are listed separately."],
-        ["Will the website work on mobile?", "The mobile version is part of the delivery from the start."],
-        ["How do I request a quote?", "Send a WhatsApp message or fill out the briefing with the website details."],
-      ],
-    },
-    contact: {
-      eyebrow: "Contact",
-      title: "Request a quote for your website",
-      text:
-        "Send the business type, website goal, timeline, and references. The reply comes with the next steps to define scope and price.",
-      formButton: "Fill briefing",
-      labels: ["Name", "Business or website type", "Message"],
-      placeholders: ["Your name", "Ex.: clinic, local shop, service landing page", "Describe the business, goal, timeline, and references."],
-      submit: "Send on WhatsApp",
-      note: "The message will be sent through WhatsApp with the filled details.",
-      intro: "Hi, Luan. I want to talk about a website for my business.",
-      fallbacks: ["Not provided", "Not defined yet", "I want to create or improve a website."],
-    },
-    footer: "Luan Salles Web · Website creation for businesses",
+  {
+    title: "Site Institucional",
+    text: "Presença digital completa para empresas que precisam apresentar serviços, estrutura, diferenciais e contato.",
+    items: ["Até 5 páginas", "Responsividade", "SEO básico", "Testes", "Publicação"],
   },
-};
+  {
+    title: "Catálogo",
+    text: "Estrutura para apresentar produtos, serviços ou itens disponíveis, com opção estática ou painel administrativo.",
+    items: ["Categorias", "Imagens", "Filtros quando necessário", "Treinamento do painel", "Atualização pela cliente"],
+  },
+];
 
-export default function Home() {
-  const [lang, setLang] = useState<Lang>("pt");
-  const [name, setName] = useState("");
-  const [projectType, setProjectType] = useState("");
-  const [message, setMessage] = useState("");
-  const t = copy[lang];
+const valuePillars = [
+  ["Pensado para o negócio", "Estrutura e conteúdo organizados conforme o que sua empresa precisa apresentar."],
+  ["Processo simples", "Você não precisa entender programação, hospedagem ou infraestrutura para tirar o site do papel."],
+  ["Desenvolvimento ágil", "Etapas claras, comunicação direta e prazo definido antes do início do projeto."],
+];
 
-  useEffect(() => {
-    document.documentElement.lang = t.htmlLang;
-  }, [t.htmlLang]);
+const process = [
+  ["1", "Conversa inicial", "A Vulan entende o negócio, objetivo e necessidades do projeto."],
+  ["2", "Proposta", "São definidos escopo, prazo e investimento."],
+  ["3", "Conteúdo", "Cliente envia as informações necessárias para construção do site."],
+  ["4", "Desenvolvimento", "Estrutura, visual e funcionalidades são desenvolvidos."],
+  ["5", "Ajustes", "O cliente analisa a versão apresentada e possui duas rodadas de ajustes incluídas."],
+  ["6", "Publicação", "Após aprovação e pagamento final, o site é publicado."],
+];
 
-  function submitContact(event: FormEvent<HTMLFormElement>) {
+const included = [
+  "Design adaptado ao negócio",
+  "Responsividade",
+  "Desenvolvimento",
+  "Configuração técnica",
+  "Integração com WhatsApp",
+  "Formulários",
+  "SEO básico",
+  "Testes",
+  "Publicação",
+  "Duas rodadas de ajustes",
+  "Orientação pós-entrega",
+  "7 dias de suporte",
+];
+
+const faqs = [
+  ["Quanto custa criar um site?", "O investimento depende da estrutura, quantidade de páginas e funcionalidades necessárias. Após entender o projeto, a Vulan apresenta um orçamento com escopo e valor definidos."],
+  ["Quanto tempo demora?", "Projetos mais simples podem levar poucos dias úteis, enquanto sites maiores ou com catálogo e painel administrativo exigem mais tempo. O prazo é informado antes do início do projeto."],
+  ["Preciso ter domínio?", "Não. Caso ainda não tenha, a Vulan orienta todo o processo de contratação e configuração."],
+  ["Domínio e hospedagem estão incluídos?", "Custos de serviços externos são normalmente contratados diretamente pelo cliente. A Vulan pode realizar a configuração necessária."],
+  ["Eu consigo alterar meu site depois?", "Sim. Projetos com painel administrativo permitem atualizar determinados conteúdos diretamente. Nos demais casos, alterações podem ser solicitadas à Vulan."],
+  ["O site funciona no celular?", "Sim. Todos os projetos são desenvolvidos para funcionar corretamente em diferentes tamanhos de tela."],
+  ["Quantas alterações posso pedir?", "Cada projeto inclui duas rodadas de ajustes dentro do escopo aprovado."],
+  ["Depois da entrega vocês continuam dando suporte?", "São oferecidos sete dias de suporte pós-publicação para dúvidas e eventuais problemas relacionados à entrega. Depois disso, alterações podem ser contratadas individualmente ou através de manutenção."],
+  ["Vocês garantem que meu site vai gerar vendas?", "O site é desenvolvido considerando os objetivos do negócio e boas práticas digitais, mas resultados comerciais dependem de diversos fatores externos e não podem ser garantidos."],
+];
+
+function whatsappUrl(message = whatsappText) {
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+function BudgetForm() {
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    business: "",
+    whatsapp: "",
+    email: "",
+    location: "",
+    segment: "",
+    need: "Landing Page",
+    hasSite: "Não",
+    siteUrl: "",
+    goal: "",
+    content: "",
+    assets: [] as string[],
+    features: "",
+    deadline: "Assim que possível",
+    budget: "Ainda não sei",
+    references: "",
+    companyUrl: "",
+  });
+
+  const message = useMemo(
+    () =>
+      [
+        "Olá! Quero solicitar um orçamento com a Vulan.",
+        "",
+        `Nome: ${form.name || "Não informado"}`,
+        `Empresa: ${form.business || "Não informado"}`,
+        `WhatsApp: ${form.whatsapp || "Não informado"}`,
+        `E-mail: ${form.email || "Não informado"}`,
+        `Cidade/Estado: ${form.location || "Não informado"}`,
+        `Segmento: ${form.segment || "Não informado"}`,
+        `Tipo de projeto: ${form.need}`,
+        `Possui site: ${form.hasSite}`,
+        `URL atual: ${form.siteUrl || "Não informado"}`,
+        `Objetivo: ${form.goal || "Não informado"}`,
+        `O que deseja apresentar: ${form.content || "Não informado"}`,
+        `Já possui: ${form.assets.length ? form.assets.join(", ") : "Não informado"}`,
+        `Funcionalidades específicas: ${form.features || "Não informado"}`,
+        `Prazo: ${form.deadline}`,
+        `Faixa de investimento: ${form.budget}`,
+        `Referências: ${form.references || "Não informado"}`,
+      ].join("\n"),
+    [form],
+  );
+
+  function update(key: keyof typeof form, value: string) {
+    setForm((current) => ({ ...current, [key]: value }));
+  }
+
+  function toggleAsset(asset: string) {
+    setForm((current) => ({
+      ...current,
+      assets: current.assets.includes(asset)
+        ? current.assets.filter((item) => item !== asset)
+        : [...current.assets, asset],
+    }));
+  }
+
+  function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    const text = [
-      t.contact.intro,
-      "",
-      `${t.contact.labels[0]}: ${name.trim() || t.contact.fallbacks[0]}`,
-      `${t.contact.labels[1]}: ${projectType.trim() || t.contact.fallbacks[1]}`,
-      `${t.contact.labels[2]}: ${message.trim() || t.contact.fallbacks[2]}`,
-    ].join("\n");
-
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank", "noreferrer");
+    if (form.companyUrl) return;
+    setSent(true);
+    window.open(whatsappUrl(message), "_blank", "noreferrer");
   }
 
   return (
+    <form className="budget-form" onSubmit={submit}>
+      <input className="hp-field" tabIndex={-1} autoComplete="off" value={form.companyUrl} onChange={(event) => update("companyUrl", event.target.value)} aria-hidden="true" />
+
+      <div className="form-grid">
+        <label>Nome*<input required value={form.name} onChange={(event) => update("name", event.target.value)} autoComplete="name" /></label>
+        <label>Empresa / negócio*<input required value={form.business} onChange={(event) => update("business", event.target.value)} /></label>
+        <label>WhatsApp*<input required value={form.whatsapp} onChange={(event) => update("whatsapp", event.target.value)} inputMode="tel" /></label>
+        <label>E-mail<input value={form.email} onChange={(event) => update("email", event.target.value)} type="email" autoComplete="email" /></label>
+        <label>Cidade/Estado<input value={form.location} onChange={(event) => update("location", event.target.value)} /></label>
+        <label>Segmento da empresa<input value={form.segment} onChange={(event) => update("segment", event.target.value)} /></label>
+      </div>
+
+      <div className="form-grid">
+        <label>
+          O que você precisa?
+          <select value={form.need} onChange={(event) => update("need", event.target.value)}>
+            <option>Landing Page</option>
+            <option>Site Institucional</option>
+            <option>Catálogo</option>
+            <option>Catálogo com painel administrativo</option>
+            <option>Ainda não sei</option>
+          </select>
+        </label>
+        <label>
+          Seu negócio já possui site?
+          <select value={form.hasSite} onChange={(event) => update("hasSite", event.target.value)}>
+            <option>Não</option>
+            <option>Sim</option>
+          </select>
+        </label>
+      </div>
+
+      {form.hasSite === "Sim" ? <label>URL atual<input value={form.siteUrl} onChange={(event) => update("siteUrl", event.target.value)} placeholder="https://..." /></label> : null}
+
+      <label>Principal objetivo do novo site<textarea required value={form.goal} onChange={(event) => update("goal", event.target.value)} /></label>
+      <label>O que você gostaria de apresentar?<textarea value={form.content} onChange={(event) => update("content", event.target.value)} /></label>
+
+      <fieldset>
+        <legend>Já possui?</legend>
+        {["Logo", "Identidade visual", "Textos", "Fotos", "Domínio", "Nenhum desses"].map((asset) => (
+          <label className="check" key={asset}>
+            <input type="checkbox" checked={form.assets.includes(asset)} onChange={() => toggleAsset(asset)} />
+            {asset}
+          </label>
+        ))}
+      </fieldset>
+
+      <label>Existe alguma funcionalidade específica?<textarea value={form.features} onChange={(event) => update("features", event.target.value)} /></label>
+
+      <div className="form-grid">
+        <label>
+          Quando gostaria de publicar?
+          <select value={form.deadline} onChange={(event) => update("deadline", event.target.value)}>
+            <option>Assim que possível</option>
+            <option>Dentro de 30 dias</option>
+            <option>1-2 meses</option>
+            <option>Sem prazo definido</option>
+          </select>
+        </label>
+        <label>
+          Faixa de investimento
+          <select value={form.budget} onChange={(event) => update("budget", event.target.value)}>
+            <option>Até R$1.000</option>
+            <option>R$1.000-2.000</option>
+            <option>R$2.000-4.000</option>
+            <option>Acima de R$4.000</option>
+            <option>Ainda não sei</option>
+          </select>
+        </label>
+      </div>
+
+      <label>Referências<textarea value={form.references} onChange={(event) => update("references", event.target.value)} placeholder="URLs de sites que você gosta" /></label>
+
+      <button className="btn btn-primary" type="submit" data-track="budget-submit">Enviar orçamento</button>
+      {sent ? <p className="success-message" role="status">Recebemos seu projeto. Obrigado por entrar em contato com a Vulan. Vamos analisar as informações e retornar pelo contato informado.</p> : <p className="form-note">Ao enviar, a mensagem é aberta no WhatsApp com os dados preenchidos.</p>}
+    </form>
+  );
+}
+
+export default function Home() {
+  return (
     <main id="inicio">
-      <a className="skip-link" href="#conteudo">
-        Pular para o conteúdo
-      </a>
+      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header className="topbar">
-        <a className="brand" href="#inicio" aria-label={t.brand}>
-          <span className="brand-mark">LS</span>
-          <span>{t.brand}</span>
-        </a>
-
+        <a className="brand" href="#inicio" aria-label="Vulan"><span className="brand-mark">V</span><span>VULAN</span></a>
         <nav className="nav" aria-label="Navegação principal">
-          <a href="#solucoes">{t.nav[0]}</a>
-          <a href="#metodo">{t.nav[1]}</a>
-          <a href="#projeto">{t.nav[2]}</a>
-          <a href="#empresa">{t.nav[3]}</a>
-          <a href="#contato">{t.nav[4]}</a>
+          <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
         </nav>
-
-        <div className="header-actions">
-          <div className="lang-switch" aria-label={t.lang}>
-            <button aria-pressed={lang === "pt"} className={lang === "pt" ? "active" : ""} type="button" onClick={() => setLang("pt")}>
-              PT
-            </button>
-            <button aria-pressed={lang === "en"} className={lang === "en" ? "active" : ""} type="button" onClick={() => setLang("en")}>
-              EN
-            </button>
-          </div>
-          <a
-            className="btn btn-primary header-whatsapp"
-            href={`https://wa.me/${phone}?text=${encodeURIComponent(t.whatsappText)}`}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${t.whatsapp} (${t.newTab})`}
-          >
-            {t.whatsapp}
-          </a>
-        </div>
+        <a className="btn btn-primary header-cta" href="#orcamento" data-track="header-budget">Pedir orçamento</a>
       </header>
-
-      <p className="sr-only" aria-live="polite">
-        {t.status}
-      </p>
 
       <section id="conteudo" className="hero wrap">
         <div className="hero-copy">
-          <p className="eyebrow">{t.hero.eyebrow}</p>
-          <h1>{t.hero.title}</h1>
-          <p className="lead">{t.hero.text}</p>
+          <p className="eyebrow">Criação de sites para negócios</p>
+          <h1>Sites profissionais pensados para o seu negócio, sem complicação.</h1>
+          <p className="lead">A Vulan cria sites modernos, rápidos e adaptados à realidade de cada empresa, cuidando do processo da estrutura à publicação.</p>
           <div className="hero-actions">
-            <a className="btn btn-primary" href={`https://wa.me/${phone}?text=${encodeURIComponent(t.whatsappText)}`} target="_blank" rel="noreferrer">
-              {t.hero.primary}
-            </a>
-            <a className="btn btn-secondary" href="#metodo">
-              {t.hero.secondary}
-            </a>
+            <a className="btn btn-primary" href="#orcamento" data-track="hero-budget">Pedir orçamento</a>
+            <a className="btn btn-secondary" href="#projetos">Ver projetos</a>
           </div>
-          <p className="cta-note">{t.hero.helper}</p>
         </div>
-
-        <div className="hero-panel" aria-label="Entregas principais">
-          <p className="eyebrow">{t.panelEyebrow}</p>
-          <h2>{t.proof[0][0]}</h2>
-          <div className="hero-panel-list">
-            {t.proof.slice(1).map(([title, text]) => (
-              <article key={title}>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
+        <div className="hero-board" aria-label="Resumo do serviço">
+          <div className="browser-card main-card"><span>vulan.com.br</span><strong>Sites pensados para negócios.</strong></div>
+          <div className="mini-card">Mobile</div>
+          <div className="mini-card orange">WhatsApp</div>
+          <div className="line-chart" aria-hidden="true"><span /><span /><span /></div>
         </div>
       </section>
 
-      <section id="solucoes" className="section wrap split">
+      <section className="section wrap value">
+        <div className="section-head">
+          <p className="eyebrow">Proposta de valor</p>
+          <h2>Seu negócio merece mais do que simplesmente estar na internet.</h2>
+          <p>Cada projeto começa entendendo a empresa, seus serviços, seus clientes e o objetivo do site. A partir disso, a Vulan transforma essas informações em uma presença digital clara, profissional e fácil de usar.</p>
+        </div>
+        <div className="pillar-grid">{valuePillars.map(([title, text]) => <article key={title} className="pillar"><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section id="servicos" className="section wrap split">
         <div className="section-copy">
-          <p className="eyebrow">{t.solutions.eyebrow}</p>
-          <h2>{t.solutions.title}</h2>
-          <p>{t.solutions.text}</p>
+          <p className="eyebrow">Serviços</p>
+          <h2>Sites para apresentar, vender e receber contatos.</h2>
+          <p>A Vulan trabalha com formatos objetivos para empresas que precisam sair do improviso e organizar sua presença digital.</p>
+          <a className="btn btn-secondary" href="#orcamento">Solicitar orçamento</a>
         </div>
         <div className="service-list">
-          {t.solutions.items.map((service) => (
-            <article key={service.title} className="service">
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-            </article>
-          ))}
-          <a className="btn btn-secondary service-cta" href={`https://wa.me/${phone}?text=${encodeURIComponent(t.whatsappText)}`} target="_blank" rel="noreferrer">
-            {t.solutions.cta}
-          </a>
+          {services.map((service) => <article key={service.title} className="service"><h3>{service.title}</h3><p>{service.text}</p><ul>{service.items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}
         </div>
       </section>
 
-      <section id="metodo" className="section wrap process method">
-        <div className="section-head">
-          <p className="eyebrow">{t.method.eyebrow}</p>
-          <h2>{t.method.title}</h2>
-          <p>{t.method.text}</p>
-        </div>
-        <div className="steps">
-          {t.method.steps.map(([number, title, text]) => (
-            <article key={title} className="step">
-              <span>{number}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <section className="section why"><div className="wrap why-grid"><div><p className="eyebrow">Por que Vulan</p><h2>Criativa na personalidade, simples no processo e profissional na entrega.</h2></div><p>O cliente não precisa dominar tecnologia para ter um site bem construído. A Vulan organiza conteúdo, estrutura, design, integrações e publicação em um processo direto.</p></div></section>
 
-      <section id="projeto" className="section case-section">
+      <section id="projetos" className="section case-section">
         <div className="wrap case-showcase">
-          <div className="case-heading">
-            <div>
-              <p className="eyebrow">{t.case.eyebrow}</p>
-              <h2>{t.case.title}</h2>
-              <p>{t.case.intro}</p>
+          <div className="case-heading"><div><p className="eyebrow">Case principal</p><h2>Alquimia do Bonsai</h2><p>Presença digital para uma marca dedicada a bonsais, conteúdo educativo e catálogo de produtos.</p></div><a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" data-track="case-open">Visitar projeto</a></div>
+          <div className="case-layout">
+            <div className="case-browser" aria-label="Demonstração interativa do site Alquimia do Bonsai"><div className="browser-bar"><span>alquimiadobonsai.com</span></div><iframe className="case-frame" src={alquimiaUrl} title="Site Alquimia do Bonsai" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" /></div>
+            <div className="case-copy">
+              <article><span>Necessidade</span><p>Criar uma presença digital profissional para apresentar a marca, divulgar bonsais disponíveis e publicar conteúdos sem depender de alterações no código.</p></article>
+              <article><span>Solução desenvolvida</span><p>A Vulan criou uma estrutura com presença institucional, catálogo, administração de conteúdo, vídeos, WhatsApp e interface responsiva.</p></article>
+              <article><span>Resultado</span><p>A marca passou a possuir um ambiente próprio para apresentar produtos e conteúdos, com autonomia para atualizar informações principais pelo painel administrativo.</p></article>
             </div>
-            <a className="btn btn-primary" href={alquimiaUrl} target="_blank" rel="noreferrer" aria-label={`${t.case.button} (${t.newTab})`}>
-              {t.case.button}
-            </a>
-          </div>
-
-          <div className="case-browser" aria-label={t.case.frameLabel}>
-            <div className="browser-bar">
-              <span>{alquimiaUrl.replace("https://", "")}</span>
-            </div>
-            <iframe
-              className="case-frame"
-              src={alquimiaUrl}
-              title="Site Alquimia do Bonsai"
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-          </div>
-
-          <div className="case-details">
-            <article>
-              <span>01</span>
-              <h3>{t.case.labels[0]}</h3>
-              <p>{t.case.problem}</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>{t.case.labels[1]}</h3>
-              <p>{t.case.solution}</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>{t.case.labels[2]}</h3>
-              <p>{t.case.result}</p>
-            </article>
-          </div>
-
-          <ul className="case-bullets">
-            {t.case.bullets.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section wrap technical recurring">
-        <div>
-          <p className="eyebrow">{t.recurring.eyebrow}</p>
-          <h2>{t.recurring.title}</h2>
-          <p>{t.recurring.text}</p>
-        </div>
-        <div className="tech-card">
-          <h3>{t.recurring.cardTitle}</h3>
-          <ul className="clean-list">
-            {t.recurring.items.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section id="empresa" className="section wrap about company">
-        <div className="founder-mark" aria-hidden="true">
-          LS
-        </div>
-        <div>
-          <p className="eyebrow">{t.company.eyebrow}</p>
-          <h2>{t.company.title}</h2>
-          <p>{t.company.text}</p>
-          <div className="facts">
-            {t.company.facts.map((fact) => (
-              <span key={fact}>{fact}</span>
-            ))}
-          </div>
-          <div className="company-links">
-            <a href={githubUrl} target="_blank" rel="noreferrer" aria-label={`GitHub (${t.newTab})`}>
-              GitHub
-            </a>
-            <a href={linkedinUrl} target="_blank" rel="noreferrer" aria-label={`LinkedIn (${t.newTab})`}>
-              LinkedIn
-            </a>
           </div>
         </div>
       </section>
 
-      <section className="section wrap faq">
-        <h2>{t.faq.title}</h2>
-        <div className="faq-list">
-          {t.faq.items.map(([question, answer]) => (
-            <details key={question}>
-              <summary>{question}</summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
+      <section className="section wrap process"><div className="section-head"><p className="eyebrow">Como funciona</p><h2>Do primeiro contato à publicação.</h2></div><div className="steps six">{process.map(([number, title, text]) => <article key={title} className="step"><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+
+      <section className="section wrap included"><div><p className="eyebrow">Incluído no projeto</p><h2>O essencial para entregar o site pronto para uso.</h2></div><ul className="check-list">{included.map((item) => <li key={item}>{item}</li>)}</ul></section>
+
+      <section id="sobre" className="section wrap about">
+        <div><p className="eyebrow">Sobre a Vulan</p><h2>Tecnologia sem transformar o seu projeto em complicação.</h2><p>A Vulan nasceu para ajudar negócios a construírem uma presença digital profissional de forma mais simples. Cada projeto é desenvolvido considerando a realidade da empresa, seus objetivos e a experiência de quem vai acessar o site.</p></div>
+        <div className="founder"><div className="founder-mark" aria-hidden="true">LS</div><div><h3>Quem está por trás da Vulan</h3><p>A Vulan foi fundada por Luan Salles, desenvolvedor web e estudante de Ciência da Computação. Ele é responsável pela direção técnica e pelo desenvolvimento dos projetos da Vulan.</p><a href={linkedinUrl} target="_blank" rel="noreferrer">LinkedIn de Luan Salles</a></div></div>
       </section>
 
-      <section id="contato" className="section wrap contact">
-        <div className="contact-copy">
-          <p className="eyebrow">{t.contact.eyebrow}</p>
-          <h2>{t.contact.title}</h2>
-          <p>{t.contact.text}</p>
-          <div className="contact-actions">
-            <a
-              className="btn btn-primary"
-              href={`https://wa.me/${phone}?text=${encodeURIComponent(t.whatsappText)}`}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${t.whatsapp} (${t.newTab})`}
-            >
-              {t.whatsapp}
-            </a>
-            <a className="btn btn-secondary" href={briefingForm} target="_blank" rel="noreferrer" aria-label={`${t.contact.formButton} (${t.newTab})`}>
-              {t.contact.formButton}
-            </a>
-          </div>
-          <p className="contact-note">{t.contact.note}</p>
-          <a className="email" href="mailto:luanspctrabalho@gmail.com">
-            luanspctrabalho@gmail.com
-          </a>
-        </div>
+      <section className="section wrap faq"><h2>Dúvidas comuns</h2><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-        <form onSubmit={submitContact}>
-          <label>
-            {t.contact.labels[0]}
-            <input name="name" required value={name} onChange={(event) => setName(event.target.value)} placeholder={t.contact.placeholders[0]} autoComplete="name" />
-          </label>
-          <label>
-            {t.contact.labels[1]}
-            <input name="projectType" value={projectType} onChange={(event) => setProjectType(event.target.value)} placeholder={t.contact.placeholders[1]} />
-          </label>
-          <label>
-            {t.contact.labels[2]}
-            <textarea name="message" required value={message} onChange={(event) => setMessage(event.target.value)} placeholder={t.contact.placeholders[2]} />
-          </label>
-          <button className="btn btn-secondary" type="submit">
-            {t.contact.submit}
-          </button>
-        </form>
-      </section>
+      <section id="orcamento" className="section wrap budget-section"><div className="section-head"><p className="eyebrow">Orçamento</p><h2>Conte um pouco sobre o projeto.</h2><p>As informações ajudam a Vulan entender o escopo, prazo e tipo de site adequado para o seu negócio.</p></div><BudgetForm /></section>
 
-      <footer className="wrap">
-        <span>{t.footer}</span>
-        <a href="#solucoes">{t.nav[0]}</a>
-        <a href="#contato">{t.nav[4]}</a>
-      </footer>
+      <section id="contato" className="section final-cta"><div className="wrap"><p className="eyebrow">Próximo passo</p><h2>Vamos tirar o seu site do papel?</h2><p>Conte um pouco sobre o seu negócio e receba uma proposta pensada para o seu projeto.</p><div className="hero-actions"><a className="btn btn-primary" href="#orcamento" data-track="final-budget">Pedir orçamento</a><a className="btn btn-secondary" href={whatsappUrl()} target="_blank" rel="noreferrer" data-track="whatsapp-click">Falar pelo WhatsApp</a></div><a className="email-link" href={`mailto:${email}`}>{email}</a></div></section>
+
+      <footer className="wrap footer"><div><strong>VULAN</strong><p>Sites pensados para negócios.</p></div><nav aria-label="Links do rodapé"><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#orcamento">Orçamento</a><a href="#contato">Contato</a><a href="/politica-de-privacidade">Política de Privacidade</a><a href="/termos-de-uso">Termos de Uso</a></nav><p>© 2026 Vulan. Todos os direitos reservados. Desenvolvido pela Vulan.</p></footer>
     </main>
   );
 }

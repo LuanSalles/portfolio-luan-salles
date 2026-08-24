@@ -1,8 +1,6 @@
-# Luan Salles Web
+# Vulan
 
-Site inicial da Luan Salles Web, empresa de criação de sites institucionais, landing pages e melhorias em sites existentes para pequenos negócios e profissionais.
-
-![Prévia do site](./docs/portfolio-preview.png)
+Site comercial oficial da Vulan, empresa de criação de sites para pequenos e médios negócios.
 
 ## Site publicado
 
@@ -10,35 +8,33 @@ Site inicial da Luan Salles Web, empresa de criação de sites institucionais, l
 
 ## Objetivo
 
-O site foi reformulado para deixar de funcionar como portfólio pessoal e passar a comunicar uma oferta de empresa:
+Transformar o antigo portfólio pessoal em um site de empresa. A Vulan comunica serviços, benefícios, processo, case real, orçamento, páginas legais e contato.
 
-- criação de sites institucionais;
-- landing pages;
-- reforma de sites existentes;
-- manutenção mensal opcional;
-- processo de atendimento e publicação;
-- prova real com o projeto Alquimia do Bonsai;
-- contato direto por WhatsApp;
-- briefing pelo Google Forms.
+## Páginas
 
-## Projeto em destaque
+- `/`
+- `/servicos`
+- `/projetos`
+- `/projetos/alquimia-do-bonsai`
+- `/sobre`
+- `/contato`
+- `/orcamento`
+- `/politica-de-privacidade`
+- `/termos-de-uso`
 
-O principal case público é o site da Alquimia do Bonsai:
+## Serviços apresentados
 
-[alquimiadobonsai.com](https://alquimiadobonsai.com)
+- Landing Page
+- Site Institucional
+- Catálogo
+- Catálogo com painel administrativo
+- Manutenção sob demanda ou plano opcional
 
-O case apresenta problema, solução e resultado, além de uma demonstração interativa do site publicado. O projeto reúne versão em português e inglês, catálogo, favoritos, carrinho local, páginas institucionais, cursos, vídeos, links externos e contato via WhatsApp.
+## Case principal
 
-## O que foi desenvolvido
+[Alquimia do Bonsai](https://alquimiadobonsai.com)
 
-- Home comercial da empresa Luan Salles Web.
-- Posicionamento focado em pequenos negócios.
-- Seções de soluções, método, projeto publicado, empresa, FAQ e contato.
-- Mensagem de WhatsApp pré-preenchida.
-- Link para briefing de orçamento.
-- Alternância de conteúdo em português e inglês.
-- Metadados, favicon, Open Graph e JSON-LD.
-- Versão estática publicada pela Vercel.
+O case apresenta contexto, necessidade, solução desenvolvida e resultado comprovável, sem métricas inventadas.
 
 ## Tecnologias
 
@@ -49,57 +45,27 @@ O case apresenta problema, solução e resultado, além de uma demonstração in
 - JavaScript
 - Vercel
 
-## Como executar localmente
-
-Pré-requisito:
-
-- Node.js `>=22.13.0`
-
-Instale as dependências:
+## Como executar
 
 ```bash
 npm install
-```
-
-Execute em desenvolvimento:
-
-```bash
 npm run dev
 ```
 
-Gere a versão estática usada no deploy:
+Gerar HTML estático:
 
 ```bash
 node scripts/generate-static-site.mjs
 ```
 
-Gere a build de produção:
+Build:
 
 ```bash
 npm run build
 ```
 
-## Estrutura principal
+Testes:
 
-```text
-app/
-  layout.tsx
-  page.tsx
-  globals.css
-scripts/
-  generate-static-site.mjs
-public/
-  favicon-ls.svg
-  alquimia-bonsai-1180.jpg
-  alquimia-bonsai-760.jpg
-docs/
-  portfolio-preview.png
-site/
-  index.html
+```bash
+node --test tests/rendered-html.test.mjs
 ```
-
-## Deploy
-
-O projeto publicado utiliza Vercel. A configuração em `vercel.json` publica a pasta `site/`, que contém a versão estática gerada do site.
-
-Depois de conectar o repositório à Vercel, novos commits na branch principal geram uma nova publicação automaticamente.
