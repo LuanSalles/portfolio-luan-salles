@@ -3,24 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luan Salles | Desenvolvimento web para sites profissionais</title>
-    <meta name="description" content="Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios." />
+    <title>Luan Salles Web | Criação de sites para pequenos negócios</title>
+    <meta name="description" content="Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas." />
     <link rel="canonical" href="https://portfolio-luan-one.vercel.app/" />
     <link rel="icon" href="favicon-ls.svg" type="image/svg+xml" />
-    <meta property="og:title" content="Luan Salles | Desenvolvimento web para sites profissionais" />
-    <meta property="og:description" content="Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios." />
+    <meta property="og:title" content="Luan Salles Web | Criação de sites para pequenos negócios" />
+    <meta property="og:description" content="Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://portfolio-luan-one.vercel.app/" />
-    <meta property="og:site_name" content="Luan Salles" />
+    <meta property="og:site_name" content="Luan Salles Web" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:image" content="https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg" />
     <meta property="og:image:width" content="1180" />
     <meta property="og:image:height" content="533" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="Site Alquimia do Bonsai desenvolvido por Luan Salles" />
+    <meta property="og:image:alt" content="Site Alquimia do Bonsai desenvolvido por Luan Salles Web" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Luan Salles | Desenvolvimento web para sites profissionais" />
-    <meta name="twitter:description" content="Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios." />
+    <meta name="twitter:title" content="Luan Salles Web | Criação de sites para pequenos negócios" />
+    <meta name="twitter:description" content="Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas." />
     <meta name="twitter:image" content="https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg" />
     <style>
 
@@ -381,6 +381,20 @@ h3 {
   margin-bottom: 18px;
 }
 
+.section-head {
+  max-width: 780px;
+  margin-bottom: 26px;
+}
+
+.section-head h2 {
+  margin-bottom: 14px;
+}
+
+.section-head p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .service-list {
   display: grid;
   gap: 12px;
@@ -587,6 +601,25 @@ h3 {
   margin-top: 18px;
 }
 
+.clean-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clean-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.clean-list li:last-child {
+  border-bottom: 0;
+}
+
 .about {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
@@ -606,6 +639,20 @@ h3 {
   object-position: center 32%;
 }
 
+.founder-mark {
+  display: grid;
+  width: 220px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 28px;
+  color: #fffaf2;
+  background:
+    linear-gradient(145deg, rgba(216, 111, 69, 0.2), transparent 42%),
+    var(--green);
+  font-size: 3.2rem;
+  font-weight: 950;
+}
+
 .about h2 {
   margin-bottom: 16px;
 }
@@ -617,13 +664,25 @@ h3 {
   margin-top: 20px;
 }
 
+.company-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.company-links a {
+  color: var(--green);
+  font-weight: 900;
+}
+
 .process h2 {
   margin-bottom: 22px;
 }
 
 .steps {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -794,10 +853,11 @@ footer a {
   }
 
   .steps {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .about img {
+  .about img,
+  .founder-mark {
     width: min(260px, 100%);
   }
 }
@@ -877,6 +937,10 @@ footer a {
     border-radius: 22px;
   }
 
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
   .hero-actions .btn,
   .contact-actions .btn {
     width: 100%;
@@ -887,19 +951,19 @@ footer a {
   }
 }
 </style>
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://portfolio-luan-one.vercel.app/#person","name":"Luan Salles","jobTitle":"Desenvolvedor web","url":"https://portfolio-luan-one.vercel.app/","email":"mailto:luanspctrabalho@gmail.com","sameAs":["https://github.com/LuanSalles","https://www.linkedin.com/in/luan-salles/"],"address":{"@type":"PostalAddress","addressLocality":"Niterói","addressRegion":"RJ","addressCountry":"BR"}},{"@type":"ProfessionalService","@id":"https://portfolio-luan-one.vercel.app/#service","name":"Luan Salles · Desenvolvimento de sites","url":"https://portfolio-luan-one.vercel.app/","image":"https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg","description":"Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios.","areaServed":["Niterói","Rio de Janeiro","Brasil"],"serviceType":["Criação de sites","Landing pages","Desenvolvimento web"],"founder":{"@id":"https://portfolio-luan-one.vercel.app/#person"}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://portfolio-luan-one.vercel.app/#person","name":"Luan Salles","jobTitle":"Desenvolvedor web","url":"https://portfolio-luan-one.vercel.app/","email":"mailto:luanspctrabalho@gmail.com","sameAs":["https://github.com/LuanSalles","https://www.linkedin.com/in/luan-salles/"],"address":{"@type":"PostalAddress","addressLocality":"Niterói","addressRegion":"RJ","addressCountry":"BR"}},{"@type":"ProfessionalService","@id":"https://portfolio-luan-one.vercel.app/#service","name":"Luan Salles Web","url":"https://portfolio-luan-one.vercel.app/","image":"https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg","description":"Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas.","areaServed":["Niterói","Rio de Janeiro","Brasil"],"serviceType":["Criação de sites","Landing pages","Manutenção de sites"],"founder":{"@id":"https://portfolio-luan-one.vercel.app/#person"}}]}</script>
   </head>
   <body>
     <main id="inicio">
       <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header class="topbar">
-        <a class="brand" href="#inicio" aria-label="Luan Salles"><span class="brand-mark">LS</span><span>Luan Salles</span></a>
+        <a class="brand" href="#inicio" aria-label="Luan Salles Web"><span class="brand-mark">LS</span><span data-i="brand">Luan Salles Web</span></a>
         <nav class="nav" aria-label="Navegação principal">
-          <a href="#servicos">Serviços</a><a href="#projeto">Projeto</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+          <a href="#solucoes">Soluções</a><a href="#metodo">Método</a><a href="#projeto">Projeto</a><a href="#empresa">Empresa</a><a href="#contato">Contato</a>
         </nav>
         <div class="header-actions">
           <div class="lang-switch" aria-label="Selecionar idioma"><button class="active" type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
-          <a class="btn btn-primary header-whatsapp whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20a%20cria%C3%A7%C3%A3o%20de%20um%20site." target="_blank" rel="noreferrer" aria-label="WhatsApp (abre em nova aba)">WhatsApp</a>
+          <a class="btn btn-primary header-whatsapp whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer" aria-label="WhatsApp (abre em nova aba)">WhatsApp</a>
         </div>
       </header>
 
@@ -907,97 +971,101 @@ footer a {
 
       <section id="conteudo" class="hero wrap">
         <div class="hero-copy">
-          <p class="eyebrow" data-i="hero-eyebrow">Desenvolvedor web</p>
-          <h1 data-i="hero-title">Sites profissionais para pequenos negócios, profissionais e marcas.</h1>
-          <p class="lead" data-i="hero-text">Criação de sites e landing pages com estrutura clara, versão mobile bem cuidada, contato por WhatsApp e publicação preparada para o cliente começar a divulgar.</p>
+          <p class="eyebrow" data-i="hero-eyebrow">Criação de sites para negócios</p>
+          <h1 data-i="hero-title">Uma presença digital clara para quem precisa ser encontrado, entendido e chamado.</h1>
+          <p class="lead" data-i="hero-text">Desenvolvimento de sites institucionais, landing pages e melhorias em sites existentes para pequenos negócios, profissionais autônomos e marcas em crescimento.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20a%20cria%C3%A7%C3%A3o%20de%20um%20site." target="_blank" rel="noreferrer" data-i="hero-primary">Quero criar meu site</a>
-            <a class="btn btn-secondary" href="#projeto" data-i="hero-secondary">Ver projeto publicado</a>
+            <a class="btn btn-primary whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer" data-i="hero-primary">Falar sobre meu site</a>
+            <a class="btn btn-secondary" href="#metodo" data-i="hero-secondary">Ver método</a>
           </div>
-          <p class="cta-note" data-i="hero-helper">Atendimento direto · Escopo combinado antes do início · Entrega publicada</p>
+          <p class="cta-note" data-i="hero-helper">Orçamento por escopo · Atendimento direto · Site publicado</p>
         </div>
-        <div class="hero-panel" aria-label="Resumo de confiança">
-          <p class="eyebrow" data-i="trust-eyebrow">Como entrego</p>
-          <h2 data-i="trust-title">Um site precisa ficar bonito, carregar bem e deixar o contato fácil.</h2>
-          <div class="hero-panel-list"><article class="hero-panel-item"><h3>Mobile primeiro</h3><p>Layout pensado para celular, sem depender de adaptações improvisadas.</p></article><article class="hero-panel-item"><h3>Contato visível</h3><p>Botões para WhatsApp, formulário, redes e links importantes no fluxo certo.</p></article><article class="hero-panel-item"><h3>Publicação organizada</h3><p>Entrega com domínio, hospedagem e ajustes finais combinados no escopo.</p></article></div>
+        <div class="hero-panel" aria-label="Resumo da empresa">
+          <p class="eyebrow" data-i="hero-panel-eyebrow">Luan Salles Web</p>
+          <h2 data-i="proof-title">Sites que explicam o negócio e abrem conversa com o cliente.</h2>
+          <div class="hero-panel-list"><article class="hero-panel-item"><h3>Projeto real no ar</h3><p>Alquimia do Bonsai publicado em domínio próprio.</p></article><article class="hero-panel-item"><h3>Foco em negócio pequeno</h3><p>Páginas pensadas para explicar, vender e receber contatos.</p></article><article class="hero-panel-item"><h3>Base técnica própria</h3><p>Código, responsividade, publicação e integrações simples.</p></article></div>
         </div>
       </section>
 
-      <section id="servicos" class="section wrap split">
+      <section id="solucoes" class="section wrap split">
         <div class="section-copy">
-          <p class="eyebrow" data-i="services-eyebrow">Serviços</p>
-          <h2 data-i="services-title">O que você pode contratar</h2>
-          <p data-i="services-text">Foco em sites que ajudam uma pessoa ou negócio a se apresentar melhor, explicar sua oferta e receber contatos com menos atrito.</p>
+          <p class="eyebrow" data-i="solutions-eyebrow">Soluções</p>
+          <h2 data-i="solutions-title">O que a empresa entrega</h2>
+          <p data-i="solutions-text">A proposta inicial é simples: construir sites úteis, bem apresentados e fáceis de divulgar, sem transformar o projeto em algo maior do que o negócio precisa agora.</p>
         </div>
-        <div class="service-list"><article class="service"><h3>Site institucional</h3><p>Para apresentar uma empresa, profissional, clínica, marca ou projeto com páginas essenciais, contato e aparência profissional.</p></article><article class="service"><h3>Landing page</h3><p>Para divulgar uma oferta, curso, serviço, evento ou campanha com uma página direta e chamada clara para ação.</p></article><article class="service"><h3>Ajustes em site existente</h3><p>Para melhorar organização, responsividade, textos, botões de contato e aparência de um site que já está no ar.</p></article><a class="btn btn-secondary service-cta" href="#contato" data-i="services-cta">Falar sobre meu site</a></div>
+        <div class="service-list"><article class="service"><h3>Site institucional</h3><p>Para apresentar empresa, serviço, história, diferenciais, localização, redes sociais e canais de contato em uma estrutura profissional.</p></article><article class="service"><h3>Landing page</h3><p>Para divulgar uma oferta, campanha, curso, evento ou serviço específico com uma página direta e chamada clara para ação.</p></article><article class="service"><h3>Reforma de site</h3><p>Para melhorar um site que já existe: conteúdo, aparência, versão mobile, botões de contato, organização e publicação.</p></article><article class="service"><h3>Manutenção mensal</h3><p>Para manter pequenos ajustes, novas seções, troca de conteúdo e suporte básico depois que o site estiver publicado.</p></article><a class="btn btn-secondary service-cta whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer" data-i="solutions-cta">Conversar no WhatsApp</a></div>
+      </section>
+
+      <section id="metodo" class="section wrap process method">
+        <div class="section-head">
+          <p class="eyebrow" data-i="method-eyebrow">Método</p>
+          <h2 data-i="method-title">Um processo curto para tirar o site do papel</h2>
+          <p data-i="method-text">A operação é enxuta: entender o objetivo, organizar o escopo, construir, revisar e publicar. O cliente sabe o que será entregue antes do desenvolvimento começar.</p>
+        </div>
+        <div class="steps"><article class="step"><span>1</span><h3>Diagnóstico</h3><p>Entendimento do negócio, objetivo do site, público, referências e materiais disponíveis.</p></article><article class="step"><span>2</span><h3>Escopo</h3><p>Definição das páginas, funcionalidades, prazo, investimento e custos externos como domínio ou hospedagem.</p></article><article class="step"><span>3</span><h3>Produção</h3><p>Desenvolvimento da estrutura, layout, responsividade, textos organizados e botões de contato.</p></article><article class="step"><span>4</span><h3>Publicação</h3><p>Revisão final, publicação e orientação para divulgar o site com segurança.</p></article></div>
       </section>
 
       <section id="projeto" class="section case-section">
         <div class="wrap case-showcase">
           <div class="case-heading">
             <div>
-              <p class="eyebrow" data-i="case-eyebrow">Projeto real publicado</p>
+              <p class="eyebrow" data-i="case-eyebrow">Projeto publicado</p>
               <h2 data-i="case-title">Alquimia do Bonsai</h2>
-              <p data-i="case-intro">Site institucional e comercial desenvolvido para a Alquimia do Bonsai, marca de Luane Salles e Alexandre Braga.</p>
+              <p data-i="case-intro">Site institucional e comercial desenvolvido para organizar a presença digital da marca Alquimia do Bonsai.</p>
             </div>
             <a class="btn btn-primary case-link" href="https://alquimiadobonsai.com" target="_blank" rel="noreferrer" data-i="case-button" aria-label="Abrir site ao vivo (abre em nova aba)">Abrir site ao vivo</a>
           </div>
-
           <div class="case-browser" aria-label="Demonstração interativa do site Alquimia do Bonsai">
             <div class="browser-bar"><span>alquimiadobonsai.com</span></div>
             <iframe class="case-frame" src="https://alquimiadobonsai.com" title="Site Alquimia do Bonsai" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </div>
-
           <div class="case-details">
-            <article><span>01</span><h3>Problema</h3><p data-i="case-problem">A marca reunia livro, cursos, catálogo, conteúdos educativos, redes sociais e contatos em canais separados. Faltava uma presença digital única para organizar tudo e facilitar o caminho do visitante.</p></article>
-            <article><span>02</span><h3>Solução</h3><p data-i="case-solution">O site concentra a apresentação da marca, loja, escola, vídeos, livro, materiais externos e contato em português e inglês, com navegação responsiva para computador e celular.</p></article>
-            <article><span>03</span><h3>Resultado</h3><p data-i="case-result">Hoje o projeto está publicado em domínio próprio e pode ser usado para apresentar a marca, divulgar produtos e direcionar interessados para WhatsApp, Amazon, formulários e redes sociais.</p></article>
+            <article><span>01</span><h3>Problema</h3><p data-i="case-problem">A marca reunia livro, cursos, catálogo, conteúdos educativos, redes sociais e contatos em lugares diferentes. Faltava uma página central para apresentar tudo com clareza.</p></article>
+            <article><span>02</span><h3>Solução</h3><p data-i="case-solution">Foi desenvolvido um site responsivo e bilíngue com apresentação da marca, escola, vídeos, livro, loja, catálogo, materiais externos e contato via WhatsApp.</p></article>
+            <article><span>03</span><h3>Resultado</h3><p data-i="case-result">O site está publicado em domínio próprio e já pode ser usado como canal oficial da marca para receber visitantes, apresentar produtos e direcionar interessados.</p></article>
           </div>
-          <ul class="case-bullets"><li>Site responsivo em português e inglês</li><li>Catálogo, favoritos e carrinho com dados locais</li><li>Integração com WhatsApp, Google Drive, Amazon e redes sociais</li><li>Organização de conteúdo, navegação, interface e publicação</li></ul>
+          <ul class="case-bullets"><li>Site em português e inglês</li><li>Catálogo, favoritos e carrinho local</li><li>Integração com WhatsApp, Amazon, Google Drive e redes sociais</li><li>Navegação pensada para desktop e celular</li></ul>
         </div>
       </section>
 
-      <section class="section wrap technical">
+      <section class="section wrap technical recurring">
         <div>
-          <p class="eyebrow" data-i="technical-eyebrow">Projetos técnicos</p>
-          <h2 data-i="technical-title">Também desenvolvo sistemas web</h2>
-          <p data-i="technical-text">Além de sites, desenvolvo aplicações com login, painel administrativo, banco de dados e regras de negócio. O FuteGestão CT é um sistema privado para gestão interna de centros de futevôlei.</p>
+          <p class="eyebrow" data-i="recurring-eyebrow">Depois da publicação</p>
+          <h2 data-i="recurring-title">Site no ar não precisa virar abandono</h2>
+          <p data-i="recurring-text">Quando fizer sentido, o projeto pode continuar com manutenção mensal para pequenos ajustes, atualização de conteúdo e evolução gradual. Isso ajuda a transformar site em ativo do negócio, não em arquivo esquecido.</p>
         </div>
         <div class="tech-card">
-          <h3>FuteGestão CT</h3>
-          <p>Gestão de alunos, turmas, presença, pagamentos, equipe e painel administrativo.</p>
-          <div class="facts tech-tags"><span>React</span><span>Node.js</span><span>Prisma</span><span>PostgreSQL</span><span>Autenticação</span></div>
-          <a class="btn btn-secondary" href="https://github.com/LuanSalles" target="_blank" rel="noreferrer" data-i="technical-cta">Ver GitHub</a>
+          <h3 data-i="recurring-card">Manutenção opcional</h3>
+          <ul class="clean-list"><li>Troca de textos e imagens</li><li>Novas seções simples</li><li>Ajustes de botões e links</li><li>Suporte básico para publicação</li></ul>
         </div>
       </section>
 
-      <section id="sobre" class="section wrap about">
-        <img src="luan-salles.jpeg" alt="Foto de Luan Salles" width="220" height="220" loading="lazy" />
+      <section id="empresa" class="section wrap about company">
+        <div class="founder-mark" aria-hidden="true">LS</div>
         <div>
-          <p class="eyebrow" data-i="about-eyebrow">Sobre</p>
-          <h2 data-i="about-title">Luan Salles</h2>
-          <p data-i="about-text">Sou desenvolvedor web em Niterói/RJ, estudante de Ciência da Computação e tenho experiência anterior com suporte técnico. Essa base ajuda a transformar necessidades reais de clientes em sites organizados, fáceis de usar e possíveis de manter.</p>
-          <div class="facts about-facts"><span>Niterói/RJ</span><span>Ciência da Computação</span><span>JavaScript e React</span><span>Suporte técnico</span></div>
+          <p class="eyebrow" data-i="company-eyebrow">Empresa</p>
+          <h2 data-i="company-title">Uma operação pequena, direta e em construção</h2>
+          <p data-i="company-text">A Luan Salles Web nasce como uma empresa enxuta de desenvolvimento de sites. No início, o atendimento, planejamento, desenvolvimento e publicação são conduzidos diretamente por Luan Salles, estudante de Ciência da Computação em Niterói/RJ e desenvolvedor web com experiência em suporte técnico.</p>
+          <div class="facts company-facts"><span>Niterói/RJ</span><span>Atendimento remoto</span><span>Sites para pequenos negócios</span><span>JavaScript e React</span></div>
+          <div class="company-links">
+            <a href="https://github.com/LuanSalles" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/luan-salles/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
         </div>
-      </section>
-
-      <section class="section wrap process">
-        <h2 data-i="process-title">Como o projeto acontece</h2>
-        <div class="steps"><article class="step"><span>1</span><h3>Conversa inicial</h3><p>Entendo o objetivo, o público, as referências e o que o site precisa resolver.</p></article><article class="step"><span>2</span><h3>Escopo e conteúdo</h3><p>Definimos páginas, textos, materiais, prazo, valor e responsabilidades antes do desenvolvimento.</p></article><article class="step"><span>3</span><h3>Criação e publicação</h3><p>Desenvolvo, reviso com você, ajusto o necessário e preparo o site para divulgação.</p></article></div>
       </section>
 
       <section class="section wrap faq">
         <h2 data-i="faq-title">Dúvidas comuns</h2>
-        <div class="faq-list"><details><summary>Quanto custa um site?</summary><p>O valor é sob orçamento, porque depende de páginas, funcionalidades, prazo, conteúdo e custos externos.</p></details><details><summary>O domínio e a hospedagem estão incluídos?</summary><p>Posso orientar a contratação e configurar a publicação. Custos de domínio, hospedagem e serviços externos são combinados à parte.</p></details><details><summary>O que preciso enviar para começar?</summary><p>Textos, logo, fotos, referências e informações principais do negócio. Se ainda não tiver tudo, eu ajudo a organizar.</p></details><details><summary>O site funciona no celular?</summary><p>Sim. A versão mobile é parte central do desenvolvimento.</p></details><details><summary>O formulário detalhado é obrigatório?</summary><p>Não. Você pode chamar direto no WhatsApp. O formulário ajuda quando o projeto já tem mais informações.</p></details></div>
+        <div class="faq-list"><details><summary>Já existe preço fixo?</summary><p>Por enquanto, não. O valor é definido por escopo, porque cada site muda em páginas, conteúdo, prazo, funcionalidades e custos externos.</p></details><details><summary>Dá para começar com pouco conteúdo?</summary><p>Sim. O primeiro passo pode ser organizar o essencial: quem é o negócio, o que oferece, para quem atende e como receber contato.</p></details><details><summary>Domínio e hospedagem entram no projeto?</summary><p>A configuração pode entrar no escopo. Os custos de domínio, hospedagem, banco de dados ou ferramentas externas são combinados separadamente.</p></details><details><summary>O site fica bom no celular?</summary><p>Sim. A versão mobile é tratada como parte central da entrega.</p></details><details><summary>O formulário é obrigatório?</summary><p>Não. O WhatsApp é o caminho principal. O formulário serve quando você já quer enviar mais detalhes antes da conversa.</p></details></div>
       </section>
 
       <section id="contato" class="section wrap contact">
         <div class="contact-copy">
           <p class="eyebrow" data-i="contact-eyebrow">Contato</p>
-          <h2 data-i="contact-title">Vamos organizar seu site?</h2>
-          <p data-i="contact-text">Chame no WhatsApp para uma conversa direta. Se preferir detalhar o projeto antes, use o formulário de orçamento.</p>
+          <h2 data-i="contact-title">Quer colocar o site do seu negócio no ar?</h2>
+          <p data-i="contact-text">Chame no WhatsApp para explicar a ideia em poucas mensagens. Se preferir, preencha o briefing e envie os detalhes do projeto antes da conversa.</p>
           <div class="contact-actions">
-            <a class="btn btn-primary whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20a%20cria%C3%A7%C3%A3o%20de%20um%20site." target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="btn btn-primary whatsapp-link" href="https://wa.me/5521979231817?text=Oi%2C%20Luan.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noreferrer">WhatsApp</a>
             <a class="btn btn-secondary quote-link" href="https://forms.gle/ebQXBwmDUHUt6zwn7" target="_blank" rel="noreferrer" data-i="contact-form">Preencher briefing</a>
           </div>
           <p class="contact-note" data-i="contact-note">O formulário abaixo monta uma mensagem pronta para WhatsApp.</p>
@@ -1005,21 +1073,21 @@ footer a {
         </div>
         <form id="contactForm">
           <label><span>Nome</span><input id="name" name="name" required placeholder="Seu nome" autocomplete="name" /></label>
-          <label><span>Tipo de site</span><input id="projectType" name="projectType" placeholder="Ex.: site para clínica, landing page, loja local" /></label>
-          <label><span>Mensagem</span><textarea id="message" name="message" required placeholder="Me conte o que você quer criar ou melhorar."></textarea></label>
+          <label><span>Tipo de negócio ou site</span><input id="projectType" name="projectType" placeholder="Ex.: clínica, loja local, landing page de serviço" /></label>
+          <label><span>Mensagem</span><textarea id="message" name="message" required placeholder="Me conte o que você quer colocar no ar."></textarea></label>
           <button class="btn btn-secondary" type="submit" data-i="contact-submit">Enviar pelo WhatsApp</button>
         </form>
       </section>
 
       <footer class="wrap">
-        <span data-i="footer">Luan Salles · Desenvolvimento de sites</span>
-        <a href="https://github.com/LuanSalles" target="_blank" rel="noreferrer" aria-label="GitHub (abre em nova aba)">GitHub</a>
-        <a href="https://www.linkedin.com/in/luan-salles/" target="_blank" rel="noreferrer" aria-label="LinkedIn (abre em nova aba)">LinkedIn</a>
+        <span data-i="footer">Luan Salles Web · Criação de sites para negócios</span>
+        <a href="#solucoes">Soluções</a>
+        <a href="#contato">Contato</a>
       </footer>
     </main>
 
     <script>
-      const i18n = {"pt":{"lang":"pt-BR","title":"Luan Salles | Desenvolvimento web para sites profissionais","description":"Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios.","nav":["Serviços","Projeto","Sobre","Contato"],"whatsapp":"WhatsApp","whatsappText":"Oi, Luan. Quero conversar sobre a criação de um site.","newTab":"abre em nova aba","status":"Idioma alterado para português.","hero":["Desenvolvedor web","Sites profissionais para pequenos negócios, profissionais e marcas.","Criação de sites e landing pages com estrutura clara, versão mobile bem cuidada, contato por WhatsApp e publicação preparada para o cliente começar a divulgar.","Quero criar meu site","Ver projeto publicado","Atendimento direto · Escopo combinado antes do início · Entrega publicada"],"trust":["Como entrego","Um site precisa ficar bonito, carregar bem e deixar o contato fácil.",["Mobile primeiro","Layout pensado para celular, sem depender de adaptações improvisadas."],["Contato visível","Botões para WhatsApp, formulário, redes e links importantes no fluxo certo."],["Publicação organizada","Entrega com domínio, hospedagem e ajustes finais combinados no escopo."]],"servicesTitle":"O que você pode contratar","servicesText":"Foco em sites que ajudam uma pessoa ou negócio a se apresentar melhor, explicar sua oferta e receber contatos com menos atrito.","servicesCta":"Falar sobre meu site","services":[["Site institucional","Para apresentar uma empresa, profissional, clínica, marca ou projeto com páginas essenciais, contato e aparência profissional."],["Landing page","Para divulgar uma oferta, curso, serviço, evento ou campanha com uma página direta e chamada clara para ação."],["Ajustes em site existente","Para melhorar organização, responsividade, textos, botões de contato e aparência de um site que já está no ar."]],"case":["Projeto real publicado","Alquimia do Bonsai","Site institucional e comercial desenvolvido para a Alquimia do Bonsai, marca de Luane Salles e Alexandre Braga.","A marca reunia livro, cursos, catálogo, conteúdos educativos, redes sociais e contatos em canais separados. Faltava uma presença digital única para organizar tudo e facilitar o caminho do visitante.","O site concentra a apresentação da marca, loja, escola, vídeos, livro, materiais externos e contato em português e inglês, com navegação responsiva para computador e celular.","Hoje o projeto está publicado em domínio próprio e pode ser usado para apresentar a marca, divulgar produtos e direcionar interessados para WhatsApp, Amazon, formulários e redes sociais.","Abrir site ao vivo"],"caseBullets":["Site responsivo em português e inglês","Catálogo, favoritos e carrinho com dados locais","Integração com WhatsApp, Google Drive, Amazon e redes sociais","Organização de conteúdo, navegação, interface e publicação"],"technical":["Projetos técnicos","Também desenvolvo sistemas web","Além de sites, desenvolvo aplicações com login, painel administrativo, banco de dados e regras de negócio. O FuteGestão CT é um sistema privado para gestão interna de centros de futevôlei.","Ver GitHub"],"techTags":["React","Node.js","Prisma","PostgreSQL","Autenticação"],"about":["Sobre","Luan Salles","Sou desenvolvedor web em Niterói/RJ, estudante de Ciência da Computação e tenho experiência anterior com suporte técnico. Essa base ajuda a transformar necessidades reais de clientes em sites organizados, fáceis de usar e possíveis de manter."],"facts":["Niterói/RJ","Ciência da Computação","JavaScript e React","Suporte técnico"],"processTitle":"Como o projeto acontece","steps":[["1","Conversa inicial","Entendo o objetivo, o público, as referências e o que o site precisa resolver."],["2","Escopo e conteúdo","Definimos páginas, textos, materiais, prazo, valor e responsabilidades antes do desenvolvimento."],["3","Criação e publicação","Desenvolvo, reviso com você, ajusto o necessário e preparo o site para divulgação."]],"faqTitle":"Dúvidas comuns","faq":[["Quanto custa um site?","O valor é sob orçamento, porque depende de páginas, funcionalidades, prazo, conteúdo e custos externos."],["O domínio e a hospedagem estão incluídos?","Posso orientar a contratação e configurar a publicação. Custos de domínio, hospedagem e serviços externos são combinados à parte."],["O que preciso enviar para começar?","Textos, logo, fotos, referências e informações principais do negócio. Se ainda não tiver tudo, eu ajudo a organizar."],["O site funciona no celular?","Sim. A versão mobile é parte central do desenvolvimento."],["O formulário detalhado é obrigatório?","Não. Você pode chamar direto no WhatsApp. O formulário ajuda quando o projeto já tem mais informações."]],"contact":["Contato","Vamos organizar seu site?","Chame no WhatsApp para uma conversa direta. Se preferir detalhar o projeto antes, use o formulário de orçamento.","Preencher briefing","Enviar pelo WhatsApp","Oi, Luan. Quero conversar sobre a criação de um site.","O formulário abaixo monta uma mensagem pronta para WhatsApp."],"labels":["Nome","Tipo de site","Mensagem"],"placeholders":["Seu nome","Ex.: site para clínica, landing page, loja local","Me conte o que você quer criar ou melhorar."],"fallbacks":["Não informado","Ainda não definido","Quero criar ou melhorar um site."],"footer":"Luan Salles · Desenvolvimento de sites"},"en":{"lang":"en","title":"Luan Salles | Web development for professional websites","description":"Business website and landing page development for professionals, companies, and small businesses.","nav":["Services","Project","About","Contact"],"whatsapp":"WhatsApp","whatsappText":"Hi, Luan. I want to talk about creating a website.","newTab":"opens in a new tab","status":"Language changed to English.","hero":["Web developer","Professional websites for small businesses, professionals, and brands.","Website and landing page development with clear structure, careful mobile layout, WhatsApp contact, and publishing ready for the client to start sharing.","I need a website","View published project","Direct contact · Scope defined before starting · Published delivery"],"trust":["How I deliver","A website needs to look good, work well, and make contact easy.",["Mobile first","Layout planned for phones, not treated as an afterthought."],["Clear contact paths","WhatsApp, forms, social links, and important actions placed in the right flow."],["Organized publishing","Delivery with domain, hosting, and final adjustments defined in the scope."]],"servicesTitle":"What you can hire me for","servicesText":"Focused websites that help a person or business present itself better, explain the offer, and receive contacts with less friction.","servicesCta":"Talk about my website","services":[["Business website","For companies, professionals, clinics, brands, or projects that need essential pages, contact, and a professional look."],["Landing page","For promoting an offer, course, service, event, or campaign with one clear page and a strong call to action."],["Website improvements","For improving structure, mobile layout, copy, contact buttons, and visual quality on an existing website."]],"case":["Real published project","Alquimia do Bonsai","Institutional and commercial website developed for Alquimia do Bonsai, a brand by Luane Salles and Alexandre Braga.","The brand had a book, courses, catalog, educational content, social media, and contact channels spread across different places. It needed one digital presence to organize everything and guide visitors.","The website brings together the brand, shop, school, videos, book, external materials, and contact paths in Portuguese and English, with responsive navigation for desktop and mobile.","The project is live on its own domain and helps present the brand, promote products, and send visitors to WhatsApp, Amazon, forms, and social media.","Open live website"],"caseBullets":["Responsive website in Portuguese and English","Catalog, favorites, and cart using local data","Integrations with WhatsApp, Google Drive, Amazon, and social media","Content structure, navigation, interface, and publishing"],"technical":["Technical projects","I also build web systems","Beyond websites, I build applications with login, admin panels, databases, and business rules. FuteGestão CT is a private system for internal management of footvolley centers.","View GitHub"],"techTags":["React","Node.js","Prisma","PostgreSQL","Authentication"],"about":["About","Luan Salles","I am a web developer based in Niterói, Brazil, a Computer Science student, and I have previous technical support experience. That background helps me turn real client needs into organized, usable, maintainable websites."],"facts":["Niterói/RJ, Brazil","Computer Science","JavaScript and React","Technical support"],"processTitle":"How the project works","steps":[["1","First conversation","I understand the goal, audience, references, and what the website needs to solve."],["2","Scope and content","We define pages, copy, materials, timeline, price, and responsibilities before development."],["3","Build and publish","I develop, review with you, adjust what is needed, and prepare the site for sharing."]],"faqTitle":"Common questions","faq":[["How much does a website cost?","Pricing is quoted by scope because pages, features, timeline, content, and external costs change from project to project."],["Are domain and hosting included?","I can guide and configure publishing. Domain, hosting, and external service costs are agreed separately."],["What do I need to send first?","Copy, logo, photos, references, and main business information. If you do not have everything yet, I help organize it."],["Will the website work on mobile?","Yes. The mobile version is a central part of the development."],["Is the detailed form required?","No. You can message me directly on WhatsApp. The form helps when the project already has more information."]],"contact":["Contact","Let us organize your website?","Message me on WhatsApp for a direct conversation. If you prefer to describe the project first, use the quote briefing form.","Fill briefing","Send on WhatsApp","Hi, Luan. I want to talk about creating a website.","The form below creates a ready-to-send WhatsApp message."],"labels":["Name","Website type","Message"],"placeholders":["Your name","Ex.: clinic website, landing page, local shop","Tell me what you want to create or improve."],"fallbacks":["Not provided","Not defined yet","I want to create or improve a website."],"footer":"Luan Salles · Website development"}};
+      const i18n = {"pt":{"lang":"pt-BR","title":"Luan Salles Web | Criação de sites para pequenos negócios","description":"Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas.","brand":"Luan Salles Web","nav":["Soluções","Método","Projeto","Empresa","Contato"],"whatsapp":"WhatsApp","whatsappText":"Oi, Luan. Quero conversar sobre um site para meu negócio.","newTab":"abre em nova aba","status":"Idioma alterado para português.","hero":["Criação de sites para negócios","Uma presença digital clara para quem precisa ser encontrado, entendido e chamado.","Desenvolvimento de sites institucionais, landing pages e melhorias em sites existentes para pequenos negócios, profissionais autônomos e marcas em crescimento.","Falar sobre meu site","Ver método","Orçamento por escopo · Atendimento direto · Site publicado"],"proof":["Sites que explicam o negócio e abrem conversa com o cliente.",["Projeto real no ar","Alquimia do Bonsai publicado em domínio próprio."],["Foco em negócio pequeno","Páginas pensadas para explicar, vender e receber contatos."],["Base técnica própria","Código, responsividade, publicação e integrações simples."]],"solutions":["Soluções","O que a empresa entrega","A proposta inicial é simples: construir sites úteis, bem apresentados e fáceis de divulgar, sem transformar o projeto em algo maior do que o negócio precisa agora.","Conversar no WhatsApp"],"services":[["Site institucional","Para apresentar empresa, serviço, história, diferenciais, localização, redes sociais e canais de contato em uma estrutura profissional."],["Landing page","Para divulgar uma oferta, campanha, curso, evento ou serviço específico com uma página direta e chamada clara para ação."],["Reforma de site","Para melhorar um site que já existe: conteúdo, aparência, versão mobile, botões de contato, organização e publicação."],["Manutenção mensal","Para manter pequenos ajustes, novas seções, troca de conteúdo e suporte básico depois que o site estiver publicado."]],"method":["Método","Um processo curto para tirar o site do papel","A operação é enxuta: entender o objetivo, organizar o escopo, construir, revisar e publicar. O cliente sabe o que será entregue antes do desenvolvimento começar."],"steps":[["1","Diagnóstico","Entendimento do negócio, objetivo do site, público, referências e materiais disponíveis."],["2","Escopo","Definição das páginas, funcionalidades, prazo, investimento e custos externos como domínio ou hospedagem."],["3","Produção","Desenvolvimento da estrutura, layout, responsividade, textos organizados e botões de contato."],["4","Publicação","Revisão final, publicação e orientação para divulgar o site com segurança."]],"case":["Projeto publicado","Alquimia do Bonsai","Site institucional e comercial desenvolvido para organizar a presença digital da marca Alquimia do Bonsai.","A marca reunia livro, cursos, catálogo, conteúdos educativos, redes sociais e contatos em lugares diferentes. Faltava uma página central para apresentar tudo com clareza.","Foi desenvolvido um site responsivo e bilíngue com apresentação da marca, escola, vídeos, livro, loja, catálogo, materiais externos e contato via WhatsApp.","O site está publicado em domínio próprio e já pode ser usado como canal oficial da marca para receber visitantes, apresentar produtos e direcionar interessados.","Abrir site ao vivo"],"caseLabels":["Problema","Solução","Resultado"],"caseBullets":["Site em português e inglês","Catálogo, favoritos e carrinho local","Integração com WhatsApp, Amazon, Google Drive e redes sociais","Navegação pensada para desktop e celular"],"recurring":["Depois da publicação","Site no ar não precisa virar abandono","Quando fizer sentido, o projeto pode continuar com manutenção mensal para pequenos ajustes, atualização de conteúdo e evolução gradual. Isso ajuda a transformar site em ativo do negócio, não em arquivo esquecido.","Manutenção opcional"],"recurringItems":["Troca de textos e imagens","Novas seções simples","Ajustes de botões e links","Suporte básico para publicação"],"company":["Empresa","Uma operação pequena, direta e em construção","A Luan Salles Web nasce como uma empresa enxuta de desenvolvimento de sites. No início, o atendimento, planejamento, desenvolvimento e publicação são conduzidos diretamente por Luan Salles, estudante de Ciência da Computação em Niterói/RJ e desenvolvedor web com experiência em suporte técnico."],"facts":["Niterói/RJ","Atendimento remoto","Sites para pequenos negócios","JavaScript e React"],"faqTitle":"Dúvidas comuns","faq":[["Já existe preço fixo?","Por enquanto, não. O valor é definido por escopo, porque cada site muda em páginas, conteúdo, prazo, funcionalidades e custos externos."],["Dá para começar com pouco conteúdo?","Sim. O primeiro passo pode ser organizar o essencial: quem é o negócio, o que oferece, para quem atende e como receber contato."],["Domínio e hospedagem entram no projeto?","A configuração pode entrar no escopo. Os custos de domínio, hospedagem, banco de dados ou ferramentas externas são combinados separadamente."],["O site fica bom no celular?","Sim. A versão mobile é tratada como parte central da entrega."],["O formulário é obrigatório?","Não. O WhatsApp é o caminho principal. O formulário serve quando você já quer enviar mais detalhes antes da conversa."]],"contact":["Contato","Quer colocar o site do seu negócio no ar?","Chame no WhatsApp para explicar a ideia em poucas mensagens. Se preferir, preencha o briefing e envie os detalhes do projeto antes da conversa.","Preencher briefing","Enviar pelo WhatsApp","Oi, Luan. Quero conversar sobre um site para meu negócio.","O formulário abaixo monta uma mensagem pronta para WhatsApp."],"labels":["Nome","Tipo de negócio ou site","Mensagem"],"placeholders":["Seu nome","Ex.: clínica, loja local, landing page de serviço","Me conte o que você quer colocar no ar."],"fallbacks":["Não informado","Ainda não definido","Quero criar ou melhorar um site."],"footer":"Luan Salles Web · Criação de sites para negócios"},"en":{"lang":"en","title":"Luan Salles Web | Website creation for small businesses","description":"Business websites, landing pages, and website improvements for small businesses, professionals, and brands.","brand":"Luan Salles Web","nav":["Solutions","Method","Project","Company","Contact"],"whatsapp":"WhatsApp","whatsappText":"Hi, Luan. I want to talk about a website for my business.","newTab":"opens in a new tab","status":"Language changed to English.","hero":["Website creation for businesses","A clear digital presence for businesses that need to be found, understood, and contacted.","Business websites, landing pages, and website improvements for small businesses, independent professionals, and growing brands.","Talk about my website","See method","Scoped quote · Direct contact · Published website"],"proof":["Websites that explain the business and start conversations with customers.",["Real project live","Alquimia do Bonsai published on its own domain."],["Small business focus","Pages planned to explain, sell, and receive contacts."],["Technical foundation","Code, responsiveness, publishing, and simple integrations."]],"solutions":["Solutions","What the company delivers","The initial offer is simple: build useful, well-presented websites that are easy to share, without making the project bigger than the business needs right now.","Talk on WhatsApp"],"services":[["Business website","For presenting a company, service, story, strengths, location, social links, and contact channels in a professional structure."],["Landing page","For promoting an offer, campaign, course, event, or specific service with a direct page and clear call to action."],["Website refresh","For improving an existing website: content, visual quality, mobile version, contact buttons, structure, and publishing."],["Monthly care","For small updates, new sections, content changes, and basic support after the website is published."]],"method":["Method","A short process to get the website online","The operation is lean: understand the goal, organize the scope, build, review, and publish. The client knows what will be delivered before development starts."],"steps":[["1","Diagnosis","Understanding the business, website goal, audience, references, and available materials."],["2","Scope","Definition of pages, features, timeline, investment, and external costs such as domain or hosting."],["3","Production","Development of structure, layout, responsiveness, organized copy, and contact buttons."],["4","Publishing","Final review, publishing, and guidance to share the website with confidence."]],"case":["Published project","Alquimia do Bonsai","Institutional and commercial website developed to organize the digital presence of Alquimia do Bonsai.","The brand had a book, courses, catalog, educational content, social media, and contact channels in different places. It needed one central page to present everything clearly.","A responsive bilingual website was developed with brand presentation, school, videos, book, shop, catalog, external materials, and WhatsApp contact.","The website is live on its own domain and can already be used as the brand's official channel to receive visitors, present products, and guide interested people.","Open live website"],"caseLabels":["Problem","Solution","Result"],"caseBullets":["Website in Portuguese and English","Catalog, favorites, and local cart","Integrations with WhatsApp, Amazon, Google Drive, and social media","Navigation planned for desktop and mobile"],"recurring":["After publishing","A live website should not be left behind","When it makes sense, the project can continue with monthly care for small updates, content changes, and gradual improvements. That helps turn the website into a business asset, not a forgotten file.","Optional monthly care"],"recurringItems":["Text and image changes","Simple new sections","Button and link adjustments","Basic publishing support"],"company":["Company","A small, direct operation in progress","Luan Salles Web starts as a lean website development company. At this stage, service, planning, development, and publishing are handled directly by Luan Salles, a Computer Science student based in Niterói, Brazil, and a web developer with technical support experience."],"facts":["Niterói/RJ, Brazil","Remote service","Websites for small businesses","JavaScript and React"],"faqTitle":"Common questions","faq":[["Is there fixed pricing?","Not yet. Pricing is defined by scope because each website changes in pages, content, timeline, features, and external costs."],["Can we start with little content?","Yes. The first step can be organizing the essentials: who the business is, what it offers, who it serves, and how to receive contact."],["Are domain and hosting included?","Configuration can be included in the scope. Domain, hosting, database, or external tool costs are agreed separately."],["Will the website work well on mobile?","Yes. The mobile version is treated as a central part of the delivery."],["Is the form required?","No. WhatsApp is the main path. The form helps when you already want to send more details before the conversation."]],"contact":["Contact","Want to put your business website online?","Message me on WhatsApp to explain the idea in a few messages. If you prefer, fill out the briefing and send the project details before the conversation.","Fill briefing","Send on WhatsApp","Hi, Luan. I want to talk about a website for my business.","The form below creates a ready-to-send WhatsApp message."],"labels":["Name","Business or website type","Message"],"placeholders":["Your name","Ex.: clinic, local shop, service landing page","Tell me what you want to put online."],"fallbacks":["Not provided","Not defined yet","I want to create or improve a website."],"footer":"Luan Salles Web · Website creation for businesses"}};
       const phone = "5521979231817";
 
       function setText(selector, value) {
@@ -1057,6 +1125,7 @@ footer a {
           button.setAttribute("aria-pressed", button.dataset.lang === lang ? "true" : "false");
         });
 
+        setText("[data-i='brand']", t.brand);
         setTexts(".nav a", t.nav);
         setText("[data-i='hero-eyebrow']", t.hero[0]);
         setText("[data-i='hero-title']", t.hero[1]);
@@ -1064,14 +1133,22 @@ footer a {
         setText("[data-i='hero-primary']", t.hero[3]);
         setText("[data-i='hero-secondary']", t.hero[4]);
         setText("[data-i='hero-helper']", t.hero[5]);
-        setText("[data-i='trust-eyebrow']", t.trust[0]);
-        setText("[data-i='trust-title']", t.trust[1]);
-        setCards(".hero-panel-item", t.trust.slice(2));
-        setText("[data-i='services-eyebrow']", t.nav[0]);
-        setText("[data-i='services-title']", t.servicesTitle);
-        setText("[data-i='services-text']", t.servicesText);
-        setText("[data-i='services-cta']", t.servicesCta);
+        setText("[data-i='hero-panel-eyebrow']", t.brand);
+        setText("[data-i='proof-title']", t.proof[0]);
+        setCards(".hero-panel-item", t.proof.slice(1));
+        setText("[data-i='solutions-eyebrow']", t.solutions[0]);
+        setText("[data-i='solutions-title']", t.solutions[1]);
+        setText("[data-i='solutions-text']", t.solutions[2]);
+        setText("[data-i='solutions-cta']", t.solutions[3]);
         setCards(".service", t.services);
+        setText("[data-i='method-eyebrow']", t.method[0]);
+        setText("[data-i='method-title']", t.method[1]);
+        setText("[data-i='method-text']", t.method[2]);
+        document.querySelectorAll(".step").forEach((step, index) => {
+          step.querySelector("span").textContent = t.steps[index][0];
+          step.querySelector("h3").textContent = t.steps[index][1];
+          step.querySelector("p").textContent = t.steps[index][2];
+        });
         setText("[data-i='case-eyebrow']", t.case[0]);
         setText("[data-i='case-title']", t.case[1]);
         setText("[data-i='case-intro']", t.case[2]);
@@ -1079,22 +1156,17 @@ footer a {
         setText("[data-i='case-solution']", t.case[4]);
         setText("[data-i='case-result']", t.case[5]);
         setText("[data-i='case-button']", t.case[6]);
+        setTexts(".case-details h3", t.caseLabels);
         setTexts(".case-bullets li", t.caseBullets);
-        setText("[data-i='technical-eyebrow']", t.technical[0]);
-        setText("[data-i='technical-title']", t.technical[1]);
-        setText("[data-i='technical-text']", t.technical[2]);
-        setText("[data-i='technical-cta']", t.technical[3]);
-        setTexts(".tech-tags span", t.techTags);
-        setText("[data-i='about-eyebrow']", t.about[0]);
-        setText("[data-i='about-title']", t.about[1]);
-        setText("[data-i='about-text']", t.about[2]);
-        setTexts(".about-facts span", t.facts);
-        setText("[data-i='process-title']", t.processTitle);
-        document.querySelectorAll(".step").forEach((step, index) => {
-          step.querySelector("span").textContent = t.steps[index][0];
-          step.querySelector("h3").textContent = t.steps[index][1];
-          step.querySelector("p").textContent = t.steps[index][2];
-        });
+        setText("[data-i='recurring-eyebrow']", t.recurring[0]);
+        setText("[data-i='recurring-title']", t.recurring[1]);
+        setText("[data-i='recurring-text']", t.recurring[2]);
+        setText("[data-i='recurring-card']", t.recurring[3]);
+        setTexts(".clean-list li", t.recurringItems);
+        setText("[data-i='company-eyebrow']", t.company[0]);
+        setText("[data-i='company-title']", t.company[1]);
+        setText("[data-i='company-text']", t.company[2]);
+        setTexts(".company-facts span", t.facts);
         setText("[data-i='faq-title']", t.faqTitle);
         document.querySelectorAll(".faq-list details").forEach((item, index) => {
           item.querySelector("summary").textContent = t.faq[index][0];
@@ -1112,8 +1184,9 @@ footer a {
         document.querySelector("#projectType").placeholder = t.placeholders[1];
         document.querySelector("#message").placeholder = t.placeholders[2];
         setText("[data-i='footer']", t.footer);
+        setTexts("footer a", [t.nav[0], t.nav[4]]);
         setWhatsApp(t.whatsappText);
-        localStorage.setItem("portfolioLang", lang);
+        localStorage.setItem("companySiteLang", lang);
       }
 
       document.querySelectorAll(".lang-switch button").forEach((button) => {
@@ -1122,7 +1195,7 @@ footer a {
 
       document.querySelector("#contactForm").addEventListener("submit", (event) => {
         event.preventDefault();
-        const lang = localStorage.getItem("portfolioLang") === "en" ? "en" : "pt";
+        const lang = localStorage.getItem("companySiteLang") === "en" ? "en" : "pt";
         const t = i18n[lang];
         const text = [
           t.contact[5],
@@ -1134,7 +1207,7 @@ footer a {
         window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(text), "_blank", "noreferrer");
       });
 
-      applyLanguage(localStorage.getItem("portfolioLang") === "en" ? "en" : "pt");
+      applyLanguage(localStorage.getItem("companySiteLang") === "en" ? "en" : "pt");
     </script>
   </body>
 </html>

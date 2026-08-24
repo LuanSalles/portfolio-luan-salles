@@ -1,7 +1,7 @@
 {
   "name": "portfolio-luan-salles",
   "version": "0.1.0",
-  "description": "Portfolio profissional de Luan Salles para apresentacao de servicos de criacao de sites, landing pages e sistemas web.",
+  "description": "Site inicial da Luan Salles Web para apresentacao de servicos de criacao de sites para pequenos negocios.",
   "private": true,
   "engines": {
     "node": ">=22.13.0"

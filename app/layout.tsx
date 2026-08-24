@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-luan-one.vercel.app"),
-  title: "Luan Salles | Desenvolvimento web para sites profissionais",
+  title: "Luan Salles Web | Criação de sites para pequenos negócios",
   description:
-    "Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios.",
+    "Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Luan Salles | Desenvolvimento web para sites profissionais",
+    title: "Luan Salles Web | Criação de sites para pequenos negócios",
     description:
-      "Sites institucionais e landing pages com foco em clareza, versão mobile, performance e contato rápido.",
+      "Sites profissionais com foco em clareza, versão mobile, contato rápido e publicação organizada.",
     url: "/",
-    siteName: "Luan Salles",
+    siteName: "Luan Salles Web",
     type: "website",
     locale: "pt_BR",
     images: [
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luan Salles | Desenvolvimento web para sites profissionais",
+    title: "Luan Salles Web | Criação de sites para pequenos negócios",
     description:
-      "Sites institucionais e landing pages com foco em clareza, versão mobile, performance e contato rápido.",
+      "Sites profissionais com foco em clareza, versão mobile, contato rápido e publicação organizada.",
     images: ["/alquimia-bonsai-1180.jpg"],
   },
   icons: {
@@ -74,11 +74,11 @@ const structuredData = {
     {
       "@type": "ProfessionalService",
       "@id": "https://portfolio-luan-one.vercel.app/#service",
-      name: "Luan Salles · Desenvolvimento de sites",
+      name: "Luan Salles Web",
       url: "https://portfolio-luan-one.vercel.app/",
       image: "https://portfolio-luan-one.vercel.app/alquimia-bonsai-1180.jpg",
       description:
-        "Desenvolvimento de sites institucionais e landing pages para profissionais, empresas e pequenos negócios.",
+        "Criação de sites institucionais, landing pages e melhorias em sites para pequenos negócios, profissionais e marcas.",
       areaServed: ["Niterói", "Rio de Janeiro", "Brasil"],
       serviceType: ["Criação de sites", "Landing pages", "Desenvolvimento web"],
       founder: {

@@ -24,19 +24,19 @@ async function render() {
   );
 }
 
-test("server-renders the web development portfolio", async () => {
+test("server-renders the company website", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /Luan Salles \| Desenvolvimento web para sites profissionais/);
-  assert.match(html, /Desenvolvedor web/);
-  assert.match(html, /Sites profissionais para pequenos negócios, profissionais e marcas/);
+  assert.match(html, /Luan Salles Web \| Criação de sites para pequenos negócios/);
+  assert.match(html, /Criação de sites para negócios/);
+  assert.match(html, /Uma presença digital clara/);
   assert.match(html, /Alquimia do Bonsai/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
-  assert.match(html, /Luan Salles/);
-  assert.match(html, /FuteGestão CT/);
+  assert.match(html, /Luan Salles Web/);
+  assert.match(html, /Manutenção mensal/);
   assert.match(html, /Dúvidas comuns/);
   assert.match(html, /Problema/);
   assert.match(html, /Solução/);
@@ -48,29 +48,29 @@ test("published static site contains SEO and bilingual contact behavior", async 
   const html = await readFile(new URL("../site/index.html", import.meta.url), "utf8");
 
   assert.match(html, /<link rel="canonical" href="https:\/\/portfolio-luan-one\.vercel\.app\/" \/>/);
-  assert.match(html, /<meta property="og:title" content="Luan Salles \| Desenvolvimento web para sites profissionais" \/>/);
+  assert.match(html, /<meta property="og:title" content="Luan Salles Web \| Criação de sites para pequenos negócios" \/>/);
   assert.match(html, /<meta property="og:image:height" content="533" \/>/);
   assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
   assert.match(html, /const i18n = /);
-  assert.match(html, /Business website and landing page development for professionals/);
-  assert.match(html, /Professional websites for small businesses/);
-  assert.match(html, /localStorage\.getItem\("portfolioLang"\)/);
+  assert.match(html, /Business websites, landing pages, and website improvements/);
+  assert.match(html, /Website creation for small businesses/);
+  assert.match(html, /localStorage\.getItem\("companySiteLang"\)/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
   assert.match(html, /class="hero-panel"/);
   assert.match(html, /class="case-browser"/);
   assert.match(html, /<iframe class="case-frame" src="https:\/\/alquimiadobonsai\.com"/);
   assert.match(html, /loading="lazy"/);
   assert.match(html, /https:\/\/www\.linkedin\.com\/in\/luan-salles\//);
-  assert.match(html, /Quero criar meu site/);
+  assert.match(html, /Falar sobre meu site/);
   assert.match(html, /Preencher briefing/);
-  assert.match(html, /O formulário detalhado é obrigatório\?/);
+  assert.match(html, /O formulário é obrigatório\?/);
   assert.doesNotMatch(html, /case-summary|project-card|case-mobile|case-desktop|case-site|case-proof|alquimia-bonsai-mobile\.jpg/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /aria-pressed="true"/);
   assert.match(html, /<a class="skip-link" href="#conteudo">/);
   assert.match(html, /name="name" required/);
   assert.match(html, /name="message" required/);
-  assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview|Base técnica complementar/i);
+  assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview|Base técnica complementar|FuteGestão CT/i);
 });
 
 test("optimized social images stay lightweight", async () => {

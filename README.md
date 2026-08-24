@@ -1,8 +1,8 @@
-# portfolio-luan-salles
+# Luan Salles Web
 
-Portfólio profissional de Luan Salles para apresentar serviços de desenvolvimento web com foco em sites institucionais, landing pages e melhorias em sites existentes.
+Site inicial da Luan Salles Web, uma operação enxuta de criação de sites para pequenos negócios, profissionais autônomos e marcas em crescimento.
 
-![Prévia do portfólio](./docs/portfolio-preview.png)
+![Prévia do site](./docs/portfolio-preview.png)
 
 ## Site publicado
 
@@ -10,36 +10,35 @@ Portfólio profissional de Luan Salles para apresentar serviços de desenvolvime
 
 ## Objetivo
 
-O projeto foi criado para ajudar possíveis clientes a entenderem rapidamente:
+O site foi reformulado para deixar de funcionar como portfólio pessoal e passar a comunicar uma oferta de empresa:
 
-- que tipo de site podem contratar;
-- como funciona o processo de criação;
-- quem é o desenvolvedor responsável;
-- qual trabalho real já foi publicado;
-- como entrar em contato pelo WhatsApp ou por briefing.
+- criação de sites institucionais;
+- landing pages;
+- reforma de sites existentes;
+- manutenção mensal opcional;
+- processo de atendimento e publicação;
+- prova real com o projeto Alquimia do Bonsai;
+- contato direto por WhatsApp;
+- briefing pelo Google Forms.
 
 ## Projeto em destaque
 
-O principal estudo de caso é o site da Alquimia do Bonsai:
+O principal case público é o site da Alquimia do Bonsai:
 
 [alquimiadobonsai.com](https://alquimiadobonsai.com)
 
-O case apresenta o problema, a solução, o resultado e uma demonstração interativa do site publicado. O projeto reúne versão em português e inglês, catálogo, favoritos, carrinho local, páginas institucionais, cursos, vídeos, links externos e contato via WhatsApp.
+O case apresenta problema, solução e resultado, além de uma demonstração interativa do site publicado. O projeto reúne versão em português e inglês, catálogo, favoritos, carrinho local, páginas institucionais, cursos, vídeos, links externos e contato via WhatsApp.
 
-## O que desenvolvi
+## O que foi desenvolvido
 
-- Estrutura e implementação da página principal.
-- Layout responsivo para desktop e celular.
-- Conteúdo comercial focado em sites para pequenos negócios e profissionais.
-- Estudo de caso do projeto Alquimia do Bonsai.
-- Bloco técnico complementar com FuteGestão CT.
-- Seção sobre Luan Salles.
-- Processo de contratação em três etapas.
-- FAQ com dúvidas comuns.
-- Contato por WhatsApp com mensagem pronta.
-- Link para briefing no Google Forms.
+- Home comercial da empresa Luan Salles Web.
+- Posicionamento focado em pequenos negócios.
+- Seções de soluções, método, projeto publicado, empresa, FAQ e contato.
+- Mensagem de WhatsApp pré-preenchida.
+- Link para briefing de orçamento.
 - Alternância de conteúdo em português e inglês.
 - Metadados, favicon, Open Graph e JSON-LD.
+- Versão estática publicada pela Vercel.
 
 ## Tecnologias
 
@@ -91,7 +90,6 @@ scripts/
   generate-static-site.mjs
 public/
   favicon-ls.svg
-  luan-salles.jpeg
   alquimia-bonsai-1180.jpg
   alquimia-bonsai-760.jpg
 docs/
@@ -102,6 +100,6 @@ site/
 
 ## Deploy
 
-O projeto publicado utiliza Vercel. A configuração em `vercel.json` publica a pasta `site/`, que contém a versão estática gerada do portfólio.
+O projeto publicado utiliza Vercel. A configuração em `vercel.json` publica a pasta `site/`, que contém a versão estática gerada do site.
 
 Depois de conectar o repositório à Vercel, novos commits na branch principal geram uma nova publicação automaticamente.
