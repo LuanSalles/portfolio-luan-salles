@@ -1,6 +1,6 @@
 # Luan Salles Web
 
-Site inicial da Luan Salles Web, uma operação enxuta de criação de sites para pequenos negócios, profissionais autônomos e marcas em crescimento.
+Site inicial da Luan Salles Web, empresa de criação de sites institucionais, landing pages e melhorias em sites existentes para pequenos negócios e profissionais.
 
 ![Prévia do site](./docs/portfolio-preview.png)
 

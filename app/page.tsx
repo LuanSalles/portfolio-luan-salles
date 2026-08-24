@@ -22,30 +22,32 @@ const copy = {
     status: "Idioma alterado para português.",
     hero: {
       eyebrow: "Criação de sites para negócios",
-      title: "Uma presença digital clara para quem precisa ser encontrado, entendido e chamado.",
+      title: "Sites institucionais e landing pages para negócios que precisam vender com clareza.",
       text:
-        "Desenvolvimento de sites institucionais, landing pages e melhorias em sites existentes para pequenos negócios, profissionais autônomos e marcas em crescimento.",
+        "Desenvolvimento de páginas responsivas com conteúdo organizado, botões de contato, publicação e orientação sobre domínio e hospedagem.",
       primary: "Falar sobre meu site",
       secondary: "Ver método",
       helper: "Orçamento por escopo · Atendimento direto · Site publicado",
     },
+    panelEyebrow: "Entrega",
     proof: [
-      ["Sites que explicam o negócio e abrem conversa com o cliente."],
-      ["Projeto real no ar", "Alquimia do Bonsai publicado em domínio próprio."],
-      ["Foco em negócio pequeno", "Páginas pensadas para explicar, vender e receber contatos."],
-      ["Base técnica própria", "Código, responsividade, publicação e integrações simples."],
+      ["Site pronto para divulgar"],
+      ["01", "Estrutura das páginas"],
+      ["02", "Versão mobile"],
+      ["03", "WhatsApp e formulário"],
+      ["04", "Publicação orientada"],
     ],
     solutions: {
-      eyebrow: "Soluções",
-      title: "O que a empresa entrega",
+      eyebrow: "Serviços",
+      title: "Formatos de site",
       text:
-        "A proposta inicial é simples: construir sites úteis, bem apresentados e fáceis de divulgar, sem transformar o projeto em algo maior do que o negócio precisa agora.",
+        "Escolha o formato mais adequado para apresentar seu negócio, divulgar uma oferta ou melhorar um site existente.",
       cta: "Conversar no WhatsApp",
       items: [
         {
           title: "Site institucional",
           text:
-            "Para apresentar empresa, serviço, história, diferenciais, localização, redes sociais e canais de contato em uma estrutura profissional.",
+            "Páginas para apresentar empresa, serviços, diferenciais, localização, redes sociais e canais de contato.",
         },
         {
           title: "Landing page",
@@ -55,7 +57,7 @@ const copy = {
         {
           title: "Reforma de site",
           text:
-            "Para melhorar um site que já existe: conteúdo, aparência, versão mobile, botões de contato, organização e publicação.",
+            "Ajustes de layout, conteúdo, versão mobile, botões de contato, links e organização das páginas.",
         },
         {
           title: "Manutenção mensal",
@@ -65,15 +67,15 @@ const copy = {
       ],
     },
     method: {
-      eyebrow: "Método",
-      title: "Um processo curto para tirar o site do papel",
+      eyebrow: "Processo",
+      title: "Como funciona",
       text:
-        "A operação é enxuta: entender o objetivo, organizar o escopo, construir, revisar e publicar. O cliente sabe o que será entregue antes do desenvolvimento começar.",
+        "O projeto segue etapas objetivas, com escopo, prazos e revisões definidos antes do desenvolvimento.",
       steps: [
-        ["1", "Diagnóstico", "Entendimento do negócio, objetivo do site, público, referências e materiais disponíveis."],
-        ["2", "Escopo", "Definição das páginas, funcionalidades, prazo, investimento e custos externos como domínio ou hospedagem."],
-        ["3", "Produção", "Desenvolvimento da estrutura, layout, responsividade, textos organizados e botões de contato."],
-        ["4", "Publicação", "Revisão final, publicação e orientação para divulgar o site com segurança."],
+        ["1", "Briefing", "Objetivo, páginas, referências, conteúdo disponível e prazo desejado."],
+        ["2", "Proposta", "Escopo, valor, prazo e responsabilidades definidos antes do desenvolvimento."],
+        ["3", "Desenvolvimento", "Layout, responsividade, textos organizados, links e integrações."],
+        ["4", "Publicação", "Revisão final, ajustes combinados e site pronto para divulgação."],
       ],
     },
     case: {
@@ -99,43 +101,43 @@ const copy = {
     },
     company: {
       eyebrow: "Empresa",
-      title: "Uma operação pequena, direta e em construção",
+      title: "Desenvolvimento web com atendimento direto",
       text:
-        "A Luan Salles Web nasce como uma empresa enxuta de desenvolvimento de sites. No início, o atendimento, planejamento, desenvolvimento e publicação são conduzidos diretamente por Luan Salles, estudante de Ciência da Computação em Niterói/RJ e desenvolvedor web com experiência em suporte técnico.",
+        "A Luan Salles Web atende pequenos negócios e profissionais que precisam de site institucional, landing page ou melhoria em site existente. O projeto é conduzido por Luan Salles, desenvolvedor web em Niterói/RJ e estudante de Ciência da Computação.",
       facts: ["Niterói/RJ", "Atendimento remoto", "Sites para pequenos negócios", "JavaScript e React"],
     },
     recurring: {
-      eyebrow: "Depois da publicação",
-      title: "Site no ar não precisa virar abandono",
+      eyebrow: "Manutenção",
+      title: "Atualizações para manter o site útil",
       text:
-        "Quando fizer sentido, o projeto pode continuar com manutenção mensal para pequenos ajustes, atualização de conteúdo e evolução gradual. Isso ajuda a transformar site em ativo do negócio, não em arquivo esquecido.",
+        "Plano mensal para ajustes de conteúdo, links, imagens e pequenas melhorias após a publicação.",
       cardTitle: "Manutenção opcional",
       items: ["Troca de textos e imagens", "Novas seções simples", "Ajustes de botões e links", "Suporte básico para publicação"],
     },
     faq: {
       title: "Dúvidas comuns",
       items: [
-        ["Já existe preço fixo?", "Por enquanto, não. O valor é definido por escopo, porque cada site muda em páginas, conteúdo, prazo, funcionalidades e custos externos."],
-        ["Dá para começar com pouco conteúdo?", "Sim. O primeiro passo pode ser organizar o essencial: quem é o negócio, o que oferece, para quem atende e como receber contato."],
-        ["Domínio e hospedagem entram no projeto?", "A configuração pode entrar no escopo. Os custos de domínio, hospedagem, banco de dados ou ferramentas externas são combinados separadamente."],
-        ["O site fica bom no celular?", "Sim. A versão mobile é tratada como parte central da entrega."],
-        ["O formulário é obrigatório?", "Não. O WhatsApp é o caminho principal. O formulário serve quando você já quer enviar mais detalhes antes da conversa."],
+        ["Como o valor é definido?", "O investimento é calculado pelo escopo: número de páginas, funcionalidades, prazo, conteúdo disponível e integrações."],
+        ["O que preciso enviar?", "Logo, textos, fotos, serviços, contatos e referências. Quando faltar material, o escopo considera organização de conteúdo."],
+        ["Domínio e hospedagem entram no projeto?", "A configuração pode ser incluída. Custos externos são informados separadamente."],
+        ["O site funciona no celular?", "A versão mobile faz parte da entrega desde o início do projeto."],
+        ["Como peço orçamento?", "Envie uma mensagem no WhatsApp ou preencha o briefing com os detalhes do site."],
       ],
     },
     contact: {
       eyebrow: "Contato",
-      title: "Quer colocar o site do seu negócio no ar?",
+      title: "Solicite um orçamento para o seu site",
       text:
-        "Chame no WhatsApp para explicar a ideia em poucas mensagens. Se preferir, preencha o briefing e envie os detalhes do projeto antes da conversa.",
+        "Envie o tipo de negócio, objetivo do site, prazo e referências. A resposta já vem com os próximos passos para definir escopo e valor.",
       formButton: "Preencher briefing",
       labels: ["Nome", "Tipo de negócio ou site", "Mensagem"],
       placeholders: [
         "Seu nome",
         "Ex.: clínica, loja local, landing page de serviço",
-        "Me conte o que você quer colocar no ar.",
+        "Descreva negócio, objetivo, prazo e referências.",
       ],
       submit: "Enviar pelo WhatsApp",
-      note: "O formulário abaixo monta uma mensagem pronta para WhatsApp.",
+      note: "A mensagem será enviada pelo WhatsApp com os dados preenchidos.",
       intro: "Oi, Luan. Quero conversar sobre um site para meu negócio.",
       fallbacks: ["Não informado", "Ainda não definido", "Quero criar ou melhorar um site."],
     },
@@ -152,30 +154,32 @@ const copy = {
     status: "Language changed to English.",
     hero: {
       eyebrow: "Website creation for businesses",
-      title: "A clear digital presence for businesses that need to be found, understood, and contacted.",
+      title: "Business websites and landing pages for companies that need to sell with clarity.",
       text:
-        "Business websites, landing pages, and website improvements for small businesses, independent professionals, and growing brands.",
+        "Responsive pages with organized content, contact buttons, publishing, and guidance on domain and hosting.",
       primary: "Talk about my website",
       secondary: "See method",
       helper: "Scoped quote · Direct contact · Published website",
     },
+    panelEyebrow: "Delivery",
     proof: [
-      ["Websites that explain the business and start conversations with customers."],
-      ["Real project live", "Alquimia do Bonsai published on its own domain."],
-      ["Small business focus", "Pages planned to explain, sell, and receive contacts."],
-      ["Technical foundation", "Code, responsiveness, publishing, and simple integrations."],
+      ["Website ready to share"],
+      ["01", "Page structure"],
+      ["02", "Mobile version"],
+      ["03", "WhatsApp and form"],
+      ["04", "Guided publishing"],
     ],
     solutions: {
-      eyebrow: "Solutions",
-      title: "What the company delivers",
+      eyebrow: "Services",
+      title: "Website formats",
       text:
-        "The initial offer is simple: build useful, well-presented websites that are easy to share, without making the project bigger than the business needs right now.",
+        "Choose the right format to present your business, promote an offer, or improve an existing website.",
       cta: "Talk on WhatsApp",
       items: [
         {
           title: "Business website",
           text:
-            "For presenting a company, service, story, strengths, location, social links, and contact channels in a professional structure.",
+            "Pages to present the business, services, strengths, location, social links, and contact channels.",
         },
         {
           title: "Landing page",
@@ -185,7 +189,7 @@ const copy = {
         {
           title: "Website refresh",
           text:
-            "For improving an existing website: content, visual quality, mobile version, contact buttons, structure, and publishing.",
+            "Layout, content, mobile, contact buttons, links, and page structure improvements.",
         },
         {
           title: "Monthly care",
@@ -195,15 +199,15 @@ const copy = {
       ],
     },
     method: {
-      eyebrow: "Method",
-      title: "A short process to get the website online",
+      eyebrow: "Process",
+      title: "How it works",
       text:
-        "The operation is lean: understand the goal, organize the scope, build, review, and publish. The client knows what will be delivered before development starts.",
+        "Each project follows clear stages, with scope, timeline, and review points defined before development.",
       steps: [
-        ["1", "Diagnosis", "Understanding the business, website goal, audience, references, and available materials."],
-        ["2", "Scope", "Definition of pages, features, timeline, investment, and external costs such as domain or hosting."],
-        ["3", "Production", "Development of structure, layout, responsiveness, organized copy, and contact buttons."],
-        ["4", "Publishing", "Final review, publishing, and guidance to share the website with confidence."],
+        ["1", "Briefing", "Goal, pages, references, available content, and desired timeline."],
+        ["2", "Proposal", "Scope, price, timeline, and responsibilities defined before development."],
+        ["3", "Development", "Layout, responsiveness, organized copy, links, and integrations."],
+        ["4", "Publishing", "Final review, agreed adjustments, and website ready to share."],
       ],
     },
     case: {
@@ -229,39 +233,39 @@ const copy = {
     },
     company: {
       eyebrow: "Company",
-      title: "A small, direct operation in progress",
+      title: "Web development with direct service",
       text:
-        "Luan Salles Web starts as a lean website development company. At this stage, service, planning, development, and publishing are handled directly by Luan Salles, a Computer Science student based in Niterói, Brazil, and a web developer with technical support experience.",
+        "Luan Salles Web serves small businesses and professionals that need a business website, landing page, or improvements to an existing website. Projects are led by Luan Salles, a web developer based in Niterói, Brazil, and a Computer Science student.",
       facts: ["Niterói/RJ, Brazil", "Remote service", "Websites for small businesses", "JavaScript and React"],
     },
     recurring: {
-      eyebrow: "After publishing",
-      title: "A live website should not be left behind",
+      eyebrow: "Maintenance",
+      title: "Updates to keep the website useful",
       text:
-        "When it makes sense, the project can continue with monthly care for small updates, content changes, and gradual improvements. That helps turn the website into a business asset, not a forgotten file.",
+        "Monthly plan for content, links, images, and small improvements after publishing.",
       cardTitle: "Optional monthly care",
       items: ["Text and image changes", "Simple new sections", "Button and link adjustments", "Basic publishing support"],
     },
     faq: {
       title: "Common questions",
       items: [
-        ["Is there fixed pricing?", "Not yet. Pricing is defined by scope because each website changes in pages, content, timeline, features, and external costs."],
-        ["Can we start with little content?", "Yes. The first step can be organizing the essentials: who the business is, what it offers, who it serves, and how to receive contact."],
-        ["Are domain and hosting included?", "Configuration can be included in the scope. Domain, hosting, database, or external tool costs are agreed separately."],
-        ["Will the website work well on mobile?", "Yes. The mobile version is treated as a central part of the delivery."],
-        ["Is the form required?", "No. WhatsApp is the main path. The form helps when you already want to send more details before the conversation."],
+        ["How is pricing defined?", "Investment is calculated by scope: number of pages, features, timeline, available content, and integrations."],
+        ["What do I need to send?", "Logo, copy, photos, services, contact details, and references. When material is missing, content organization is included in the scope."],
+        ["Are domain and hosting included?", "Configuration can be included. External costs are listed separately."],
+        ["Will the website work on mobile?", "The mobile version is part of the delivery from the start."],
+        ["How do I request a quote?", "Send a WhatsApp message or fill out the briefing with the website details."],
       ],
     },
     contact: {
       eyebrow: "Contact",
-      title: "Want to put your business website online?",
+      title: "Request a quote for your website",
       text:
-        "Message me on WhatsApp to explain the idea in a few messages. If you prefer, fill out the briefing and send the project details before the conversation.",
+        "Send the business type, website goal, timeline, and references. The reply comes with the next steps to define scope and price.",
       formButton: "Fill briefing",
       labels: ["Name", "Business or website type", "Message"],
-      placeholders: ["Your name", "Ex.: clinic, local shop, service landing page", "Tell me what you want to put online."],
+      placeholders: ["Your name", "Ex.: clinic, local shop, service landing page", "Describe the business, goal, timeline, and references."],
       submit: "Send on WhatsApp",
-      note: "The form below creates a ready-to-send WhatsApp message.",
+      note: "The message will be sent through WhatsApp with the filled details.",
       intro: "Hi, Luan. I want to talk about a website for my business.",
       fallbacks: ["Not provided", "Not defined yet", "I want to create or improve a website."],
     },
@@ -354,8 +358,8 @@ export default function Home() {
           <p className="cta-note">{t.hero.helper}</p>
         </div>
 
-        <div className="hero-panel" aria-label="Resumo da empresa">
-          <p className="eyebrow">{t.brand}</p>
+        <div className="hero-panel" aria-label="Entregas principais">
+          <p className="eyebrow">{t.panelEyebrow}</p>
           <h2>{t.proof[0][0]}</h2>
           <div className="hero-panel-list">
             {t.proof.slice(1).map(([title, text]) => (

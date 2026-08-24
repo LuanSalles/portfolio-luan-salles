@@ -32,7 +32,7 @@ test("server-renders the company website", async () => {
   const html = await response.text();
   assert.match(html, /Luan Salles Web \| Criação de sites para pequenos negócios/);
   assert.match(html, /Criação de sites para negócios/);
-  assert.match(html, /Uma presença digital clara/);
+  assert.match(html, /Sites institucionais e landing pages/);
   assert.match(html, /Alquimia do Bonsai/);
   assert.match(html, /https:\/\/alquimiadobonsai\.com/);
   assert.match(html, /Luan Salles Web/);
@@ -63,7 +63,7 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /https:\/\/www\.linkedin\.com\/in\/luan-salles\//);
   assert.match(html, /Falar sobre meu site/);
   assert.match(html, /Preencher briefing/);
-  assert.match(html, /O formulário é obrigatório\?/);
+  assert.match(html, /Como peço orçamento\?/);
   assert.doesNotMatch(html, /case-summary|project-card|case-mobile|case-desktop|case-site|case-proof|alquimia-bonsai-mobile\.jpg/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.match(html, /aria-pressed="true"/);
@@ -71,6 +71,7 @@ test("published static site contains SEO and bilingual contact behavior", async 
   assert.match(html, /name="name" required/);
   assert.match(html, /name="message" required/);
   assert.doesNotMatch(html, /Link público temporariamente removido|Starter Project|SkeletonPreview|Base técnica complementar|FuteGestão CT/i);
+  assert.doesNotMatch(html, /operação enxuta|em construção|Por enquanto|quando fizer sentido|não precisa|proposta inicial|formulário é obrigatório|A clear digital presence|operation is lean|Not yet|in progress|should not be left/i);
 });
 
 test("optimized social images stay lightweight", async () => {
